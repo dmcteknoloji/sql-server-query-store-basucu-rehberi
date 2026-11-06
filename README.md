@@ -1,6 +1,14 @@
-# Query Store Başucu Rehberi, betikler ve ölçümler
+<p align="center">
+  <img src="gorsel/sql-server-query-store-basucu-rehberi-banner.jpg" alt="SQL Server Query Store Başucu Rehberi, A'dan Z'ye performans izleme, sorun giderme ve en iyi uygulamalar" width="100%">
+</p>
 
-Bu depo, DMC Bilgi Teknolojileri'nin ücretsiz **Query Store Başucu Rehberi** kitabının betiklerini ve ham ölçüm çıktılarını içerir. Kitabı okurken bir ölçümün nasıl yapıldığını merak ederseniz ya da bir betiği kendi sunucunuzda denemek isterseniz buradan alabilirsiniz.
+# SQL Server Query Store Başucu Rehberi, betikler ve ölçümler
+
+<p align="center">
+  <img src="gorsel/sql-server-query-store-basucu-rehberi-kitap-mockup.jpg" alt="SQL Server Query Store Başucu Rehberi kitap kapağı, yazar Çağlar Özenç" width="100%">
+</p>
+
+Bu depo, DMC Bilgi Teknolojileri'nin ücretsiz **SQL Server Query Store Başucu Rehberi** kitabının betiklerini ve ham ölçüm çıktılarını içerir. Kitabı okurken bir ölçümün nasıl yapıldığını merak ederseniz ya da bir betiği kendi sunucunuzda denemek isterseniz buradan alabilirsiniz.
 
 Kitap SQL Server 2019, 2022 ve 2025 üzerinde, Azure'daki Windows Server sanal makinelerinde ölçüldü. Forced plan davranışı, OPPO, automatic plan correction ve eşzamanlı yük testi yalnızca SQL Server 2025 makinesinde denendi. Ölçemediğimiz yerler (SQL Server 2016 ve 2017, Linux, secondary replica, Availability Group, Standard edition, Azure SQL, tek tek cumulative update'ler) kitapta ve burada açıkça belirtilir.
 
@@ -10,6 +18,7 @@ Kitabın PDF'i [Releases](../../releases) bölümündedir.
 
 | Klasör | İçeriği |
 |---|---|
+| `gorsel/` | Kitabın tanıtım görselleri. `paylasim/` altında sosyal medya boyutları var (1200x675 ve GitHub önizleme 1280x640). |
 | `betikler/` | Kitaptaki T-SQL blokları. Klasör adı kitaptaki bölüm numarasıdır. |
 | `betikler/00-demo-veritabani.sql` | Kitaptaki örnek çıktıların alındığı demo veritabanlarını kurar. |
 | `betikler/tum-bloklar.sql` | Tüm blokları sırayla çalıştıran tek dosya. |
