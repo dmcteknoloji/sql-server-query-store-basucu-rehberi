@@ -1,4 +1,4 @@
--- Query Store Basucu Rehberi, Bolum 15
+-- SQL Server Query Store Basucu Rehberi, Bolum 15
 -- ad hoc yuk suphesi: metin, sorgu ve plan sayilari
 -- Test ortaminda calistirin. Ornek veritabani icin betikler/00-demo-veritabani.sql dosyasina bakin.
 

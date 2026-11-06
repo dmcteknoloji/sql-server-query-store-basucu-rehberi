@@ -1,4 +1,4 @@
--- Query Store Basucu Rehberi, Bolum 9
+-- SQL Server Query Store Basucu Rehberi, Bolum 9
 -- variant plan var mi, Query Storeda dispatcher ve variant planlar
 -- Test ortaminda calistirin. Ornek veritabani icin betikler/00-demo-veritabani.sql dosyasina bakin.
 

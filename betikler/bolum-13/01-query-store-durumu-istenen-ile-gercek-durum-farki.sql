@@ -1,4 +1,4 @@
--- Query Store Basucu Rehberi, Bolum 13
+-- SQL Server Query Store Basucu Rehberi, Bolum 13
 -- Query Store durumu, istenen ile gercek durum farki
 -- Test ortaminda calistirin. Ornek veritabani icin betikler/00-demo-veritabani.sql dosyasina bakin.
 

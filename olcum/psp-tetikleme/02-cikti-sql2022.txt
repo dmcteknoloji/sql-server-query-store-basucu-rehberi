@@ -1,0 +1,156 @@
+surum
+-----
+Microsoft SQL Server 2022 (RTM-CU25) (KB5081477) - 16.0.4255.1 (X64) 
+	Apr 23 2026 22:38:54 
+	Copyright (C) 2022 Microsoft Corporation
+	Developer Edition (64-bit) on Windows Server 2022 Datacenter 10.0 <X64> (Build 20348: ) (Hypervisor)
+
+#### XE olaylari (psp, parameter_sensitive, variant, dispatcher)
+package_guid|paket|olay|description
+------------|-----|----|-----------
+655FD93F-3364-40D5-B2BA-330F7FFB6491|sqlserver|json_sql_variant_in_openjson_column|SQL_VARIANT used for column type in Openjson with explicit schema.
+3078EA7F-9B24-4900-8BAA-BE8D0BCFD6EA|sqlserver|login_dispatcher_history|Ring buffer records for login dispatchers
+3078EA7F-9B24-4900-8BAA-BE8D0BCFD6EA|sqlserver|login_dispatcher_pools_history|Ring buffer records in each SOS_DispatcherPool
+03FDA7D0-91BA-45F8-9875-8B6DD0B8E9F2|sqlserver|opportunistic_failover_batch_stats|This xevent is fired during failovers to get stats to see how many batches are killed before and after opportunistic failover is enabled
+655FD93F-3364-40D5-B2BA-330F7FFB6491|sqlserver|optional_parameter_plan_fold|Fired when a optional parameter has been folded as part of a tailored optional parameter plan.
+655FD93F-3364-40D5-B2BA-330F7FFB6491|sqlserver|parameter_sensitive_plan_optimization|This event is fired when a query uses Parameter Sensitive Plan (PSP) Optimization feature.
+655FD93F-3364-40D5-B2BA-330F7FFB6491|sqlserver|parameter_sensitive_plan_optimization_skipped_reason|Occurs when the parameter sensitive plan feature is skipped. Use this event to monitor the reason why parameter sensitive plan optimization is skipped.
+655FD93F-3364-40D5-B2BA-330F7FFB6491|sqlserver|parameter_sensitive_plan_testing|Fired when parameter sensitive plan is tested.
+BD97CC63-3F38-4922-AA93-607BD12E78B2|sqlos|scheduler_monitor_stalled_dispatcher_ring_buffer_recorded|Stalled dispatcher event recorded for scheduler monitor
+BD97CC63-3F38-4922-AA93-607BD12E78B2|sqlos|stuck_dispatcher_callback_executed|Stuck dispatcher callback executed
+3078EA7F-9B24-4900-8BAA-BE8D0BCFD6EA|sqlserver|stuck_login_dispatcher|Details about stuck login dispatcher
+#### belirtilen adlar var mi
+ad|durum
+--|-----
+psp_feature_feedback|YOK
+query_variant_track_operation|YOK
+parameter_sensitive_plan_optimization|VAR
+parameter_sensitive_plan_optimization_skipped_reason|VAR
+query_with_parameter_sensitive_plan_optimization|YOK
+#### olay kolonlari
+olay|kolon|type_name|description
+----|-----|---------|-----------
+login_dispatcher_history|snapshot_time|filetime|UTC time the snapshot was taken.
+login_dispatcher_history|items_processed|uint64|Number of items processed by this dispatcher.
+login_dispatcher_history|wait_duration_ms|uint64|How long this dispatcher has been waiting.
+login_dispatcher_history|processing_duration_ms|uint64|How long the dispatcher has been processing the current task 
+login_dispatcher_history|is_fading|boolean|Whether or not the dispatcher is fading
+login_dispatcher_history|fade_end_time|uint32|Fade timeout. Time when the dispatcher should terminate.
+login_dispatcher_history|context_switches|uint32|The number of context switches since the task was bound to a worker
+login_dispatcher_history|scheduler_id|uint32|Scheduler id of the current task
+login_dispatcher_history|dispatcher_id|ptr|ID (pointer address) of the current dispatcher
+login_dispatcher_pools_history|snapshot_time|filetime|UTC time.
+login_dispatcher_pools_history|dispatcher_count|int32|The number of active dispatcher threads.
+login_dispatcher_pools_history|dispatcher_ideal_count|int32|The number of ideal dispatcher count
+login_dispatcher_pools_history|dispatcher_timeout_ms|int32|The time in milliseconds that a dispatcher will wait before exit 
+login_dispatcher_pools_history|dispatcher_fading_count|int32|The number of fading dispatcher threads
+login_dispatcher_pools_history|queue_length|int32|The number of work items waiting to be handled by the dispatcher pool
+login_dispatcher_pools_history|dispatcher_node_id|int32|Node ID for dispatcher pool, if restricted.to a numa node
+login_dispatcher_pools_history|dispatcher_pool_name|unicode_string|The name of the dispatcher pool.
+parameter_sensitive_plan_optimization|is_query_variant|boolean|Whether the query is a PSP Query Variant.
+parameter_sensitive_plan_optimization|predicate_count|uint32|The total number of predicates used in the PSP.
+parameter_sensitive_plan_optimization|query_variant_id|uint32|ID for a Query Variant. If the event is fired for the Dispatcher, the value will be zero.
+parameter_sensitive_plan_optimization|original_query_plan_hash_signed|int64|Query hash for the orignally compiled plan.
+parameter_sensitive_plan_optimization_skipped_reason|reason|psp_skipped_reason_enum|The reason why parameter sensitive plan optimization is skipped for the query.
+parameter_sensitive_plan_testing|message|unicode_string|Information collected about parameter sensitive plan, used for testing purpose.
+scheduler_monitor_stalled_dispatcher_ring_buffer_recorded|collect_call_stack|boolean|When set to 1, collect_call_stack enables collection of call_stack. By default the call_stack column is not generated.
+scheduler_monitor_stalled_dispatcher_ring_buffer_recorded|id|uint32|NULL
+scheduler_monitor_stalled_dispatcher_ring_buffer_recorded|timestamp|uint64|NULL
+scheduler_monitor_stalled_dispatcher_ring_buffer_recorded|opcode|event_opcode|NULL
+scheduler_monitor_stalled_dispatcher_ring_buffer_recorded|node_id|uint16|NULL
+scheduler_monitor_stalled_dispatcher_ring_buffer_recorded|worker|ptr|NULL
+scheduler_monitor_stalled_dispatcher_ring_buffer_recorded|yields|uint64|NULL
+scheduler_monitor_stalled_dispatcher_ring_buffer_recorded|worker_utilization|uint32|NULL
+scheduler_monitor_stalled_dispatcher_ring_buffer_recorded|process_utilization|uint32|NULL
+scheduler_monitor_stalled_dispatcher_ring_buffer_recorded|system_idle|uint32|NULL
+scheduler_monitor_stalled_dispatcher_ring_buffer_recorded|user_mode_time|uint64|NULL
+scheduler_monitor_stalled_dispatcher_ring_buffer_recorded|kernel_mode_time|uint64|NULL
+scheduler_monitor_stalled_dispatcher_ring_buffer_recorded|page_faults|uint32|NULL
+scheduler_monitor_stalled_dispatcher_ring_buffer_recorded|working_set_delta|int64|NULL
+scheduler_monitor_stalled_dispatcher_ring_buffer_recorded|memory_utilization|uint32|NULL
+scheduler_monitor_stalled_dispatcher_ring_buffer_recorded|call_stack|callstack|NULL
+stuck_dispatcher_callback_executed|opcode|event_opcode|NULL
+stuck_dispatcher_callback_executed|task_address|ptr|NULL
+stuck_dispatcher_callback_executed|passes|uint32|NULL
+stuck_login_dispatcher|system_thread_id|uint64|System thread id of the dispatcher.
+stuck_login_dispatcher|worker_addres|ptr|Dispatcher worker address.
+stuck_login_dispatcher|node_id|uint32|Node ID the dispatcher is running on.
+stuck_login_dispatcher|kernel_time_ms|uint64|Kernal CPU time spent.
+stuck_login_dispatcher|user_time_ms|uint64|User CPU time spent.
+stuck_login_dispatcher|stuck_time_ms|uint64|Time the dispatcher has been stuck
+#### map degerleri
+harita|map_key|map_value
+------|-------|---------
+adaptive_join_skipped_reason|0|eajsrUnMatchedOuter
+adaptive_join_skipped_reason|1|eajsrInvalidAdaptiveThreshold
+adaptive_join_skipped_reason|2|eajsrExchangeTypeNotSupported
+adaptive_join_skipped_reason|3|eajsrOuterSideParallelMarked
+adaptive_join_skipped_reason|4|eajsrHJorNLJNotFound
+adaptive_join_skipped_reason|5|eajsrOuterCardMaxOne
+adaptive_join_skipped_reason|6|eajsrMultiConsumerSpool
+adaptive_join_skipped_reason|7|eajsrDifferentOuterSideColumns
+adaptive_join_skipped_reason|8|eajsrAJNotPreviouslyChosen
+forced_param_clause_skipped_reason_enum|0|None
+forced_param_clause_skipped_reason_enum|1|EcSelectList
+forced_param_clause_skipped_reason_enum|2|EcTopOrPaging
+forced_param_clause_skipped_reason_enum|3|EcHaving
+forced_param_clause_skipped_reason_enum|4|EcGroupBy
+forced_param_clause_skipped_reason_enum|5|EcOrderBy
+forced_param_clause_skipped_reason_enum|6|EcLike
+forced_param_clause_skipped_reason_enum|7|EcTSEqualCall
+forced_param_clause_skipped_reason_enum|8|EcDoubleColonFunctionCall
+forced_param_clause_skipped_reason_enum|9|EcOpenRowset
+forced_param_clause_skipped_reason_enum|10|EcTableSample
+forced_param_clause_skipped_reason_enum|11|EcDMLOutput
+forced_param_clause_skipped_reason_enum|12|XvtDate
+forced_param_clause_skipped_reason_enum|13|XvtGuid
+forced_param_clause_skipped_reason_enum|14|XvtNull
+forced_param_clause_skipped_reason_enum|15|ConstFoldableExpr
+forced_param_clause_skipped_reason_enum|16|StyleConvert
+forced_param_clause_skipped_reason_enum|17|CheckSum
+psp_skipped_reason_enum|0|None
+psp_skipped_reason_enum|1|QueryVariant
+psp_skipped_reason_enum|2|NoParameter
+psp_skipped_reason_enum|3|InMemoryOLTP
+psp_skipped_reason_enum|4|AutoParameterized
+psp_skipped_reason_enum|5|NonCacheable
+psp_skipped_reason_enum|6|WithRecompileFlag
+psp_skipped_reason_enum|7|Unrecompilable
+psp_skipped_reason_enum|8|TableVariable
+psp_skipped_reason_enum|9|DBScopedConfigOff
+psp_skipped_reason_enum|10|QueryHint
+psp_skipped_reason_enum|11|HasLocalVar
+psp_skipped_reason_enum|12|QueryTextTooLarge
+psp_skipped_reason_enum|13|CursorWithPopulate
+psp_skipped_reason_enum|14|CLRModule
+psp_skipped_reason_enum|15|Tvf
+psp_skipped_reason_enum|16|DistributedQuery
+psp_skipped_reason_enum|17|FullText
+psp_skipped_reason_enum|18|OutputOrModifiedParam
+psp_skipped_reason_enum|19|UsePlan
+psp_skipped_reason_enum|20|CompilationInReplay
+psp_skipped_reason_enum|21|PDW
+psp_skipped_reason_enum|22|Polybase
+psp_skipped_reason_enum|23|EDC
+psp_skipped_reason_enum|24|GQ
+psp_skipped_reason_enum|25|DatatypesIncompat
+psp_skipped_reason_enum|26|LoadStatsFailed
+psp_skipped_reason_enum|27|PlanGuide
+psp_skipped_reason_enum|28|ParamSniffDisabled
+psp_skipped_reason_enum|29|NonInlinedUDF
+psp_skipped_reason_enum|30|SkewnessThresholdNotMet
+psp_skipped_reason_enum|31|OtherThresholdNotMet
+psp_skipped_reason_enum|32|CompatLevelBelow160
+psp_skipped_reason_enum|33|UnsupportedStatementType
+psp_skipped_reason_enum|34|UnsupportedComparisonType
+psp_skipped_reason_enum|35|SystemDB
+psp_skipped_reason_enum|36|UnsupportedObject
+psp_skipped_reason_enum|37|CompilationTimeThresholdExceeded
+psp_skipped_reason_enum|38|NotUserQuery
+psp_skipped_reason_enum|39|FmtOnly
+#### database scoped config
+name|value
+----|-----
+PARAMETER_SNIFFING|1
+PARAMETER_SENSITIVE_PLAN_OPTIMIZATION|1
+FORCE_SHOWPLAN_RUNTIME_PARAMETER_COLLECTION|0

@@ -1,4 +1,4 @@
--- Query Store Basucu Rehberi, Bolum 9
+-- SQL Server Query Store Basucu Rehberi, Bolum 9
 -- tek kullanimlik plan orani
 -- Test ortaminda calistirin. Ornek veritabani icin betikler/00-demo-veritabani.sql dosyasina bakin.
 

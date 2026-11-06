@@ -1,4 +1,4 @@
--- Query Store Basucu Rehberi, Bolum 15
+-- SQL Server Query Store Basucu Rehberi, Bolum 15
 -- en cok tekrar eden sorgu sablonlari (ayni query_hash, farkli metin)
 -- Test ortaminda calistirin. Ornek veritabani icin betikler/00-demo-veritabani.sql dosyasina bakin.
 

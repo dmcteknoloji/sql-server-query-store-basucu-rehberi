@@ -1,4 +1,4 @@
--- Query Store Basucu Rehberi, Bolum 11
+-- SQL Server Query Store Basucu Rehberi, Bolum 11
 -- son 24 saatte bekleme kategorisine gore toplam bekleme (SQL Server 2017 ve sonrasi)
 -- Test ortaminda calistirin. Ornek veritabani icin betikler/00-demo-veritabani.sql dosyasina bakin.
 

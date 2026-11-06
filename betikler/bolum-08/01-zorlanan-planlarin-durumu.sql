@@ -1,4 +1,4 @@
--- Query Store Basucu Rehberi, Bolum 8
+-- SQL Server Query Store Basucu Rehberi, Bolum 8
 -- zorlanan planlarin durumu
 -- Test ortaminda calistirin. Ornek veritabani icin betikler/00-demo-veritabani.sql dosyasina bakin.
 

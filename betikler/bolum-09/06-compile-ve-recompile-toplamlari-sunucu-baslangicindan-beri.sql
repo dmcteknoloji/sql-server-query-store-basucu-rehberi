@@ -1,4 +1,4 @@
--- Query Store Basucu Rehberi, Bolum 9
+-- SQL Server Query Store Basucu Rehberi, Bolum 9
 -- compile ve recompile toplamlari (sunucu baslangicindan beri)
 -- Test ortaminda calistirin. Ornek veritabani icin betikler/00-demo-veritabani.sql dosyasina bakin.
 

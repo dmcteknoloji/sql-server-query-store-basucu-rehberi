@@ -1,4 +1,4 @@
--- Query Store Basucu Rehberi, Bolum 4
+-- SQL Server Query Store Basucu Rehberi, Bolum 4
 -- 1) durum ve ayarlar
 -- Test ortaminda calistirin. Ornek veritabani icin betikler/00-demo-veritabani.sql dosyasina bakin.
 

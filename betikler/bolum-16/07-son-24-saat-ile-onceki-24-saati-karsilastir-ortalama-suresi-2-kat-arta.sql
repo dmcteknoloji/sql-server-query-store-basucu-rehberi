@@ -1,4 +1,4 @@
--- Query Store Basucu Rehberi, Bolum 16
+-- SQL Server Query Store Basucu Rehberi, Bolum 16
 -- son 24 saat ile onceki 24 saati karsilastir, ortalama suresi 2 kat artanlar
 -- Test ortaminda calistirin. Ornek veritabani icin betikler/00-demo-veritabani.sql dosyasina bakin.
 

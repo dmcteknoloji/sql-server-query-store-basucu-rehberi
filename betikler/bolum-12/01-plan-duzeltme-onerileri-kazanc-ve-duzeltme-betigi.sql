@@ -1,4 +1,4 @@
--- Query Store Basucu Rehberi, Bolum 12
+-- SQL Server Query Store Basucu Rehberi, Bolum 12
 -- plan duzeltme onerileri, kazanc ve duzeltme betigi
 -- Test ortaminda calistirin. Ornek veritabani icin betikler/00-demo-veritabani.sql dosyasina bakin.
 

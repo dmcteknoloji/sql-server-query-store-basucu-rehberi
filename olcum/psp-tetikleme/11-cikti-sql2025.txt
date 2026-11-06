@@ -1,0 +1,14 @@
+surum
+-----
+Microsoft SQL Server 2025 (RTM) - 17.0.1000.7 (X64) 
+	Oct 21 2025 12:05:57 
+	Copyright (C) 2025 Microsoft Corporation
+	Enterprise Developer Edition (64-bit) on Windows Server 2025 Datacenter 10.0 <X64> (Build 26100: ) (Hypervisor)
+
+Changed database context to 'psp_lab'.
+tablo|istatistik|histogram_adimi|en_yuksek_eq|en_dusuk_eq|oran|karar
+-----|----------|---------------|------------|-----------|----|-----
+dbo.PspSiparis|ix_psp_musteri|9|500000.0|1.0|500000|ESIK ASILDI
+tablo|istatistik|histogram_adimi|en_yuksek_eq|en_dusuk_eq|oran|karar
+-----|----------|---------------|------------|-----------|----|-----
+dbo.PspDengeli|ix_dengeli|100|554.0|454.0|1|ESIK ALTINDA

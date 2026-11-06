@@ -1,0 +1,62 @@
+surum
+-----
+Microsoft SQL Server 2022 (RTM-CU25) (KB5081477) - 16.0.4255.1 (X64) 
+	Apr 23 2026 22:38:54 
+	Copyright (C) 2022 Microsoft Corporation
+	Developer Edition (64-bit) on Windows Server 2022 Datacenter 10.0 <X64> (Build 20348: ) (Hypervisor)
+
+Changed database context to 'psp_lab'.
+#### 1. ADAY KONTROLU, histogramda en yuksek ve en dusuk EQUAL_ROWS orani
+istatistik|histogram_adimi|en_yuksek_eq|en_dusuk_eq|oran|karar
+----------|---------------|------------|-----------|----|-----
+ix_psp_musteri|9|500000.0|1.0|500000|ESIK ASILDI
+#### 2. CAGRILAR, once nadir (dusuk) parametre, sonra yuksek ve orta
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+5000|262430.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+5000|262430.00|x                                                                                                   
+#### 3. XE OLAYLARI, dispatcher (variant_id 0) ve her varyant icin bir olay beklenir
+olay|atlama_nedeni|variant_id|varyant_mi|predicate_sayisi
+----|-------------|----------|----------|----------------
+parameter_sensitive_plan_optimization|-|0|false|1
+parameter_sensitive_plan_optimization|-|1|true|0
+parameter_sensitive_plan_optimization|-|3|true|0
+parameter_sensitive_plan_optimization|-|2|true|0
+#### 4. QUERY STORE, plan tipleri ve varyant eslemesi
+plan_type_desc|plan_adedi
+--------------|----------
+Dispatcher Plan|1
+Query Variant Plan|3
+parent_query_id|query_variant_query_id|dispatcher_plan_id
+---------------|----------------------|------------------
+9|10|11
+9|11|11
+9|12|11
+#### 5. PLAN SEKLI, her plan icin seek, lookup ve scan operatorleri
+plan_id|query_id|plan_type_desc|seek|lookup|tarama|ort_sure_mikrosn
+-------|--------|--------------|----|------|------|----------------
+11|9|Dispatcher Plan|-|-|-|NULL
+12|10|Query Variant Plan|seek|lookup|-|54
+13|11|Query Variant Plan|-|-|scan|131792
+14|12|Query Variant Plan|-|-|scan|20352
+#### 6. VARYANT QUERY METNI
+query_id|metin_sonu
+--------|----------
+10|ctID = 949578421, QueryVariantID = 1, predicate_range([psp_lab].[dbo].[PspSiparis].[musteri_id] = @m, 100.0, 100000.0)))
+11|ctID = 949578421, QueryVariantID = 3, predicate_range([psp_lab].[dbo].[PspSiparis].[musteri_id] = @m, 100.0, 100000.0)))
+12|ctID = 949578421, QueryVariantID = 2, predicate_range([psp_lab].[dbo].[PspSiparis].[musteri_id] = @m, 100.0, 100000.0)))
+Changed database context to 'master'.

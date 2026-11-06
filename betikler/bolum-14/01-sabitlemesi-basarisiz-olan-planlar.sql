@@ -1,4 +1,4 @@
--- Query Store Basucu Rehberi, Bolum 14
+-- SQL Server Query Store Basucu Rehberi, Bolum 14
 -- sabitlemesi basarisiz olan planlar
 -- Test ortaminda calistirin. Ornek veritabani icin betikler/00-demo-veritabani.sql dosyasina bakin.
 

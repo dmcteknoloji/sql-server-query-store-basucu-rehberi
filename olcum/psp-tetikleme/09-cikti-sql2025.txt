@@ -1,0 +1,80 @@
+surum
+-----
+Microsoft SQL Server 2025 (RTM) - 17.0.1000.7 (X64) 
+	Oct 21 2025 12:05:57 
+	Copyright (C) 2025 Microsoft Corporation
+	Enterprise Developer Edition (64-bit) on Windows Server 2025 Datacenter 10.0 <X64> (Build 26100: ) (Hypervisor)
+
+#### 1. OPPO olay kolonlari ve atlama nedenleri haritasi
+olay|kolon|type_name
+----|-----|---------
+multiplan_optional_parameter_optimization_fold|fold_type|multiplan_opo_fold_type_enum
+optional_parameter_optimization_skipped_reason|reason|opo_skipped_reason_enum
+optional_parameter_plan_fold|null_fold|boolean
+query_with_optional_parameter_predicate|optional_parameter_predicate_count|uint32
+query_with_optional_parameter_predicate|query_type|uint16
+query_with_optional_parameter_predicate|optional_parameter_optimization_supported|boolean
+query_with_optional_parameter_predicate|predicate_details|unicode_string
+harita|map_key|map_value
+------|-------|---------
+Changed database context to 'psp_lab'.
+#### 2. filtresiz oturum (2025), PspOzet cagrilari sonrasi olay sayilari
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+5000|262430.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+5000|262430.00|x                                                                                                   
+olay|neden|variant_id|adet
+----|-----|----------|----
+parameter_sensitive_plan_optimization_skipped_reason|HasLocalVar|-|1
+parameter_sensitive_plan_optimization_skipped_reason|OutputOrModifiedParam|-|1
+#### 3. OPPO, satir ici hint ile (kabul edilir mi, plan tipi ne olur)
+sonuc
+-----
+satir ici hint kabul edildi
+adet
+----
+500000
+adet
+----
+105001
+adet
+----
+0
+adet
+----
+525005
+adet
+----
+500000
+adet
+----
+105001
+adet
+----
+0
+adet
+----
+525005
+prosedur|plan_type_desc|plan_adedi
+--------|--------------|----------
+Ara1|Dispatcher Plan|1
+Ara3|Dispatcher Plan|1
+prosedur|variant_kaydi
+--------|-------------
+Ara3|2
+Ara1|3
+Changed database context to 'master'.

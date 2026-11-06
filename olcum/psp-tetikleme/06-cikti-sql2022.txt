@@ -1,0 +1,127 @@
+surum
+-----
+Microsoft SQL Server 2022 (RTM-CU25) (KB5081477) - 16.0.4255.1 (X64) 
+	Apr 23 2026 22:38:54 
+	Copyright (C) 2022 Microsoft Corporation
+	Developer Edition (64-bit) on Windows Server 2022 Datacenter 10.0 <X64> (Build 20348: ) (Hypervisor)
+
+Changed database context to 'psp_lab'.
+Changed database context to 'psp_lab'.
+#### B_100000_1
+adet|toplam|ornek
+----|------|-----
+0|NULL|NULL
+adet|toplam|ornek
+----|------|-----
+100000|5449610.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+0|NULL|NULL
+adet|toplam|ornek
+----|------|-----
+100000|5449610.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+tablo|qid|variant|sinirlar|ort_mikrosn
+-----|---|-------|--------|-----------
+B_100000_1|2|QueryVariantID|100.0, 100000.0)))|41
+B_100000_1|3|QueryVariantID|100.0, 100000.0)))|50033
+#### B_500000_1
+adet|toplam|ornek
+----|------|-----
+0|NULL|NULL
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+0|NULL|NULL
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+tablo|qid|variant|sinirlar|ort_mikrosn
+-----|---|-------|--------|-----------
+B_500000_1|2|QueryVariantID|100.0, 100000.0)))|43
+B_500000_1|3|QueryVariantID|100.0, 100000.0)))|175297
+#### B_1000000_10
+adet|toplam|ornek
+----|------|-----
+0|NULL|NULL
+adet|toplam|ornek
+----|------|-----
+1000000|54499610.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+10|375.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+0|NULL|NULL
+adet|toplam|ornek
+----|------|-----
+1000000|54499610.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+10|375.00|x                                                                                                   
+tablo|qid|variant|sinirlar|ort_mikrosn
+-----|---|-------|--------|-----------
+B_1000000_10|2|QueryVariantID|00.0, 1000000.0)))|55
+B_1000000_10|3|QueryVariantID|00.0, 1000000.0)))|264675
+#### B_UC_katman_1M
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1000000|54499610.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+20000|1049930.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1000000|54499610.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+20000|1049930.00|x                                                                                                   
+tablo|qid|variant|sinirlar|ort_mikrosn
+-----|---|-------|--------|-----------
+B_UC_katman_1M|2|QueryVariantID|00.0, 1000000.0)))|63
+B_UC_katman_1M|3|QueryVariantID|00.0, 1000000.0)))|300425
+B_UC_katman_1M|4|QueryVariantID|00.0, 1000000.0)))|40594
+#### B_orta_100
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+100|5100.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+100|5100.00|x                                                                                                   
+tablo|qid|variant|sinirlar|ort_mikrosn
+-----|---|-------|--------|-----------
+B_orta_100|2|QueryVariantID|100.0, 100000.0)))|59
+B_orta_100|3|QueryVariantID|100.0, 100000.0)))|125150
+B_orta_100|4|QueryVariantID|100.0, 100000.0)))|351
+Changed database context to 'master'.

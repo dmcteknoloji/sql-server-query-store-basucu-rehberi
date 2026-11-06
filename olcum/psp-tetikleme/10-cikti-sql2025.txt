@@ -1,0 +1,155 @@
+surum
+-----
+Microsoft SQL Server 2025 (RTM) - 17.0.1000.7 (X64) 
+	Oct 21 2025 12:05:57 
+	Copyright (C) 2025 Microsoft Corporation
+	Enterprise Developer Edition (64-bit) on Windows Server 2025 Datacenter 10.0 <X64> (Build 26100: ) (Hypervisor)
+
+#### 1. OPPO atlama nedenleri ve fold tipleri
+harita|map_key|map_value
+------|-------|---------
+multiplan_opo_fold_type_enum|0|Null
+multiplan_opo_fold_type_enum|1|NotNull
+opo_skipped_reason_enum|0|None
+opo_skipped_reason_enum|1|QueryVariant
+opo_skipped_reason_enum|2|NoParameter
+opo_skipped_reason_enum|3|InMemoryOLTP
+opo_skipped_reason_enum|4|AutoParameterized
+opo_skipped_reason_enum|5|NonCacheable
+opo_skipped_reason_enum|6|WithRecompileFlag
+opo_skipped_reason_enum|7|Unrecompilable
+opo_skipped_reason_enum|8|TableVariable
+opo_skipped_reason_enum|9|DBScopedConfigOff
+opo_skipped_reason_enum|10|QueryHint
+opo_skipped_reason_enum|11|HasLocalVar
+opo_skipped_reason_enum|12|QueryTextTooLarge
+opo_skipped_reason_enum|13|CursorWithPopulate
+opo_skipped_reason_enum|14|CLRModule
+opo_skipped_reason_enum|15|Tvf
+opo_skipped_reason_enum|16|DistributedQuery
+opo_skipped_reason_enum|17|FullText
+opo_skipped_reason_enum|18|OutputOrModifiedParam
+opo_skipped_reason_enum|19|UsePlan
+opo_skipped_reason_enum|20|CompilationInReplay
+opo_skipped_reason_enum|21|PDW
+opo_skipped_reason_enum|22|Polybase
+opo_skipped_reason_enum|23|EDC
+opo_skipped_reason_enum|24|GQ
+opo_skipped_reason_enum|25|DatatypesIncompat
+opo_skipped_reason_enum|26|LoadStatsFailed
+opo_skipped_reason_enum|27|PlanGuide
+opo_skipped_reason_enum|28|ParamSniffDisabled
+opo_skipped_reason_enum|29|NonInlinedUDF
+opo_skipped_reason_enum|30|SkewnessThresholdNotMet
+opo_skipped_reason_enum|31|OtherThresholdNotMet
+opo_skipped_reason_enum|32|CompatLevelBelow160
+opo_skipped_reason_enum|33|CompatLevelBelow170
+opo_skipped_reason_enum|34|UnsupportedStatementType
+opo_skipped_reason_enum|35|UnsupportedComparisonType
+opo_skipped_reason_enum|36|SystemDB
+opo_skipped_reason_enum|37|UnsupportedObject
+opo_skipped_reason_enum|38|CompilationTimeThresholdExceeded
+opo_skipped_reason_enum|39|NotUserQuery
+opo_skipped_reason_enum|40|FmtOnly
+opo_skipped_reason_enum|41|UnsupportedPredicateType
+opo_skipped_reason_enum|42|UnsupportedPredicateParamType
+opo_skipped_reason_enum|43|UnsupportedPredicateRuntimeConst
+opo_skipped_reason_enum|44|UnsupportedPredicateConstant
+Changed database context to 'psp_lab'.
+#### 2. 2025, ayni calistirmada XE ve Query Store
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+5000|262430.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+5000|262430.00|x                                                                                                   
+olcum|adet
+-----|----
+XE toplam olay|3
+olay|neden|adet
+----|-----|----
+parameter_sensitive_plan_optimization_skipped_reason|HasLocalVar|2
+parameter_sensitive_plan_optimization_skipped_reason|OutputOrModifiedParam|1
+olcum|plan_type_desc|adet
+-----|--------------|----
+Query Store|Dispatcher Plan|1
+Query Store|Query Variant Plan|3
+Changed database context to 'master'.
+Changed database context to 'psp_lab'.
+#### 3. OPPO, hint olan (Ara3) ve olmayan (Ara1) prosedur, iki tekrar
+adet
+----
+500000
+adet
+----
+105001
+adet
+----
+0
+adet
+----
+525005
+adet
+----
+500000
+adet
+----
+105001
+adet
+----
+0
+adet
+----
+525005
+prosedur|plan_type_desc|plan_adedi
+--------|--------------|----------
+Ara1|Dispatcher Plan|1
+Ara3|Dispatcher Plan|1
+prosedur|variant_kaydi
+--------|-------------
+Ara1|3
+Ara3|2
+adet
+----
+500000
+adet
+----
+105001
+adet
+----
+0
+adet
+----
+525005
+adet
+----
+500000
+adet
+----
+105001
+adet
+----
+0
+adet
+----
+525005
+prosedur|plan_type_desc|plan_adedi
+--------|--------------|----------
+Ara1|Dispatcher Plan|1
+Ara3|Dispatcher Plan|1
+prosedur|variant_kaydi
+--------|-------------
+Ara1|3
+Ara3|2

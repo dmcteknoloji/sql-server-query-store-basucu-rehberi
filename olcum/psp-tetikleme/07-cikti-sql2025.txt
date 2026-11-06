@@ -1,0 +1,111 @@
+surum
+-----
+Microsoft SQL Server 2025 (RTM) - 17.0.1000.7 (X64) 
+	Oct 21 2025 12:05:57 
+	Copyright (C) 2025 Microsoft Corporation
+	Enterprise Developer Edition (64-bit) on Windows Server 2025 Datacenter 10.0 <X64> (Build 26100: ) (Hypervisor)
+
+Changed database context to 'psp_lab'.
+#### A. sp_executesql, parametreli (PSP acik, kural disi bir sey yok)
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+5000|262430.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+5000|262430.00|x                                                                                                   
+olay|atlama_nedeni|variant_id|adet
+----|-------------|----------|----
+plan_type_desc|plan_adedi
+--------------|----------
+Dispatcher Plan|1
+Compiled Plan|1
+Query Variant Plan|3
+ana_query_id
+------------
+1
+#### B1. hint adi belgede gecen ad: DISABLE_PARAMETER_SENSITIVE_PLAN_OPTIMIZATION
+Msg 10715, Level 15, State 1, Server vm-qs2025, Procedure sys.sp_query_store_set_hints, Line 1
+'DISABLE_PARAMETER_SENSITIVE_PLAN_OPTIMIZATION' is not a valid hint.
+query_id|query_hint_text|last_query_hint_failure_reason|last_query_hint_failure_reason_desc|query_hint_failure_count|source_desc
+--------|---------------|------------------------------|-----------------------------------|------------------------|-----------
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+5000|262430.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+5000|262430.00|x                                                                                                   
+olay|atlama_nedeni|variant_id|adet
+----|-------------|----------|----
+#### B2. hint DISABLE_PARAMETER_SNIFFING
+query_id|query_hint_text|last_query_hint_failure_reason_desc|query_hint_failure_count
+--------|---------------|-----------------------------------|------------------------
+1|OPTION (USE HINT ('DISABLE_PARAMETER_SNIFFING'))|NONE|0
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+5000|262430.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+5000|262430.00|x                                                                                                   
+olay|atlama_nedeni|variant_id|adet
+----|-------------|----------|----
+kalan_hint
+----------
+0
+#### C. hint olmadan tekrar (kontrol)
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+5000|262430.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+5000|262430.00|x                                                                                                   
+olay|atlama_nedeni|variant_id|adet
+----|-------------|----------|----
+Changed database context to 'master'.

@@ -1,4 +1,4 @@
--- Query Store Basucu Rehberi, Bolum 7
+-- SQL Server Query Store Basucu Rehberi, Bolum 7
 -- son 24 saatte toplam CPU suresine gore ilk 10 sorgu
 -- Test ortaminda calistirin. Ornek veritabani icin betikler/00-demo-veritabani.sql dosyasina bakin.
 

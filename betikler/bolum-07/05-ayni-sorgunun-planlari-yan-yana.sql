@@ -1,4 +1,4 @@
--- Query Store Basucu Rehberi, Bolum 7
+-- SQL Server Query Store Basucu Rehberi, Bolum 7
 -- ayni sorgunun planlari yan yana
 -- Test ortaminda calistirin. Ornek veritabani icin betikler/00-demo-veritabani.sql dosyasina bakin.
 

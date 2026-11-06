@@ -1,4 +1,4 @@
--- Query Store Basucu Rehberi, Bolum 9
+-- SQL Server Query Store Basucu Rehberi, Bolum 9
 -- plan cache bellek kullanimi, cache store bazinda
 -- Test ortaminda calistirin. Ornek veritabani icin betikler/00-demo-veritabani.sql dosyasina bakin.
 

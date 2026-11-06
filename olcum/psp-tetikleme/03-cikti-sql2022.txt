@@ -1,0 +1,376 @@
+surum
+-----
+Microsoft SQL Server 2022 (RTM-CU25) (KB5081477) - 16.0.4255.1 (X64) 
+	Apr 23 2026 22:38:54 
+	Copyright (C) 2022 Microsoft Corporation
+	Developer Edition (64-bit) on Windows Server 2022 Datacenter 10.0 <X64> (Build 20348: ) (Hypervisor)
+
+Changed database context to 'psp_lab'.
+baslik|sinif|satir|musteri
+------|-----|-----|-------
+veri dagilimi|yuksek (musteri 1)|400000|1
+veri dagilimi|orta (musteri 2-51)|100000|50
+veri dagilimi|dusuk (musteri 100-2099)|20000|2000
+#### S1 kapsayan indeks (eski deneyimiz)
+adet|toplam
+----|------
+10|510.00
+adet|toplam
+----|------
+400000|21799040.00
+adet|toplam
+----|------
+2000|115970.00
+adet|toplam
+----|------
+10|510.00
+adet|toplam
+----|------
+400000|21799040.00
+adet|toplam
+----|------
+2000|115970.00
+olay|neden|varyant_mi|variant_id|predicate|adet|metin
+----|-----|----------|----------|---------|----|-----
+parameter_sensitive_plan_optimization_skipped_reason|HasLocalVar|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|OutputOrModifiedParam|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|SkewnessThresholdNotMet|-|-|-|1|EXEC dbo.Liste_Kapsayan @m = 1500; EXEC dbo.Liste_Kapsayan @
+plan_type_desc|plan_adedi
+--------------|----------
+Compiled Plan|1
+variant_kaydi
+-------------
+0
+#### S2 kapsamayan indeks, key lookup gerektirir
+adet|toplam|ornek
+----|------|-----
+10|510.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+400000|21799040.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+2000|115970.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+10|510.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+400000|21799040.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+2000|115970.00|x                                                                                                   
+olay|neden|varyant_mi|variant_id|predicate|adet|metin
+----|-----|----------|----------|---------|----|-----
+parameter_sensitive_plan_optimization_skipped_reason|HasLocalVar|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|OutputOrModifiedParam|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|SkewnessThresholdNotMet|-|-|-|1|EXEC dbo.Liste_Lookup @m = 1500; EXEC dbo.Liste_Lookup @m = 
+plan_type_desc|plan_adedi
+--------------|----------
+variant_kaydi
+-------------
+0
+#### S3 sp_executesql ile ayni sorgu
+adet|toplam|ornek
+----|------|-----
+10|510.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+400000|21799040.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+2000|115970.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+10|510.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+400000|21799040.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+2000|115970.00|x                                                                                                   
+olay|neden|varyant_mi|variant_id|predicate|adet|metin
+----|-----|----------|----------|---------|----|-----
+parameter_sensitive_plan_optimization_skipped_reason|HasLocalVar|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|OutputOrModifiedParam|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|SkewnessThresholdNotMet|-|-|-|1|EXEC sp_executesql N'SELECT COUNT(*) AS adet, SUM(tutar) AS 
+plan_type_desc|plan_adedi
+--------------|----------
+Compiled Plan|1
+variant_kaydi
+-------------
+0
+#### S4 sabit degerli ad hoc (otomatik parametrelenir)
+adet|toplam|ornek
+----|------|-----
+10|510.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+400000|21799040.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+2000|115970.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+10|510.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+400000|21799040.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+2000|115970.00|x                                                                                                   
+olay|neden|varyant_mi|variant_id|predicate|adet|metin
+----|-----|----------|----------|---------|----|-----
+parameter_sensitive_plan_optimization_skipped_reason|AutoParameterized|-|-|-|6|SELECT COUNT(*) AS adet, SUM(tutar) AS toplam, MAX(aciklama)
+parameter_sensitive_plan_optimization_skipped_reason|HasLocalVar|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|OutputOrModifiedParam|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+plan_type_desc|plan_adedi
+--------------|----------
+Compiled Plan|3
+variant_kaydi
+-------------
+0
+#### S5 yerel degisken
+adet|toplam|ornek
+----|------|-----
+10|510.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+400000|21799040.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+2000|115970.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+10|510.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+400000|21799040.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+2000|115970.00|x                                                                                                   
+olay|neden|varyant_mi|variant_id|predicate|adet|metin
+----|-----|----------|----------|---------|----|-----
+parameter_sensitive_plan_optimization_skipped_reason|HasLocalVar|-|-|-|1|EXEC dbo.Liste_Yerel @m = 1500; EXEC dbo.Liste_Yerel @m = 1;
+parameter_sensitive_plan_optimization_skipped_reason|HasLocalVar|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|OutputOrModifiedParam|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|SkewnessThresholdNotMet|-|-|-|1|EXEC dbo.Liste_Yerel @m = 1500; EXEC dbo.Liste_Yerel @m = 1;
+plan_type_desc|plan_adedi
+--------------|----------
+Compiled Plan|3
+variant_kaydi
+-------------
+0
+#### S6 OPTION (RECOMPILE)
+adet|toplam|ornek
+----|------|-----
+10|510.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+400000|21799040.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+2000|115970.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+10|510.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+400000|21799040.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+2000|115970.00|x                                                                                                   
+olay|neden|varyant_mi|variant_id|predicate|adet|metin
+----|-----|----------|----------|---------|----|-----
+parameter_sensitive_plan_optimization_skipped_reason|HasLocalVar|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|OutputOrModifiedParam|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|WithRecompileFlag|-|-|-|12|EXEC dbo.Liste_Recompile @m = 1500; EXEC dbo.Liste_Recompile
+plan_type_desc|plan_adedi
+--------------|----------
+Compiled Plan|3
+variant_kaydi
+-------------
+0
+#### S7 esitsizlik koşulu
+adet|toplam|ornek
+----|------|-----
+30|1560.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+404000|22000990.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+6000|333930.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+30|1560.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+404000|22000990.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+6000|333930.00|x                                                                                                   
+olay|neden|varyant_mi|variant_id|predicate|adet|metin
+----|-----|----------|----------|---------|----|-----
+parameter_sensitive_plan_optimization_skipped_reason|HasLocalVar|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|OutputOrModifiedParam|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|UnsupportedComparisonType|-|-|-|1|EXEC dbo.Liste_Esitsizlik @m = 1500; EXEC dbo.Liste_Esitsizl
+plan_type_desc|plan_adedi
+--------------|----------
+Compiled Plan|1
+variant_kaydi
+-------------
+0
+#### S8 duzgun dagilan kolon (durum)
+adet|toplam|ornek
+----|------|-----
+104000|5459650.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+104000|5563580.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+104000|5667580.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+104000|5771580.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+104000|5875580.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+104000|5459650.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+104000|5563580.00|x                                                                                                   
+olay|neden|varyant_mi|variant_id|predicate|adet|metin
+----|-----|----------|----------|---------|----|-----
+parameter_sensitive_plan_optimization_skipped_reason|HasLocalVar|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|OutputOrModifiedParam|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|SkewnessThresholdNotMet|-|-|-|1|EXEC dbo.Liste_Durum @d = 0; EXEC dbo.Liste_Durum @d = 1; EX
+plan_type_desc|plan_adedi
+--------------|----------
+Compiled Plan|1
+variant_kaydi
+-------------
+0
+#### S9 USE HINT DISABLE_PARAMETER_SNIFFING
+adet|toplam|ornek
+----|------|-----
+10|510.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+400000|21799040.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+2000|115970.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+10|510.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+400000|21799040.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+2000|115970.00|x                                                                                                   
+olay|neden|varyant_mi|variant_id|predicate|adet|metin
+----|-----|----------|----------|---------|----|-----
+parameter_sensitive_plan_optimization_skipped_reason|HasLocalVar|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|OutputOrModifiedParam|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|ParamSniffDisabled|-|-|-|1|EXEC dbo.Liste_Hint @m = 1500; EXEC dbo.Liste_Hint @m = 1; E
+parameter_sensitive_plan_optimization_skipped_reason|SkewnessThresholdNotMet|-|-|-|1|EXEC dbo.Liste_Hint @m = 1500; EXEC dbo.Liste_Hint @m = 1; E
+plan_type_desc|plan_adedi
+--------------|----------
+Compiled Plan|1
+variant_kaydi
+-------------
+0
+#### S10 database scoped config KAPALI
+adet|toplam|ornek
+----|------|-----
+10|510.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+400000|21799040.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+2000|115970.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+10|510.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+400000|21799040.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+2000|115970.00|x                                                                                                   
+olay|neden|varyant_mi|variant_id|predicate|adet|metin
+----|-----|----------|----------|---------|----|-----
+parameter_sensitive_plan_optimization_skipped_reason|DBScopedConfigOff|-|-|-|1|EXEC dbo.Liste_Lookup @m = 1500; EXEC dbo.Liste_Lookup @m = 
+parameter_sensitive_plan_optimization_skipped_reason|DBScopedConfigOff|-|-|-|2|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|SkewnessThresholdNotMet|-|-|-|1|EXEC dbo.Liste_Lookup @m = 1500; EXEC dbo.Liste_Lookup @m = 
+plan_type_desc|plan_adedi
+--------------|----------
+variant_kaydi
+-------------
+0
+#### S11 ayni config tekrar ACIK, S2 tekrari
+adet|toplam|ornek
+----|------|-----
+10|510.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+400000|21799040.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+2000|115970.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+10|510.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+400000|21799040.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+2000|115970.00|x                                                                                                   
+olay|neden|varyant_mi|variant_id|predicate|adet|metin
+----|-----|----------|----------|---------|----|-----
+parameter_sensitive_plan_optimization_skipped_reason|HasLocalVar|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|OutputOrModifiedParam|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|SkewnessThresholdNotMet|-|-|-|1|EXEC dbo.Liste_Lookup @m = 1500; EXEC dbo.Liste_Lookup @m = 
+plan_type_desc|plan_adedi
+--------------|----------
+variant_kaydi
+-------------
+0
+#### S12 uyumluluk 150
+adet|toplam|ornek
+----|------|-----
+10|510.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+400000|21799040.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+2000|115970.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+10|510.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+400000|21799040.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+2000|115970.00|x                                                                                                   
+olay|neden|varyant_mi|variant_id|predicate|adet|metin
+----|-----|----------|----------|---------|----|-----
+parameter_sensitive_plan_optimization_skipped_reason|CompatLevelBelow160|-|-|-|2|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|HasLocalVar|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|OutputOrModifiedParam|-|-|-|1|WAITFOR DELAY '00:00:02'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|SkewnessThresholdNotMet|-|-|-|1|EXEC dbo.Liste_Lookup @m = 1500; EXEC dbo.Liste_Lookup @m = 
+plan_type_desc|plan_adedi
+--------------|----------
+variant_kaydi
+-------------
+0
+Changed database context to 'master'.

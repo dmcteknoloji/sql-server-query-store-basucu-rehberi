@@ -1,0 +1,172 @@
+surum
+-----
+Microsoft SQL Server 2025 (RTM) - 17.0.1000.7 (X64) 
+	Oct 21 2025 12:05:57 
+	Copyright (C) 2025 Microsoft Corporation
+	Enterprise Developer Edition (64-bit) on Windows Server 2025 Datacenter 10.0 <X64> (Build 26100: ) (Hypervisor)
+
+Changed database context to 'psp_lab'.
+Changed database context to 'psp_lab'.
+#### SINIR_99999_1
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+99999|5449590.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1|11.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+99999|5449590.00|x                                                                                                   
+olay|neden|varyant_mi|variant_id|predicate|adet|metin
+----|-----|----------|----------|---------|----|-----
+parameter_sensitive_plan_optimization_skipped_reason|HasLocalVar|-|-|-|1|WAITFOR DELAY '00:00:01'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|OutputOrModifiedParam|-|-|-|1|WAITFOR DELAY '00:00:01'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|SkewnessThresholdNotMet|-|-|-|1|EXEC dbo.P_SINIR_99999_1 @m = 2; EXEC dbo.P_SINIR_99999_1 @m
+plan_type_desc|plan_adedi
+--------------|----------
+Compiled Plan|1
+variant_kaydi
+-------------
+0
+#### SINIR_100000_1
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+100000|5449610.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1|11.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+100000|5449610.00|x                                                                                                   
+olay|neden|varyant_mi|variant_id|predicate|adet|metin
+----|-----|----------|----------|---------|----|-----
+parameter_sensitive_plan_optimization_skipped_reason|HasLocalVar|-|-|-|1|WAITFOR DELAY '00:00:01'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|OutputOrModifiedParam|-|-|-|1|WAITFOR DELAY '00:00:01'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+plan_type_desc|plan_adedi
+--------------|----------
+Dispatcher Plan|1
+Query Variant Plan|2
+variant_kaydi
+-------------
+2
+#### MUTLAK_1000000_10
+adet|toplam|ornek
+----|------|-----
+10|375.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1000000|54499610.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+10|335.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+10|375.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1000000|54499610.00|x                                                                                                   
+olay|neden|varyant_mi|variant_id|predicate|adet|metin
+----|-----|----------|----------|---------|----|-----
+parameter_sensitive_plan_optimization_skipped_reason|HasLocalVar|-|-|-|1|WAITFOR DELAY '00:00:01'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|OutputOrModifiedParam|-|-|-|1|WAITFOR DELAY '00:00:01'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+plan_type_desc|plan_adedi
+--------------|----------
+Dispatcher Plan|1
+Query Variant Plan|2
+variant_kaydi
+-------------
+2
+#### MUTLAK_999990_10
+adet|toplam|ornek
+----|------|-----
+10|375.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+999990|54499455.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+10|335.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+10|375.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+999990|54499455.00|x                                                                                                   
+olay|neden|varyant_mi|variant_id|predicate|adet|metin
+----|-----|----------|----------|---------|----|-----
+parameter_sensitive_plan_optimization_skipped_reason|HasLocalVar|-|-|-|1|WAITFOR DELAY '00:00:01'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|OutputOrModifiedParam|-|-|-|1|WAITFOR DELAY '00:00:01'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|SkewnessThresholdNotMet|-|-|-|1|EXEC dbo.P_MUTLAK_999990_10 @m = 2; EXEC dbo.P_MUTLAK_999990
+plan_type_desc|plan_adedi
+--------------|----------
+Compiled Plan|1
+variant_kaydi
+-------------
+0
+#### MUTLAK_1000000_11
+adet|toplam|ornek
+----|------|-----
+11|440.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1000000|54499610.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+11|396.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+11|440.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1000000|54499610.00|x                                                                                                   
+olay|neden|varyant_mi|variant_id|predicate|adet|metin
+----|-----|----------|----------|---------|----|-----
+parameter_sensitive_plan_optimization_skipped_reason|HasLocalVar|-|-|-|1|WAITFOR DELAY '00:00:01'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|OutputOrModifiedParam|-|-|-|1|WAITFOR DELAY '00:00:01'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|SkewnessThresholdNotMet|-|-|-|1|EXEC dbo.P_MUTLAK_1000000_11 @m = 2; EXEC dbo.P_MUTLAK_10000
+plan_type_desc|plan_adedi
+--------------|----------
+Compiled Plan|1
+variant_kaydi
+-------------
+0
+#### UC_KATMAN
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+5000|267360.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+olay|neden|varyant_mi|variant_id|predicate|adet|metin
+----|-----|----------|----------|---------|----|-----
+parameter_sensitive_plan_optimization_skipped_reason|HasLocalVar|-|-|-|1|WAITFOR DELAY '00:00:01'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+parameter_sensitive_plan_optimization_skipped_reason|OutputOrModifiedParam|-|-|-|1|WAITFOR DELAY '00:00:01'; EXEC dbo.xe_oku; EXEC dbo.plan_oku
+plan_type_desc|plan_adedi
+--------------|----------
+Dispatcher Plan|1
+Query Variant Plan|3
+variant_kaydi
+-------------
+3
+Changed database context to 'master'.

@@ -1,4 +1,4 @@
--- Query Store Basucu Rehberi, Bolum 16
+-- SQL Server Query Store Basucu Rehberi, Bolum 16
 -- Query Store kapali kullanici veritabanlari icin acma komutlari (@calistir = 0 yalnizca yazdirir)
 -- Test ortaminda calistirin. Ornek veritabani icin betikler/00-demo-veritabani.sql dosyasina bakin.
 

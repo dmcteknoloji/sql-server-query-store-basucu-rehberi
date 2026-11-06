@@ -1,4 +1,4 @@
--- Query Store Basucu Rehberi, Bolum 16
+-- SQL Server Query Store Basucu Rehberi, Bolum 16
 -- zorlanan planlar ve hata durumlari
 -- Test ortaminda calistirin. Ornek veritabani icin betikler/00-demo-veritabani.sql dosyasina bakin.
 

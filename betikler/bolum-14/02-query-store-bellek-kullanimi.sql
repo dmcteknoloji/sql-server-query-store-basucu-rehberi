@@ -1,4 +1,4 @@
--- Query Store Basucu Rehberi, Bolum 14
+-- SQL Server Query Store Basucu Rehberi, Bolum 14
 -- Query Store bellek kullanimi
 -- Test ortaminda calistirin. Ornek veritabani icin betikler/00-demo-veritabani.sql dosyasina bakin.
 

@@ -1,4 +1,4 @@
--- Query Store Basucu Rehberi, Bolum 16
+-- SQL Server Query Store Basucu Rehberi, Bolum 16
 -- Query Store hint envanteri (SQL Server 2022 ve sonrasi)
 -- Test ortaminda calistirin. Ornek veritabani icin betikler/00-demo-veritabani.sql dosyasina bakin.
 

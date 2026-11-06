@@ -1,4 +1,4 @@
--- Query Store Basucu Rehberi, Bolum 12
+-- SQL Server Query Store Basucu Rehberi, Bolum 12
 -- tum replica'lar icin son 8 saatte CPU'ya gore ilk 50 sorgu
 -- Test ortaminda calistirin. Ornek veritabani icin betikler/00-demo-veritabani.sql dosyasina bakin.
 
