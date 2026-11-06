@@ -1,0 +1,6 @@
+name|is_query_store_on
+----|-----------------
+master|0
+tempdb|1
+model|0
+msdb|1

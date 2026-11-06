@@ -1,0 +1,6 @@
+Changed database context to 'flush_lab'.
+adim|sure_ms|yazma_adedi|yazilan_mb|stall_ms|qs_mb|kirli_sayfa
+----|-------|-----------|----------|--------|-----|-----------
+60.000 farkli query sonrasi, flush oncesi|0|0|.00|0|9|1128
+sp_query_store_flush_db|884264|3523|253.41|10038|224|4921
+CHECKPOINT (flush sonrasi)|214|660|38.48|20067|224|0

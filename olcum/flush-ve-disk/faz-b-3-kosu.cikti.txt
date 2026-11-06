@@ -1,0 +1,14 @@
+Changed database context to 'qs_lab_flush'.
+adim|t
+----|-
+a_baslangic|2026-11-06 23:08:13.113
+b_doldurma_sonrasi|2026-11-06 23:09:27.678
+c_flush_sonrasi|2026-11-06 23:12:24.385
+sayac|doldurma_farki|flush_farki|son_deger
+-----|--------------|-----------|---------
+io_yazma_bayt|40747008|200720384|269729792
+qs_mb|NULL|169|211
+Query Store CPU usage|69468|164656|234137
+Query Store logical reads|2588335|4596466|7186117
+Query Store logical writes|5608|25469|31150
+Query Store physical reads|0|8|96

@@ -1,7 +1,7 @@
 SET NOCOUNT ON;
 SELECT @@VERSION AS surum;
 GO
-USE psp_lab;
+USE qs_lab_psp;
 GO
 DROP TABLE IF EXISTS dbo.PspDengeli;
 CREATE TABLE dbo.PspDengeli (id int IDENTITY PRIMARY KEY, musteri_id int NOT NULL);

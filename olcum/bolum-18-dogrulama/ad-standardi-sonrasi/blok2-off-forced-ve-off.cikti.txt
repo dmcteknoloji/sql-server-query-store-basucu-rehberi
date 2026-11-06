@@ -1,0 +1,14 @@
+Changed database context to 'qs_lab_off_forced'.
+adim|query_sayisi|toplam_calistirma
+----|------------|-----------------
+qs_lab_off_forced OFF(FORCED) oncesi|33|92
+adim|query_sayisi|toplam_calistirma
+----|------------|-----------------
+qs_lab_off_forced OFF(FORCED) sonrasi|34|3
+Changed database context to 'qs_lab_off'.
+adim|query_sayisi|toplam_calistirma
+----|------------|-----------------
+qs_lab_off OFF oncesi|33|92
+adim|query_sayisi|toplam_calistirma
+----|------------|-----------------
+qs_lab_off OFF sonrasi|65|124

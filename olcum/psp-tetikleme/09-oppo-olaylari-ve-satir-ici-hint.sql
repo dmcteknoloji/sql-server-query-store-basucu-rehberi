@@ -14,12 +14,12 @@ ADD TARGET package0.ring_buffer (SET max_memory = 4096)
 WITH (MAX_DISPATCH_LATENCY = 1 SECONDS, EVENT_RETENTION_MODE = NO_EVENT_LOSS);
 ALTER EVENT SESSION psp_filtresiz ON SERVER STATE = START;
 GO
-USE psp_lab;
+USE qs_lab_psp;
 GO
 SET QUOTED_IDENTIFIER ON;
 GO
 PRINT '#### 2. filtresiz oturum (2025), PspOzet cagrilari sonrasi olay sayilari';
-ALTER DATABASE psp_lab SET COMPATIBILITY_LEVEL = 160;
+ALTER DATABASE qs_lab_psp SET COMPATIBILITY_LEVEL = 160;
 ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE;
 GO
 ALTER EVENT SESSION psp_filtresiz ON SERVER STATE = STOP;
@@ -34,8 +34,8 @@ SELECT olay, neden, variant_id, COUNT(*) AS adet FROM (
   FROM @x.nodes('/RingBufferTarget/event') x(e)) k GROUP BY olay, neden, variant_id ORDER BY olay, variant_id;
 GO
 PRINT '#### 3. OPPO, satir ici hint ile (kabul edilir mi, plan tipi ne olur)';
-ALTER DATABASE psp_lab SET COMPATIBILITY_LEVEL = 170;
-ALTER DATABASE psp_lab SET QUERY_STORE CLEAR ALL;
+ALTER DATABASE qs_lab_psp SET COMPATIBILITY_LEVEL = 170;
+ALTER DATABASE qs_lab_psp SET QUERY_STORE CLEAR ALL;
 GO
 BEGIN TRY
   EXEC (N'CREATE PROCEDURE dbo.Ara3 @musteri int = NULL, @durum tinyint = NULL AS SELECT COUNT(*) AS adet FROM dbo.PspSiparis WHERE (musteri_id = @musteri OR @musteri IS NULL) AND (durum = @durum OR @durum IS NULL) OPTION (USE HINT (''DISABLE_OPTIONAL_PARAMETER_OPTIMIZATION''))');

@@ -3,22 +3,22 @@ SET NOCOUNT ON;
 SELECT @@VERSION AS surum;
 IF EXISTS (SELECT 1 FROM sys.server_event_sessions WHERE name = 'psp_izle') DROP EVENT SESSION psp_izle ON SERVER;
 GO
-IF DB_ID('psp_lab') IS NOT NULL BEGIN ALTER DATABASE psp_lab SET SINGLE_USER WITH ROLLBACK IMMEDIATE; DROP DATABASE psp_lab; END
+IF DB_ID('qs_lab_psp') IS NOT NULL BEGIN ALTER DATABASE qs_lab_psp SET SINGLE_USER WITH ROLLBACK IMMEDIATE; DROP DATABASE qs_lab_psp; END
 GO
-CREATE DATABASE psp_lab;
+CREATE DATABASE qs_lab_psp;
 GO
-ALTER DATABASE psp_lab SET COMPATIBILITY_LEVEL = 160;
-ALTER DATABASE psp_lab SET QUERY_STORE = ON (OPERATION_MODE = READ_WRITE, QUERY_CAPTURE_MODE = ALL);
+ALTER DATABASE qs_lab_psp SET COMPATIBILITY_LEVEL = 160;
+ALTER DATABASE qs_lab_psp SET QUERY_STORE = ON (OPERATION_MODE = READ_WRITE, QUERY_CAPTURE_MODE = ALL);
 GO
 CREATE EVENT SESSION psp_izle ON SERVER
-ADD EVENT sqlserver.parameter_sensitive_plan_optimization (ACTION (sqlserver.database_name, sqlserver.sql_text) WHERE sqlserver.database_name = N'psp_lab'),
-ADD EVENT sqlserver.parameter_sensitive_plan_optimization_skipped_reason (ACTION (sqlserver.database_name, sqlserver.sql_text) WHERE sqlserver.database_name = N'psp_lab')
+ADD EVENT sqlserver.parameter_sensitive_plan_optimization (ACTION (sqlserver.database_name, sqlserver.sql_text) WHERE sqlserver.database_name = N'qs_lab_psp'),
+ADD EVENT sqlserver.parameter_sensitive_plan_optimization_skipped_reason (ACTION (sqlserver.database_name, sqlserver.sql_text) WHERE sqlserver.database_name = N'qs_lab_psp')
 ADD TARGET package0.ring_buffer (SET max_memory = 4096)
 WITH (MAX_DISPATCH_LATENCY = 1 SECONDS, EVENT_RETENTION_MODE = NO_EVENT_LOSS);
 GO
-USE psp_lab;
+USE qs_lab_psp;
 GO
-USE psp_lab;
+USE qs_lab_psp;
 GO
 SELECT TOP (1100000) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS rn INTO dbo.sayi FROM sys.all_objects a CROSS JOIN sys.all_objects b CROSS JOIN sys.all_objects c;
 GO
@@ -63,7 +63,7 @@ GO
 CREATE PROCEDURE dbo.P_B_100000_1 @m int AS SELECT COUNT(*) AS adet, SUM(tutar) AS toplam, MAX(aciklama) AS ornek FROM dbo.B_100000_1 WHERE musteri_id = @m;
 GO
 ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE;
-ALTER DATABASE psp_lab SET QUERY_STORE CLEAR ALL;
+ALTER DATABASE qs_lab_psp SET QUERY_STORE CLEAR ALL;
 GO
 EXEC dbo.P_B_100000_1 @m = 7; EXEC dbo.P_B_100000_1 @m = 1; EXEC dbo.P_B_100000_1 @m = 2; EXEC dbo.P_B_100000_1 @m = 7; EXEC dbo.P_B_100000_1 @m = 1; EXEC dbo.P_B_100000_1 @m = 2;
 GO
@@ -83,7 +83,7 @@ GO
 CREATE PROCEDURE dbo.P_B_500000_1 @m int AS SELECT COUNT(*) AS adet, SUM(tutar) AS toplam, MAX(aciklama) AS ornek FROM dbo.B_500000_1 WHERE musteri_id = @m;
 GO
 ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE;
-ALTER DATABASE psp_lab SET QUERY_STORE CLEAR ALL;
+ALTER DATABASE qs_lab_psp SET QUERY_STORE CLEAR ALL;
 GO
 EXEC dbo.P_B_500000_1 @m = 7; EXEC dbo.P_B_500000_1 @m = 1; EXEC dbo.P_B_500000_1 @m = 2; EXEC dbo.P_B_500000_1 @m = 7; EXEC dbo.P_B_500000_1 @m = 1; EXEC dbo.P_B_500000_1 @m = 2;
 GO
@@ -103,7 +103,7 @@ GO
 CREATE PROCEDURE dbo.P_B_1000000_10 @m int AS SELECT COUNT(*) AS adet, SUM(tutar) AS toplam, MAX(aciklama) AS ornek FROM dbo.B_1000000_10 WHERE musteri_id = @m;
 GO
 ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE;
-ALTER DATABASE psp_lab SET QUERY_STORE CLEAR ALL;
+ALTER DATABASE qs_lab_psp SET QUERY_STORE CLEAR ALL;
 GO
 EXEC dbo.P_B_1000000_10 @m = 7; EXEC dbo.P_B_1000000_10 @m = 1; EXEC dbo.P_B_1000000_10 @m = 2; EXEC dbo.P_B_1000000_10 @m = 7; EXEC dbo.P_B_1000000_10 @m = 1; EXEC dbo.P_B_1000000_10 @m = 2;
 GO
@@ -124,7 +124,7 @@ GO
 CREATE PROCEDURE dbo.P_B_UC_katman_1M @m int AS SELECT COUNT(*) AS adet, SUM(tutar) AS toplam, MAX(aciklama) AS ornek FROM dbo.B_UC_katman_1M WHERE musteri_id = @m;
 GO
 ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE;
-ALTER DATABASE psp_lab SET QUERY_STORE CLEAR ALL;
+ALTER DATABASE qs_lab_psp SET QUERY_STORE CLEAR ALL;
 GO
 EXEC dbo.P_B_UC_katman_1M @m = 7; EXEC dbo.P_B_UC_katman_1M @m = 1; EXEC dbo.P_B_UC_katman_1M @m = 2; EXEC dbo.P_B_UC_katman_1M @m = 7; EXEC dbo.P_B_UC_katman_1M @m = 1; EXEC dbo.P_B_UC_katman_1M @m = 2;
 GO
@@ -145,7 +145,7 @@ GO
 CREATE PROCEDURE dbo.P_B_orta_100 @m int AS SELECT COUNT(*) AS adet, SUM(tutar) AS toplam, MAX(aciklama) AS ornek FROM dbo.B_orta_100 WHERE musteri_id = @m;
 GO
 ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE;
-ALTER DATABASE psp_lab SET QUERY_STORE CLEAR ALL;
+ALTER DATABASE qs_lab_psp SET QUERY_STORE CLEAR ALL;
 GO
 EXEC dbo.P_B_orta_100 @m = 7; EXEC dbo.P_B_orta_100 @m = 1; EXEC dbo.P_B_orta_100 @m = 2; EXEC dbo.P_B_orta_100 @m = 7; EXEC dbo.P_B_orta_100 @m = 1; EXEC dbo.P_B_orta_100 @m = 2;
 GO

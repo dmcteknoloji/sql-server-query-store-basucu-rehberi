@@ -1,0 +1,66 @@
+surum
+-----
+Microsoft SQL Server 2025 (RTM) - 17.0.1000.7 (X64) 
+	Oct 21 2025 12:05:57 
+	Copyright (C) 2025 Microsoft Corporation
+	Enterprise Developer Edition (64-bit) on Windows Server 2025 Datacenter 10.0 <X64> (Build 26100: ) (Hypervisor)
+
+#### internal_state (AG olmayan tek dugum)
+pending_message_count|messaging_memory_used_mb
+---------------------|------------------------
+0|0
+#### query_store_replicas (AG olmayan tek dugum)
+satir
+-----
+0
+#### Query Store performans sayaclari
+nesne|sayac|ornek|cntr_value
+-----|-----|-----|----------
+SQLServer:Query Store|Query Store CPU usage|_Total|1016130
+SQLServer:Query Store|Query Store logical reads|_Total|48258216
+SQLServer:Query Store|Query Store logical writes|_Total|232267
+SQLServer:Query Store|Query Store physical reads|_Total|500
+SQLServer:Query Store|Query Store CPU usage|flush_lab|1015072
+SQLServer:Query Store|Query Store logical reads|flush_lab|48063226
+SQLServer:Query Store|Query Store logical writes|flush_lab|232011
+SQLServer:Query Store|Query Store physical reads|flush_lab|8
+SQLServer:Query Store|Query Store CPU usage|lc|258
+SQLServer:Query Store|Query Store logical reads|lc|47611
+SQLServer:Query Store|Query Store logical writes|lc|35
+SQLServer:Query Store|Query Store physical reads|lc|88
+SQLServer:Query Store|Query Store CPU usage|lim_f|252
+SQLServer:Query Store|Query Store logical reads|lim_f|47688
+SQLServer:Query Store|Query Store logical writes|lim_f|33
+SQLServer:Query Store|Query Store physical reads|lim_f|80
+SQLServer:Query Store|Query Store CPU usage|lim_o|266
+SQLServer:Query Store|Query Store logical reads|lim_o|47432
+SQLServer:Query Store|Query Store logical writes|lim_o|34
+SQLServer:Query Store|Query Store physical reads|lim_o|72
+SQLServer:Query Store|Query Store CPU usage|lim_r2|0
+SQLServer:Query Store|Query Store logical reads|lim_r2|13
+SQLServer:Query Store|Query Store logical writes|lim_r2|1
+SQLServer:Query Store|Query Store physical reads|lim_r2|0
+SQLServer:Query Store|Query Store CPU usage|ornek_dolu|13
+SQLServer:Query Store|Query Store logical reads|ornek_dolu|2647
+SQLServer:Query Store|Query Store logical writes|ornek_dolu|1
+SQLServer:Query Store|Query Store physical reads|ornek_dolu|56
+SQLServer:Query Store|Query Store CPU usage|psp_lab|260
+SQLServer:Query Store|Query Store logical reads|psp_lab|48185
+SQLServer:Query Store|Query Store logical writes|psp_lab|113
+SQLServer:Query Store|Query Store physical reads|psp_lab|76
+SQLServer:Query Store|Query Store CPU usage|qs_demo|9
+SQLServer:Query Store|Query Store logical reads|qs_demo|1414
+SQLServer:Query Store|Query Store logical writes|qs_demo|39
+SQLServer:Query Store|Query Store physical reads|qs_demo|120
+#### secondary ve mesajlasma olay oturumu kurulur mu
+Msg 25623, Level 16, State 1, Server vm-qs2025, Line 1
+The event name, "sqlserver.query_store_messaging_failures", is invalid, or the object could not be found
+paket|olay
+-----|----
+sqlserver|hadr_db_manager_qds_msg
+qds|query_store_async_queue_diagnostics
+sqlserver|query_store_hadron_transport_failures
+qds|query_store_messaging_failures
+qds|query_store_messaging_fragmentation
+qds|query_store_replica_info_persistence_failure
+qds|query_store_secondary_guid_creation_failure

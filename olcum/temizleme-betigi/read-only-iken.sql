@@ -12,9 +12,9 @@ GO
 EXEC dbo.p 1;
 DECLARE @i int = 0, @s nvarchar(200); WHILE @i < 40 BEGIN SET @s = N'DECLARE @c int; SELECT @c = COUNT(*) FROM dbo.t WHERE id = ' + CAST(@i AS nvarchar(5)); EXEC (@s); SET @i += 1; END
 EXEC sp_query_store_flush_db;
-DECLARE @q bigint = (SELECT TOP 1 q.query_id FROM sys.query_store_query q WHERE q.object_id = OBJECT_ID('dbo.p') AND EXISTS (SELECT 1 FROM sys.query_store_plan p WHERE p.query_id = q.query_id));
-DECLARE @pl bigint = (SELECT TOP 1 plan_id FROM sys.query_store_plan WHERE query_id = @q);
-EXEC sp_query_store_force_plan @q, @pl;
+DECLARE @query_id bigint = (SELECT TOP 1 q.query_id FROM sys.query_store_query q WHERE q.object_id = OBJECT_ID('dbo.p') AND EXISTS (SELECT 1 FROM sys.query_store_plan p WHERE p.query_id = q.query_id));
+DECLARE @plan_id bigint = (SELECT TOP 1 plan_id FROM sys.query_store_plan WHERE query_id = @query_id);
+EXEC sp_query_store_force_plan @query_id, @plan_id;
 ALTER DATABASE lim_p SET QUERY_STORE (OPERATION_MODE = READ_ONLY);
 GO
 SELECT actual_state_desc AS durum FROM sys.database_query_store_options;

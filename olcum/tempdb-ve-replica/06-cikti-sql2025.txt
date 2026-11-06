@@ -1,0 +1,242 @@
+surum
+-----
+Microsoft SQL Server 2025 (RTM) - 17.0.1000.7 (X64) 
+	Oct 21 2025 12:05:57 
+	Copyright (C) 2025 Microsoft Corporation
+	Enterprise Developer Edition (64-bit) on Windows Server 2025 Datacenter 10.0 <X64> (Build 26100: ) (Hypervisor)
+
+#### 1. Query Store ile ilgili sistem nesneleri
+name|type_desc
+----|---------
+sp_query_store_clear_hints|EXTENDED_STORED_PROCEDURE
+sp_query_store_clear_message_queues|EXTENDED_STORED_PROCEDURE
+sp_query_store_consistency_check|EXTENDED_STORED_PROCEDURE
+sp_query_store_flush_db|EXTENDED_STORED_PROCEDURE
+sp_query_store_force_plan|EXTENDED_STORED_PROCEDURE
+sp_query_store_remove_plan|EXTENDED_STORED_PROCEDURE
+sp_query_store_remove_plan_feedback|EXTENDED_STORED_PROCEDURE
+sp_query_store_remove_query|EXTENDED_STORED_PROCEDURE
+sp_query_store_reset_exec_stats|EXTENDED_STORED_PROCEDURE
+sp_query_store_set_hints|EXTENDED_STORED_PROCEDURE
+sp_query_store_unforce_plan|EXTENDED_STORED_PROCEDURE
+database_query_store_internal_state|VIEW
+database_query_store_options|VIEW
+query_store_plan|VIEW
+query_store_plan_feedback|VIEW
+query_store_plan_forcing_locations|VIEW
+query_store_query|VIEW
+query_store_query_hints|VIEW
+query_store_query_text|VIEW
+query_store_query_variant|VIEW
+query_store_replicas|VIEW
+query_store_runtime_stats|VIEW
+query_store_runtime_stats_interval|VIEW
+query_store_wait_stats|VIEW
+sysquery_store_query_hints_2019|VIEW
+sysquery_store_runtime_stats_2016|VIEW
+sysquery_store_runtime_stats_2017|VIEW
+sysquery_store_runtime_stats_2019|VIEW
+sysquery_store_runtime_stats_interval_2016|VIEW
+sysquery_store_wait_stats_2019|VIEW
+#### 2. internal_state gorunumu var mi, kolonlari
+kolon|tip
+-----|---
+pending_message_count|bigint
+messaging_memory_used_mb|bigint
+bilgi|adet
+-----|----
+internal_state satir sayisi|1
+#### 3. replica ile ilgili kolonlar
+nesne|kolon
+-----|-----
+query_store_plan_feedback|replica_group_id
+query_store_plan_forcing_locations|replica_group_id
+query_store_query_hints|replica_group_id
+query_store_replicas|replica_group_id
+query_store_replicas|replica_name
+query_store_runtime_stats|replica_group_id
+query_store_wait_stats|replica_group_id
+#### 4. performans sayaclari (Query Store)
+object_name|counter_name
+-----------|------------
+SQLServer:Query Store                                                                                                           |Query Store CPU usage                                                                                                           
+SQLServer:Query Store                                                                                                           |Query Store logical reads                                                                                                       
+SQLServer:Query Store                                                                                                           |Query Store logical writes                                                                                                      
+SQLServer:Query Store                                                                                                           |Query Store physical reads                                                                                                      
+#### 5. XE olaylari (query_store, qds, replica)
+olay|aciklama
+----|--------
+hadr_db_manager_qds_msg|QDS messages sent between replicas.
+query_store_async_message_processing_update|Fired periodically during async message processing
+query_store_async_paired_persistence_item_processing_started|Fired when async persistance thread starts processing a paired parent and query variant persistence item. Used
+query_store_async_queue_diagnostics|Fired periodically with diagnostics about Query Store async queue
+query_store_auto_enable_failure|Fired when fabric auto enable QDS on create fails
+query_store_auto_enable_on_create|Fired when fabric auto enabled QDS on create
+query_store_background_cleanup_task_failed|Fired if the background task for cleanup of Query Store stale data is not completed successfully
+query_store_background_task_abort_stats|Fired when Query Store background task aborts
+query_store_background_task_creation_failed|Fired if the background processing task for Query Store could not be created
+query_store_background_task_initialization_failed|Fired if the background processing task for Query Store could not be initialized
+query_store_background_task_persist_failed|Fired if the background task for Query Store data persistence is not completed successfully
+query_store_background_task_persist_finished|Fired if the background task for Query Store data persistence is completed successfully
+query_store_background_task_persist_started|Fired if the background task for Query Store data persistence started execution
+query_store_begin_persist_runtime_stat|Fired immediately before current runtime statistics for a query plan is persisted to the database.
+query_store_bloom_filter_false_positive|Fired if the Bloom filter for Query Store statement texts gives a false positive result
+query_store_buffered_items_memory_below_read_write_target|Fired when Query Store buffered items memory usage goes below target for turning Query Store back to read-writ
+query_store_buffered_items_over_memory_limit|Fired when Query Store buffered items memory size grows over allowed memory limit
+query_store_capture_policy_abort_capture|Fired when an UNDECIDED query failed to transition to CAPTURED.
+query_store_capture_policy_evaluate|Fired when the capture policy is evaluated for a query.
+query_store_capture_policy_start_capture|Fired when an UNDECIDED query is transitioning to CAPTURED.
+query_store_capture_threshold_changed_background_task|Fired when Capture policy AUTO threshold is reduced
+query_store_capture_threshold_changed_feedback_loop|Fired when Capture policy AUTO threshold is adjusted by size based retention
+query_store_catch_exception|Fired when Query Store encounters an exception
+query_store_check_consistency_init_failed|Fired when check consistency task fails during initialization
+query_store_clear_db_oversize_flag|Fired when QDS is clearing DB oversize flag.
+query_store_clear_message_queues|Fired when query store clears the message queue
+query_store_database_initialization_failed|Fired if initialization of the Query Store for database has failed. The Query Store will be disabled for this 
+query_store_database_out_of_disk_space|Fired when Query Store hits an error because database is out of disk space
+query_store_db_cleanup__finished|Fired if cleanup of Query Store stale data finished for particular database.
+query_store_db_cleanup__started|Fired if cleanup of Query Store stale data started for particular database.
+query_store_db_cleared|Fired when Query Store is cleared for a database.
+query_store_db_data_structs_not_released|Fired if Query Store data structures are not released when feature is turned OFF.
+query_store_db_diagnostics|Periodically fired with Query Store diagnostics on database level.
+query_store_db_hints_diagnostics|Periodically fired with Query Store Hints diagnostics on database level.
+query_store_db_hints_hash_map_max_size_reached|Fired if Query Store Hints hash map reaches max size.
+query_store_db_settings_and_state|Periodically fired with Query Store settings on database level.
+query_store_db_settings_changed|Fired when Query Store settings are changed.
+query_store_db_whitelisting_changed|Fired when Query Store database whitelisting state is changed.
+query_store_disk_size_below_limit|Fired when Query Store disk size drops below allowed limit, enabling Query Store to go back to read-write stat
+query_store_disk_size_check_failed|Fired when a check against Query Store on-disk size limit fails
+query_store_disk_size_info|Fired when a check against Query Store on-disk size is performed
+query_store_disk_size_over_limit|Fired when Query Store disk size grows over allowed limit
+query_store_execution_runtime_info|Fired when runtime information is sent to the Query Store.
+query_store_execution_runtime_info_discarded|Fired when runtime information sent to the Query Store is discarded.
+query_store_execution_runtime_info_evicted|Fired when runtime information sent to the Query Store is evicted.
+query_store_failed_to_capture_query|Fired if the Query Store failed to capture query. The Query Store will not track statistics for this query
+query_store_failed_to_capture_query_core|Fired if the Query Store failed to capture query. The Query Store will not track statistics for this query. Co
+query_store_failed_to_find_resource_group|Fired when Query Store resource group is not initialized
+query_store_failed_to_load_forced_plan|Fired if the query failed to load forced plan from Query Store. Forcing policy will not be applied
+query_store_failed_to_load_forced_plan_core|Fired if the query failed to load forced plan from Query Store. Forcing policy will not be applied. Contains o
+query_store_flush_failed|Fired when Query Store failed to flush dirty data
+query_store_generate_showplan_failure|Fired when Query Store failed to store a query plan because the showplan generation failed.
+query_store_generate_showplan_with_replay_script_failure|Fired when Query Store failed to update a query plan because the generation of showplan (which contains a Repl
+query_store_global_mem_obj_size_kb|Periodically fired with Query Store global memory object size.
+query_store_hadron_transport_failures|When QDS cannot process a message correctly this XEvent is emitted with diagnostic information.
+query_store_hints_application_failed|Fired if application of Query Store hints failed.
+query_store_hints_application_persist_failure_failed|Fired if last_failure_reason and failure_count in sys.query_store_query_hints failed to update.
+query_store_hints_application_success|Fired if application of Query Store hints succeeded.
+query_store_hints_dbhints_memory_allocation_failed|Fired when QDS hints db allocation fails.
+query_store_hints_init_failed|Fired if initialization of the Query Store Hints for database has failed. The Query Store Hints will be disabl
+query_store_hints_load_started|Fired when Query Store hints load is started.
+query_store_hints_loaded|Fired when Query Store hints load has finished.
+query_store_hints_lookup_failed|Fired if there is a failure during the lookup for whether a query has any hints set in Query Store. Query hint
+query_store_hints_template_hint_memory_allocation_failed|Fired when template hint allocation fails.
+query_store_hints_unloaded|Fired when Query Store hints are unloaded.
+query_store_index_rebuild_finished|Fired when internal index rebuild is completed
+query_store_index_rebuild_started|Fired when internal index rebuild starts
+query_store_load_started|Fired when query store load is started
+query_store_loaded|Fired when Query Store is loaded
+query_store_matching_query_text_found|Fired if query text referenced by two queries is found during query removal
+query_store_messaging_failures|Diagnostic information for QDS messaging components.
+query_store_messaging_fragmentation|information for QDS messaging when fragmentation happens.
+query_store_notify_force_failure_failed|Fired when Query Store failed to notify force failure
+query_store_persist_feedback_quick_lock_failures|This XEvent is fired when we fail to acquire quick shared db lock during feedback persistence.
+query_store_persist_on_shutdown_failed|Occurs when SQL Server fails to store dirty entries in Query Store on database shutdown.
+query_store_persist_task_init_failed|Fired when persist task fails during initialization
+query_store_plan_forcing_consistency_failure|Fired when Query Store detects at least one row in plan_persist_plan_forcing_locations table without any corre
+query_store_plan_forcing_failed|Occurs when forcing of plan from Query Store fail
+query_store_plan_forcing_failed_core|Occurs when forcing of plan from Query Store fail, this version doesn't have error message text
+query_store_plan_forcing_user_change|Fired if a user has manually forced or unforced query plan in Query Store.
+query_store_plan_persistence_failure|Fired if there's a failure to persist plan
+query_store_plan_removal|Fired when plan is removed
+query_store_prepare_for_clean_shutdown|Fired when Query Store prepares for clean shutdown
+query_store_query_persistence_failure|Fired if there's a failure to persist query
+query_store_query_text_removal_skipped|Fired if query text is not deleted when query is removed
+query_store_read_write_failed|Fired if the read/write to Query Store internal tables failed
+query_store_remove_plan_feedback_finished|Fires when sp_query_store_remove_plan_feedback completes removing plan feedback from Query Store.
+query_store_remove_plan_feedback_started|Fires when sp_query_store_remove_plan_feedback starts to remove plan feedback from Query Store.
+query_store_replica_info_persistence_failure|Fired when persisting the replica information fails
+query_store_resource_total_below_instance_target|Fired when Query Store sum of sizes for specified resource for all databases on instance goes below target for
+query_store_resource_total_over_instance_limit|Fired when Query Store sum of sizes for specified resource for all databases on instance is over the instance 
+query_store_schema_consistency_check_failure|Fired when the Query Store schema consistency check failed.
+query_store_secondary_guid_creation_failure|
+query_store_severe_error_shutdown|Fired when Query Store hits a severe error which causes it to shutdown in error state.
+query_store_shutdown_in_error_state_finished|Fired when Query Store completes shutdown in error state due to a severe error, persisting the error state on 
+query_store_shutdown_in_error_state_started|Fired when Query Store initiates shutdown in error state due to a severe error, keeping the error state in mem
+query_store_size_retention_cleanup_finished|Fired when size retention policy clean-up task is finished.
+query_store_size_retention_cleanup_skipped|Fired when starting of size retention policy clean-up task is skipped because its minimum repeating period did
+query_store_size_retention_cleanup_started|Fired when size retention policy clean-up task is started.
+query_store_size_retention_cleanup_update|Fired periodically during cleanup
+query_store_size_retention_plan_cost|Fired when eviction cost is calculated for the plan.
+query_store_size_retention_query_cost|Fired when query eviction cost is calculated for the query.
+query_store_size_retention_query_deleted|Fired when size based retention policy deletes a query from Query Store.
+query_store_spinlock_stats|Fired periodically with Query Store spinlock statistics
+query_store_statement_not_found|Fired in case when statement couldn't be found due to race condition or ambiguous user request.
+query_store_stmt_hash_map_memory_below_read_write_target|Fired when Query Store statement hash map memory usage goes below target for turning Query Store back to read-
+query_store_stmt_hash_map_over_memory_limit|Fired when Query Store statement hash map memory size grows over allowed memory limit
+query_store_stmt_hash_map_undecided_queries_cleanup|Fired when Query Store statement hash map memory is attempted to be reduced by removing all undecided queries
+query_store_task_finished|Fired when a task for Query Store finishes execution
+query_store_task_started|Fired when a task for Query Store starts execution
+query_store_task_submitted|Fired when a task for Query Store is submitted for execution
+query_store_unload_started|Fired when query store unload is started
+query_store_unloaded|Fired when Query Store is unloaded from memory
+query_store_update_plan_with_replay_script|Fired when the existing Showplan in QDS is updated with a Showplan with Replay Script
+query_store_user_plan_removal|Fired when plan is removed with SP sp_query_store_remove_plan.
+query_store_user_query_removal|Fired when query is removed with SP sp_query_store_remove_query.
+query_store_wait_runtime_info|Fired when wait runtime information is sent to the Query Store.
+#### 6. QDS bekleme turleri
+wait_type
+---------
+QDS_ASYNC_CHECK_CONSISTENCY_TASK
+QDS_ASYNC_PERSIST_TASK
+QDS_ASYNC_PERSIST_TASK_START
+QDS_ASYNC_QUEUE
+QDS_BCKG_TASK
+QDS_BLOOM_FILTER
+QDS_CLEANUP_STALE_QUERIES_TASK_MAIN_LOOP_SLEEP
+QDS_CTXS
+QDS_DB_DISK
+QDS_DYN_VECTOR
+QDS_EXCLUSIVE_ACCESS
+QDS_HOST_INIT
+QDS_LOADDB
+QDS_MANAGER_INIT
+QDS_PERSIST_TASK_MAIN_LOOP_SLEEP
+QDS_QDS_CAPTURE_INIT
+QDS_SHUTDOWN_QUEUE
+QDS_STMT
+QDS_STMT_DISK
+QDS_TASK_SHUTDOWN
+QDS_TASK_START
+#### 7. replica yordamlari ve secenekleri
+name|type_desc
+----|---------
+query_store_replicas|VIEW
+sp_restoredbreplication|SQL_STORED_PROCEDURE
+desired_state|desired_state_desc|actual_state|actual_state_desc|readonly_reason|current_storage_size_mb|flush_interval_seconds|interval_length_minutes|max_storage_size_mb|stale_query_threshold_days|max_plans_per_query|query_capture_mode|query_capture_mode_desc|capture_policy_execution_count|capture_policy_total_compile_cpu_time_ms|capture_policy_total_execution_cpu_time_ms|capture_policy_stale_thr
+eshold_hours|size_based_cleanup_mode|size_based_cleanup_mode_desc|wait_stats_capture_mode|wait_stats_capture_mode_desc|actual_state_additional_info
+-------------|------------------|------------|-----------------|---------------|-----------------------|----------------------|-----------------------|-------------------|--------------------------|-------------------|------------------|-----------------------|------------------------------|----------------------------------------|------------------------------------------|------------------------
+------------|-----------------------|----------------------------|-----------------------|----------------------------|----------------------------
+kolon
+-----
+desired_state
+desired_state_desc
+actual_state
+actual_state_desc
+readonly_reason
+current_storage_size_mb
+flush_interval_seconds
+interval_length_minutes
+max_storage_size_mb
+stale_query_threshold_days
+max_plans_per_query
+query_capture_mode
+query_capture_mode_desc
+capture_policy_execution_count
+capture_policy_total_compile_cpu_time_ms
+capture_policy_total_execution_cpu_time_ms
+capture_policy_stale_threshold_hours
+size_based_cleanup_mode
+size_based_cleanup_mode_desc
+wait_stats_capture_mode
+wait_stats_capture_mode_desc
+actual_state_additional_info

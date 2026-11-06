@@ -1,27 +1,27 @@
 -- PSP (Parameter Sensitive Plan) tetikleme laboratuvari
--- SQL Server 2022 ve sonrasi. Test ortaminda calistirin, psp_lab veritabanini siler ve yeniden olusturur.
+-- SQL Server 2022 ve sonrasi. Test ortaminda calistirin, qs_lab_psp veritabanini siler ve yeniden olusturur.
 -- Veri: musteri 1 icin 500.000 satir, musteri 2-6 icin 5.000'er satir, musteri 7-11 icin 1'er satir.
 -- Beklenti: en yuksek ve en dusuk EQUAL_ROWS orani 100.000'in ustunde oldugu icin PSP devreye girer.
 SET NOCOUNT ON;
 SELECT @@VERSION AS surum;
 GO
 IF EXISTS (SELECT 1 FROM sys.server_event_sessions WHERE name = 'psp_izle') DROP EVENT SESSION psp_izle ON SERVER;
-IF DB_ID('psp_lab') IS NOT NULL BEGIN ALTER DATABASE psp_lab SET SINGLE_USER WITH ROLLBACK IMMEDIATE; DROP DATABASE psp_lab; END
+IF DB_ID('qs_lab_psp') IS NOT NULL BEGIN ALTER DATABASE qs_lab_psp SET SINGLE_USER WITH ROLLBACK IMMEDIATE; DROP DATABASE qs_lab_psp; END
 GO
-CREATE DATABASE psp_lab;
+CREATE DATABASE qs_lab_psp;
 GO
-ALTER DATABASE psp_lab SET COMPATIBILITY_LEVEL = 160;
-ALTER DATABASE psp_lab SET QUERY_STORE = ON (OPERATION_MODE = READ_WRITE, QUERY_CAPTURE_MODE = ALL);
+ALTER DATABASE qs_lab_psp SET COMPATIBILITY_LEVEL = 160;
+ALTER DATABASE qs_lab_psp SET QUERY_STORE = ON (OPERATION_MODE = READ_WRITE, QUERY_CAPTURE_MODE = ALL);
 GO
 -- Genisletilmis olay oturumu: PSP uygulandiginda ve atlandiginda (nedeniyle birlikte)
 CREATE EVENT SESSION psp_izle ON SERVER
-ADD EVENT sqlserver.parameter_sensitive_plan_optimization (ACTION (sqlserver.database_name, sqlserver.sql_text) WHERE sqlserver.database_name = N'psp_lab'),
-ADD EVENT sqlserver.parameter_sensitive_plan_optimization_skipped_reason (ACTION (sqlserver.database_name, sqlserver.sql_text) WHERE sqlserver.database_name = N'psp_lab')
+ADD EVENT sqlserver.parameter_sensitive_plan_optimization (ACTION (sqlserver.database_name, sqlserver.sql_text) WHERE sqlserver.database_name = N'qs_lab_psp'),
+ADD EVENT sqlserver.parameter_sensitive_plan_optimization_skipped_reason (ACTION (sqlserver.database_name, sqlserver.sql_text) WHERE sqlserver.database_name = N'qs_lab_psp')
 ADD TARGET package0.ring_buffer (SET max_memory = 4096)
 WITH (MAX_DISPATCH_LATENCY = 1 SECONDS, EVENT_RETENTION_MODE = NO_EVENT_LOSS);
 ALTER EVENT SESSION psp_izle ON SERVER STATE = START;
 GO
-USE psp_lab;
+USE qs_lab_psp;
 GO
 CREATE TABLE dbo.PspSiparis (id int IDENTITY PRIMARY KEY, musteri_id int NOT NULL, tutar decimal(10,2) NOT NULL, durum tinyint NOT NULL, aciklama char(100) NOT NULL DEFAULT 'x');
 SELECT TOP (500000) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS rn INTO #sayi FROM sys.all_objects a CROSS JOIN sys.all_objects b CROSS JOIN sys.all_objects c;

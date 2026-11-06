@@ -4,12 +4,12 @@ GO
 IF EXISTS (SELECT 1 FROM sys.server_event_sessions WHERE name = 'psp_izle') DROP EVENT SESSION psp_izle ON SERVER;
 GO
 CREATE EVENT SESSION psp_izle ON SERVER
-ADD EVENT sqlserver.parameter_sensitive_plan_optimization (ACTION (sqlserver.database_name, sqlserver.sql_text) WHERE sqlserver.database_name = N'psp_lab'),
-ADD EVENT sqlserver.parameter_sensitive_plan_optimization_skipped_reason (ACTION (sqlserver.database_name, sqlserver.sql_text) WHERE sqlserver.database_name = N'psp_lab')
+ADD EVENT sqlserver.parameter_sensitive_plan_optimization (ACTION (sqlserver.database_name, sqlserver.sql_text) WHERE sqlserver.database_name = N'qs_lab_psp'),
+ADD EVENT sqlserver.parameter_sensitive_plan_optimization_skipped_reason (ACTION (sqlserver.database_name, sqlserver.sql_text) WHERE sqlserver.database_name = N'qs_lab_psp')
 ADD TARGET package0.ring_buffer (SET max_memory = 4096)
 WITH (MAX_DISPATCH_LATENCY = 1 SECONDS, EVENT_RETENTION_MODE = NO_EVENT_LOSS);
 GO
-USE psp_lab;
+USE qs_lab_psp;
 GO
 SET QUOTED_IDENTIFIER ON;
 GO
@@ -40,30 +40,30 @@ BEGIN
 END
 GO
 PRINT '#### A. sp_executesql, parametreli (PSP acik, kural disi bir sey yok)';
-ALTER DATABASE psp_lab SET QUERY_STORE CLEAR ALL;
+ALTER DATABASE qs_lab_psp SET QUERY_STORE CLEAR ALL;
 EXEC dbo.kos;
 EXEC dbo.xe_ozet;
 EXEC sys.sp_query_store_flush_db;
 SELECT p.plan_type_desc, COUNT(*) AS plan_adedi FROM sys.query_store_plan p JOIN sys.query_store_query q ON q.query_id = p.query_id JOIN sys.query_store_query_text t ON t.query_text_id = q.query_text_id WHERE t.query_sql_text LIKE N'%PspSiparis%' AND t.query_sql_text NOT LIKE N'%query_store%' AND p.plan_type_desc IS NOT NULL GROUP BY p.plan_type_desc;
 GO
-DECLARE @q int = (SELECT TOP (1) v.parent_query_id FROM sys.query_store_query_variant v);
-SELECT @q AS ana_query_id;
+DECLARE @query_id int = (SELECT TOP (1) v.parent_query_id FROM sys.query_store_query_variant v);
+SELECT @query_id AS ana_query_id;
 -- ana query (dispatcher) uzerine Query Store hint dene
 PRINT '#### B1. hint adi belgede gecen ad: DISABLE_PARAMETER_SENSITIVE_PLAN_OPTIMIZATION';
-EXEC sys.sp_query_store_set_hints @query_id = @q, @query_hints = N'OPTION (USE HINT (''DISABLE_PARAMETER_SENSITIVE_PLAN_OPTIMIZATION''))';
-SELECT query_id, query_hint_text, last_query_hint_failure_reason, last_query_hint_failure_reason_desc, query_hint_failure_count, source_desc FROM sys.query_store_query_hints WHERE query_id = @q;
+EXEC sys.sp_query_store_set_hints @query_id = @query_id, @query_hints = N'OPTION (USE HINT (''DISABLE_PARAMETER_SENSITIVE_PLAN_OPTIMIZATION''))';
+SELECT query_id, query_hint_text, last_query_hint_failure_reason, last_query_hint_failure_reason_desc, query_hint_failure_count, source_desc FROM sys.query_store_query_hints WHERE query_id = @query_id;
 EXEC dbo.kos;
 EXEC dbo.xe_ozet;
-EXEC sys.sp_query_store_clear_hints @query_id = @q;
+EXEC sys.sp_query_store_clear_hints @query_id = @query_id;
 PRINT '#### B2. hint DISABLE_PARAMETER_SNIFFING';
-EXEC sys.sp_query_store_set_hints @query_id = @q, @query_hints = N'OPTION (USE HINT (''DISABLE_PARAMETER_SNIFFING''))';
-SELECT query_id, query_hint_text, last_query_hint_failure_reason_desc, query_hint_failure_count FROM sys.query_store_query_hints WHERE query_id = @q;
+EXEC sys.sp_query_store_set_hints @query_id = @query_id, @query_hints = N'OPTION (USE HINT (''DISABLE_PARAMETER_SNIFFING''))';
+SELECT query_id, query_hint_text, last_query_hint_failure_reason_desc, query_hint_failure_count FROM sys.query_store_query_hints WHERE query_id = @query_id;
 GO
 EXEC dbo.kos;
 EXEC dbo.xe_ozet;
 GO
-DECLARE @q int = (SELECT TOP (1) q.query_id FROM sys.query_store_query q JOIN sys.query_store_query_text t ON t.query_text_id = q.query_text_id WHERE t.query_sql_text LIKE N'%PspSiparis WHERE musteri_id = @m%' AND t.query_sql_text NOT LIKE N'%query_store%' ORDER BY q.query_id);
-EXEC sys.sp_query_store_clear_hints @query_id = @q;
+DECLARE @query_id int = (SELECT TOP (1) q.query_id FROM sys.query_store_query q JOIN sys.query_store_query_text t ON t.query_text_id = q.query_text_id WHERE t.query_sql_text LIKE N'%PspSiparis WHERE musteri_id = @m%' AND t.query_sql_text NOT LIKE N'%query_store%' ORDER BY q.query_id);
+EXEC sys.sp_query_store_clear_hints @query_id = @query_id;
 SELECT COUNT(*) AS kalan_hint FROM sys.query_store_query_hints;
 GO
 PRINT '#### C. hint olmadan tekrar (kontrol)';

@@ -12,11 +12,11 @@ ADD EVENT sqlserver.parameter_sensitive_plan_optimization_skipped_reason
 ADD TARGET package0.ring_buffer (SET max_memory = 4096)
 WITH (MAX_DISPATCH_LATENCY = 1 SECONDS, EVENT_RETENTION_MODE = NO_EVENT_LOSS);
 GO
-USE psp_lab;
+USE qs_lab_psp;
 GO
 PRINT '#### 2. 2025, ayni calistirmada XE ve Query Store';
-ALTER DATABASE psp_lab SET COMPATIBILITY_LEVEL = 160;
-ALTER DATABASE psp_lab SET QUERY_STORE CLEAR ALL;
+ALTER DATABASE qs_lab_psp SET COMPATIBILITY_LEVEL = 160;
+ALTER DATABASE qs_lab_psp SET QUERY_STORE CLEAR ALL;
 ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE;
 ALTER EVENT SESSION psp_filtresiz ON SERVER STATE = START;
 GO
@@ -34,12 +34,12 @@ GO
 USE master;
 DROP EVENT SESSION psp_filtresiz ON SERVER;
 GO
-USE psp_lab;
+USE qs_lab_psp;
 GO
 PRINT '#### 3. OPPO, hint olan (Ara3) ve olmayan (Ara1) prosedur, iki tekrar';
-ALTER DATABASE psp_lab SET COMPATIBILITY_LEVEL = 170;
+ALTER DATABASE qs_lab_psp SET COMPATIBILITY_LEVEL = 170;
 GO
-ALTER DATABASE psp_lab SET QUERY_STORE CLEAR ALL;
+ALTER DATABASE qs_lab_psp SET QUERY_STORE CLEAR ALL;
 ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE;
 GO
 EXEC dbo.Ara1 @musteri = 1, @durum = NULL; EXEC dbo.Ara1 @musteri = NULL, @durum = 3; EXEC dbo.Ara1 @musteri = 7, @durum = 2; EXEC dbo.Ara1 @musteri = NULL, @durum = NULL;
@@ -48,7 +48,7 @@ EXEC sys.sp_query_store_flush_db;
 SELECT OBJECT_NAME(q.object_id) AS prosedur, p.plan_type_desc, COUNT(*) AS plan_adedi FROM sys.query_store_plan p JOIN sys.query_store_query q ON q.query_id = p.query_id WHERE q.object_id IN (OBJECT_ID('dbo.Ara1'), OBJECT_ID('dbo.Ara3')) AND p.plan_type_desc IS NOT NULL GROUP BY OBJECT_NAME(q.object_id), p.plan_type_desc ORDER BY 1, 2;
 SELECT OBJECT_NAME(q.object_id) AS prosedur, COUNT(*) AS variant_kaydi FROM sys.query_store_query_variant v JOIN sys.query_store_query q ON q.query_id = v.parent_query_id WHERE q.object_id IN (OBJECT_ID('dbo.Ara1'), OBJECT_ID('dbo.Ara3')) GROUP BY OBJECT_NAME(q.object_id) ORDER BY 1;
 GO
-ALTER DATABASE psp_lab SET QUERY_STORE CLEAR ALL;
+ALTER DATABASE qs_lab_psp SET QUERY_STORE CLEAR ALL;
 ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE;
 GO
 EXEC dbo.Ara1 @musteri = 1, @durum = NULL; EXEC dbo.Ara1 @musteri = NULL, @durum = 3; EXEC dbo.Ara1 @musteri = 7, @durum = 2; EXEC dbo.Ara1 @musteri = NULL, @durum = NULL;

@@ -4,12 +4,12 @@ GO
 IF EXISTS (SELECT 1 FROM sys.server_event_sessions WHERE name = 'psp_izle') DROP EVENT SESSION psp_izle ON SERVER;
 GO
 CREATE EVENT SESSION psp_izle ON SERVER
-ADD EVENT sqlserver.parameter_sensitive_plan_optimization (ACTION (sqlserver.database_name, sqlserver.sql_text) WHERE sqlserver.database_name = N'psp_lab'),
-ADD EVENT sqlserver.parameter_sensitive_plan_optimization_skipped_reason (ACTION (sqlserver.database_name, sqlserver.sql_text) WHERE sqlserver.database_name = N'psp_lab')
+ADD EVENT sqlserver.parameter_sensitive_plan_optimization (ACTION (sqlserver.database_name, sqlserver.sql_text) WHERE sqlserver.database_name = N'qs_lab_psp'),
+ADD EVENT sqlserver.parameter_sensitive_plan_optimization_skipped_reason (ACTION (sqlserver.database_name, sqlserver.sql_text) WHERE sqlserver.database_name = N'qs_lab_psp')
 ADD TARGET package0.ring_buffer (SET max_memory = 4096)
 WITH (MAX_DISPATCH_LATENCY = 1 SECONDS, EVENT_RETENTION_MODE = NO_EVENT_LOSS);
 GO
-USE psp_lab;
+USE qs_lab_psp;
 GO
 SET QUOTED_IDENTIFIER ON;
 GO
@@ -161,17 +161,17 @@ GO
 
 PRINT '#### hint adi denemesi, belgede gecen iki ad';
 EXEC sys.sp_query_store_flush_db;
-DECLARE @q int = (SELECT TOP (1) query_id FROM sys.query_store_query ORDER BY query_id DESC);
-SELECT @q AS denenen_query_id;
+DECLARE @query_id int = (SELECT TOP (1) query_id FROM sys.query_store_query ORDER BY query_id DESC);
+SELECT @query_id AS denenen_query_id;
 BEGIN TRY
-  EXEC sys.sp_query_store_set_hints @query_id = @q, @query_hints = N'OPTION (USE HINT (''DISABLE_OPTIONAL_PARAMETER_OPTIMIZATION''))';
+  EXEC sys.sp_query_store_set_hints @query_id = @query_id, @query_hints = N'OPTION (USE HINT (''DISABLE_OPTIONAL_PARAMETER_OPTIMIZATION''))';
   SELECT 'kabul edildi' AS sonuc;
 END TRY
 BEGIN CATCH
   SELECT ERROR_NUMBER() AS hata_no, ERROR_MESSAGE() AS hata;
 END CATCH
 BEGIN TRY
-  EXEC sys.sp_query_store_set_hints @query_id = @q, @query_hints = N'OPTION (USE HINT (''DISABLE_PARAMETER_SENSITIVE_PLAN_OPTIMIZATION''))';
+  EXEC sys.sp_query_store_set_hints @query_id = @query_id, @query_hints = N'OPTION (USE HINT (''DISABLE_PARAMETER_SENSITIVE_PLAN_OPTIMIZATION''))';
   SELECT 'kabul edildi' AS sonuc;
 END TRY
 BEGIN CATCH

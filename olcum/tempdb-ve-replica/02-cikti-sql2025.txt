@@ -1,0 +1,34 @@
+surum|baslangic
+-----|---------
+Microsoft SQL Server 2025 (RTM) - 17.0.1000.7 (X64) 
+	Oct 21 2025 12:05:57 
+	Copyright (C) 2025 Microsoft Corporation
+	Enterprise Developer Edition (64-bit) on Windows Server 2025 Datacenter 10.0 <X64> (Build 26100: ) (Hypervisor)
+|2026-11-06 21:36:21.247
+database_id|name|is_query_store_on
+-----------|----|-----------------
+1|master|0
+2|tempdb|0
+3|model|1
+4|msdb|1
+vt|desired_state_desc|actual_state_desc|readonly_reason
+--|------------------|-----------------|---------------
+tempdb_options_satiri
+---------------------
+0
+vt|desired_state_desc|actual_state_desc
+--|------------------|-----------------
+model|READ_WRITE|READ_WRITE
+hata_no|hata
+-------|----
+5069|ALTER DATABASE statement failed.
+hata_no|hata
+-------|----
+5069|ALTER DATABASE statement failed.
+hata_no|hata
+-------|----
+5069|ALTER DATABASE statement failed.
+database_id|name|is_query_store_on
+-----------|----|-----------------
+1|master|0
+2|tempdb|0

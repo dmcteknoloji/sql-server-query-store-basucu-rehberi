@@ -1,0 +1,33 @@
+surum|baslangic
+-----|---------
+Microsoft SQL Server 2019 (RTM-CU32-GDR) (KB5090407) - 15.0.4470.1 (X64) 
+	Apr 15 2026 14:07:30 
+	Copyright (C) 2019 Microsoft Corporation
+	Developer Edition (64-bit) on Windows Server 2022 Datacenter 10.0 <X64> (Build 20348: ) (Hypervisor)
+|2026-11-06 21:48:32.107
+database_id|name|is_query_store_on
+-----------|----|-----------------
+1|master|0
+2|tempdb|0
+3|model|0
+4|msdb|1
+vt|desired_state_desc|actual_state_desc|readonly_reason
+--|------------------|-----------------|---------------
+tempdb_options_satiri
+---------------------
+0
+vt|desired_state_desc|actual_state_desc
+--|------------------|-----------------
+hata_no|hata
+-------|----
+5069|ALTER DATABASE statement failed.
+hata_no|hata
+-------|----
+5069|ALTER DATABASE statement failed.
+hata_no|hata
+-------|----
+5069|ALTER DATABASE statement failed.
+database_id|name|is_query_store_on
+-----------|----|-----------------
+1|master|0
+2|tempdb|0
