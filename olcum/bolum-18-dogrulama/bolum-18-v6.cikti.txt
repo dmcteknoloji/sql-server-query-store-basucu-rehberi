@@ -1,0 +1,14 @@
+Changed database context to 'lim_f'.
+adim|query_sayisi|toplam_calistirma
+----|------------|-----------------
+lim_f OFF(FORCED) oncesi|32|90
+adim|query_sayisi|toplam_calistirma
+----|------------|-----------------
+lim_f OFF(FORCED) sonrasi|34|3
+Changed database context to 'lim_o'.
+adim|query_sayisi|toplam_calistirma
+----|------------|-----------------
+lim_o OFF oncesi|36|94
+adim|query_sayisi|toplam_calistirma
+----|------------|-----------------
+lim_o OFF sonrasi|65|124

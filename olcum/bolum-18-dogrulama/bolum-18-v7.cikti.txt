@@ -1,0 +1,22 @@
+Changed database context to 'lim_r2'.
+actual_state_desc
+-----------------
+READ_ONLY
+sonuc
+-----
+READ_ONLY force_plan: basarili
+olcum|deger
+-----|-----
+sabit plan sayisi|1
+sonuc
+-----
+READ_ONLY remove_query: basarili
+olcum|deger
+-----|-----
+q3 hala var mi|0
+sonuc
+-----
+READ_ONLY set_hints: basarili
+olcum|deger
+-----|-----
+hint sayisi|1
