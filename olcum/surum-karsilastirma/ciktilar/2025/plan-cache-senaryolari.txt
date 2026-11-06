@@ -1,0 +1,94 @@
+surum
+-----
+17.0.1000.7
+Changed database context to 'pc_demo'.
+DBCC execution completed. If DBCC printed error messages, contact your system administrator.
+##### SENARYOLAR
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+senaryo|calistirma|compile|recompile
+-------|----------|-------|---------
+A|2000|2003|0
+B|2000|3|0
+C|2000|3|0
+##### CACHE BLOKLARI
+tur|cacheobjtype|plan_sayisi|toplam_mb|tek_kullanimlik|tek_kullanimlik_mb
+---|------------|-----------|---------|---------------|------------------
+Prepared|Compiled Plan|2001|125.1|2000|125.0
+Adhoc|Compiled Plan|2|.2|2|.2
+Proc|Compiled Plan|2|.2|0|.0
+View|Parse Tree|2|.2|0|.0
+Proc|Extended Proc|1|.0|0|.0
+tek_kullanimlik_yuzde_mb|tek_kullanimlik_yuzde_adet
+------------------------|--------------------------
+99.8|99.9
+cache_store|type|mb|entries_count|entries_in_use_count
+-----------|----|--|-------------|--------------------
+SQL Plans|CACHESTORE_SQLCP|132.5|2005|1
+Bound Trees|CACHESTORE_PHDR|.3|3|0
+Object Plans|CACHESTORE_OBJCP|.2|2|0
+cache_turu|hit_ratio_yuzde
+----------|---------------
+_Total|85.3
+Bound Trees|75.0
+Extended Stored Procedures|100.0
+Object Plans|99.9
+SQL Plans|61.8
+Temporary Tables & Table Variables|NULL
+batch_toplam|compile_toplam|recompile_toplam
+------------|--------------|----------------
+3684|140213|157
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+batch_sn|compile_sn|recompile_sn|compile_yuzde_batch|recompile_yuzde_compile
+--------|----------|------------|-------------------|-----------------------
+.000000|.000000|.000000|NULL|NULL
+plan_generation_num|execution_count|creation_time|last_execution_time|veritabani|nesne|ifade
+-------------------|---------------|-------------|-------------------|----------|-----|-----
+1|2000|2026-11-06 13:09:08.383|2026-11-06 13:09:08.427|pc_demo|Say|SELECT @a = COUNT(*) FROM dbo.T WHERE k = @k OR id = @k + 1; END 
+1|6|2026-11-06 13:09:05.177|2026-11-06 13:09:08.430|pc_demo|SayacAl|INSERT dbo.Sayac(ad, batch, comp, recomp) SELECT @ad, MAX(CASE WHEN counter_name='Batch Requests/sec
+1|1|2026-11-06 13:09:05.567|2026-11-06 13:09:05.567|NULL|NULL|SELECT @r = COUNT(*) FROM dbo.T WHERE k = 233 OR id = 238
+1|1|2026-11-06 13:09:07.357|2026-11-06 13:09:07.357|NULL|NULL|SELECT @r = COUNT(*) FROM dbo.T WHERE k = 412 OR id = 1417
+1|1|2026-11-06 13:09:06.550|2026-11-06 13:09:06.553|NULL|NULL|SELECT @r = COUNT(*) FROM dbo.T WHERE k = 879 OR id = 884
+1|1|2026-11-06 13:09:06.673|2026-11-06 13:09:06.677|NULL|NULL|SELECT @r = COUNT(*) FROM dbo.T WHERE k = 960 OR id = 965
+1|1|2026-11-06 13:09:06.090|2026-11-06 13:09:06.093|NULL|NULL|SELECT @r = COUNT(*) FROM dbo.T WHERE k = 577 OR id = 582
+1|1|2026-11-06 13:09:05.327|2026-11-06 13:09:05.327|NULL|NULL|SELECT @r = COUNT(*) FROM dbo.T WHERE k = 76 OR id = 81
+1|1|2026-11-06 13:09:06.580|2026-11-06 13:09:06.583|NULL|NULL|SELECT @r = COUNT(*) FROM dbo.T WHERE k = 899 OR id = 904
+1|1|2026-11-06 13:09:08.220|2026-11-06 13:09:08.223|NULL|NULL|SELECT @r = COUNT(*) FROM dbo.T WHERE k = 984 OR id = 1989
+sunucu_baslangic|en_eski_plan|en_yeni_plan|plan_sayisi
+----------------|------------|------------|-----------
+2026-11-06 12:24:12.753|2026-11-06 13:09:05.177|2026-11-06 13:09:18.553|2012
+name|type|clock_hand|clock_status|rounds_count|removed_all_rounds_count
+----|----|----------|------------|------------|------------------------
+Object Plans|CACHESTORE_OBJCP|HAND_EXTERNAL|SUSPENDED|0|0
+Object Plans|CACHESTORE_OBJCP|HAND_INTERNAL|SUSPENDED|0|0
+SQL Plans|CACHESTORE_SQLCP|HAND_EXTERNAL|SUSPENDED|0|0
+SQL Plans|CACHESTORE_SQLCP|HAND_INTERNAL|SUSPENDED|0|0
+query_hash|plan_sayisi|toplam_calisma|ornek_metin
+----------|-----------|--------------|-----------
+0xF7821FEA2648193C|2000|2000|(@r int OUTPUT)SELECT @r = COUNT(*) FROM dbo.T WHERE k = 0 OR id = 1005
+0xB0D4DEE3D3422CAE|2|2|-- compile orani, 10 saniyelik olcum DECLARE @b1 bigint, @c1 bigint, @r1 bigint, @b2 bigint, @c2 big
+0xCC47262D7A657AAA|2|4000|(@k int, @r int OUTPUT)SELECT @r = COUNT(*) FROM dbo.T WHERE k = @k OR id = @k + 1
+name|value|value_in_use
+----|-----|------------
+optimize for ad hoc workloads|0|0
+##### AD HOC AYARI: KAPALI
+DBCC execution completed. If DBCC printed error messages, contact your system administrator.
+durum|cacheobjtype|objtype|plan_sayisi|mb
+-----|------------|-------|-----------|--
+ayar KAPALI|Compiled Plan|Adhoc|1|.07
+ayar KAPALI|Compiled Plan|Prepared|2000|125.00
+Configuration option 'show advanced options' changed from 0 to 1. Run the RECONFIGURE statement to install.
+Configuration option 'optimize for ad hoc workloads' changed from 0 to 1. Run the RECONFIGURE statement to install.
+##### AD HOC AYARI: ACIK
+DBCC execution completed. If DBCC printed error messages, contact your system administrator.
+durum|cacheobjtype|objtype|plan_sayisi|mb
+-----|------------|-------|-----------|--
+ayar ACIK|Compiled Plan Stub|Adhoc|1|.00
+ayar ACIK|Compiled Plan|Prepared|2000|125.00
+Configuration option 'optimize for ad hoc workloads' changed from 1 to 0. Run the RECONFIGURE statement to install.
+##### BITTI

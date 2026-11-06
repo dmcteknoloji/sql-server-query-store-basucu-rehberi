@@ -1,0 +1,128 @@
+##### E0 SURUM
+surum|edition
+-----|-------
+16.0.4255.1|Developer Edition (64-bit)
+##### E1 SISTEM VERITABANLARINDA QUERY STORE
+name|uyumluluk|is_query_store_on
+----|---------|-----------------
+master|160|0
+tempdb|160|1
+model|160|1
+msdb|160|0
+qs_demo|150|1
+##### E2 YENI VERITABANI VARSAYILANLARI
+Changed database context to 'qs_demo'.
+actual_state_desc|desired_state_desc|readonly_reason|flush_sn|aralik_dk|maks_mb|saklama_gun|boyut_temizlik|yakalama|maks_plan
+-----------------|------------------|---------------|--------|---------|-------|-----------|--------------|--------|---------
+READ_WRITE|READ_WRITE|0|900|60|1000|30|AUTO|AUTO|200
+##### E2b DIGER VARSAYILANLAR (2017 ve ustu)
+Changed database context to 'qs_demo'.
+wait_stats
+----------
+ON
+stale_saat|exec_adedi|derleme_cpu_ms|calisma_cpu_ms
+----------|----------|--------------|--------------
+NULL|NULL|NULL|NULL
+##### E3 AKTIF ETME
+Changed database context to 'master'.
+Changed database context to 'qs_demo'.
+actual_state_desc|desired_state_desc|aralik_dk|maks_mb|yakalama
+-----------------|------------------|---------|-------|--------
+READ_WRITE|READ_WRITE|1|100|ALL
+##### E4 MASTER ve TEMPDB ICIN AKTIF ETME DENEMESI
+master: 5069 ALTER DATABASE statement failed.
+tempdb: HATA YOK (beklenmiyordu)
+name|is_query_store_on
+----|-----------------
+master|0
+tempdb|1
+model|1
+msdb|0
+##### E5 PARAMETRE KOKLAMA ve PLAN REGRESYONU
+Changed database context to 'qs_demo'.
+##### E6 AYNI SORGUDA IKI PLAN (sorgu_id, plan_id, calistirma, ortalama sure us)
+query_id|plan_id|calistirma|ort_sure_us|zorlandi
+--------|-------|----------|-----------|--------
+9|6|5|136815|0
+9|7|6|229859|0
+##### E7 PLAN ZORLAMA
+sorgu_id=9 en hizli plan=6
+plan_id|is_forced_plan|force_failure_count|last_force_failure_reason_desc
+-------|--------------|-------------------|------------------------------
+6|1|0|NONE
+7|0|0|NONE
+##### E7b ZORLAMADAN SONRA (kucuk musteriyle derlense de zorlanan plan kullaniliyor mu)
+query_id|plan_id|is_forced_plan|calistirma|ort_sure_us
+--------|-------|--------------|----------|-----------
+9|6|1|11|118325
+9|7|0|6|229859
+##### E8 QUERY STORE HINTS (2022 ve ustu)
+zorlanmis planli sorguya hint: 12457 Query with query_id 9 has forced plan. No hints can be applied to it while it has forced plan.
+query_id|query_hint_text|source_desc|query_hint_failure_count
+--------|---------------|-----------|------------------------
+9|OPTION(RECOMPILE)|User|0
+kalan_hint
+----------
+0
+##### E9 WAIT STATS KATEGORILERI
+wait_category_desc|satir|toplam_bekleme_ms
+------------------|-----|-----------------
+Preemptive|1|1102
+Parallelism|1|138
+Memory|2|7
+Tran Log IO|1|7
+Other Disk IO|1|4
+CPU|3|3
+Buffer IO|1|2
+##### E10 YAKALAMA MODU KARSILASTIRMASI (300 farkli ad hoc sorgu, her biri 1 kez)
+Changed database context to 'qs_demo'.
+mod|yakalanan
+---|---------
+ALL|0
+AUTO|0
+NONE|0
+##### E11 CUSTOM YAKALAMA (2019 ve ustu)
+query_capture_mode_desc|saat|adet|derleme_ms|calisma_ms
+-----------------------|----|----|----------|----------
+CUSTOM|24|30|1000|100
+##### E12 KOTA DOLUNCA READ_ONLY (maks 10 MB, 20000 farkli sorgu)
+Changed database context to 'qs_demo'.
+actual_state_desc|desired_state_desc|readonly_reason|simdiki_mb|maks_mb
+-----------------|------------------|---------------|----------|-------
+READ_ONLY|READ_WRITE|65536|22|10
+##### E13 GERI ALMA: boyut artir + CLEAR + READ_WRITE
+actual_state_desc|desired_state_desc|readonly_reason|simdiki_mb|maks_mb
+-----------------|------------------|---------------|----------|-------
+READ_WRITE|READ_WRITE|0|22|200
+##### E14 TUTARLILIK KONTROLU (2017 ve ustu)
+actual_state_desc
+-----------------
+READ_WRITE
+consistency_check calisti
+##### E15 KATALOG GORUNUMLERI
+name
+----
+database_query_store_internal_state
+database_query_store_options
+query_store_plan
+query_store_plan_feedback
+query_store_plan_forcing_locations
+query_store_query
+query_store_query_hints
+query_store_query_text
+query_store_query_variant
+query_store_replicas
+query_store_runtime_stats
+query_store_runtime_stats_interval
+query_store_wait_stats
+sp_query_store_clear_hints
+sp_query_store_clear_message_queues
+sp_query_store_consistency_check
+sp_query_store_flush_db
+sp_query_store_force_plan
+sp_query_store_remove_plan
+sp_query_store_remove_query
+sp_query_store_reset_exec_stats
+sp_query_store_set_hints
+sp_query_store_unforce_plan
+##### BITTI

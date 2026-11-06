@@ -1,0 +1,23 @@
+##### M0 SURUM
+surum
+-----
+17.0.1000.7
+##### M1 model ayari yeni veritabanina yansiyor mu
+an|is_query_store_on
+--|-----------------
+model baslangic|1
+an|name|is_query_store_on
+--|----|-----------------
+model ON sonrasi yeni veritabani|eski_db|1
+model ON sonrasi yeni veritabani|yeni_acik|1
+Changed database context to 'yeni_acik'.
+actual_state_desc|max_storage_size_mb|interval_length_minutes
+-----------------|-------------------|-----------------------
+READ_WRITE|512|30
+Changed database context to 'master'.
+an|name|is_query_store_on
+--|----|-----------------
+model OFF sonrasi|eski_db|1
+model OFF sonrasi|yeni_acik|1
+model OFF sonrasi|yeni_kapali|0
+##### BITTI

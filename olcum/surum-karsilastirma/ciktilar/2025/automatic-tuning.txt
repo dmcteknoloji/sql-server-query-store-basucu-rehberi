@@ -1,0 +1,22 @@
+##### A0 SURUM
+surum
+-----
+17.0.1000.7
+Changed database context to 'qs_demo'.
+##### A1 AUTOMATIC TUNING VARSAYILAN
+name|desired_state_desc|actual_state_desc|reason_desc
+----|------------------|-----------------|-----------
+FORCE_LAST_GOOD_PLAN|DEFAULT|OFF|AUTO_CONFIGURED
+##### A2 AUTOMATIC TUNING ACIK, QUERY STORE ACIK
+name|desired_state_desc|actual_state_desc|reason_desc
+----|------------------|-----------------|-----------
+FORCE_LAST_GOOD_PLAN|ON|ON|NULL
+##### A3 AUTOMATIC TUNING ACIK, QUERY STORE KAPALI
+name|desired_state_desc|actual_state_desc|reason_desc
+----|------------------|-----------------|-----------
+FORCE_LAST_GOOD_PLAN|ON|OFF|QUERY_STORE_OFF
+##### A4 TUNING ONERILERI GORUNUMU
+oneri_sayisi
+------------
+0
+##### BITTI

@@ -1,0 +1,27 @@
+#### SEVIYE 150
+seviye|db_seviye
+150|150
+uyumluluk 150|Compiled Plan|2
+uyumluluk 150|0
+uyumluluk 150|Proc|2|0
+#### SEVIYE 160
+seviye|db_seviye
+160|160
+uyumluluk 160|Compiled Plan|2
+uyumluluk 160|0
+uyumluluk 160|Proc|2|0
+#### SEVIYE 170
+seviye|db_seviye
+170|170
+uyumluluk 170|Compiled Plan|1
+uyumluluk 170|Dispatcher Plan|1
+uyumluluk 170|2
+uyumluluk 170|Proc|2|1
+#### SEVIYE 160
+uyumluluk 160 yalniz|Ozet|Compiled Plan|1
+uyumluluk 160 Ozet v|Ara|Compiled Plan|1
+uyumluluk 160 Ozet v|Ozet|Compiled Plan|1
+#### SEVIYE 170
+uyumluluk 170 yalniz|Ozet|Compiled Plan|1
+uyumluluk 170 Ozet v|Ara|Dispatcher Plan|1
+uyumluluk 170 Ozet v|Ozet|Compiled Plan|1

@@ -1,0 +1,340 @@
+Changed database context to 'qs_demo'.
+Changed database context to 'master'.
+Changed database context to 'ornek_dolu'.
+Changed database context to 'qs_demo'.
+Changed database context to 'qs_demo'.
+##### BLOK 1  03-query-store-nasil-calisir.md  -- DOGRULA Query Store dahili durumu (SQL Server 2022 ve sonrasi)
+pending_message_count|messaging_memory_used_mb
+---------------------|------------------------
+0|0
+Changed database context to 'qs_demo'.
+##### BLOK 2  04-aktif-etme.md  -- DOGRULA 1) durum ve ayarlar
+actual_state_desc|desired_state_desc|readonly_reason|interval_length_minutes|max_storage_size_mb|query_capture_mode_desc|wait_stats_capture_mode_desc
+-----------------|------------------|---------------|-----------------------|-------------------|-----------------------|----------------------------
+READ_WRITE|READ_WRITE|0|1|1000|ALL|ON
+Changed database context to 'qs_demo'.
+##### BLOK 3  07-raporlar-ve-sorgular.md  -- DOGRULA son 24 saatte toplam sure ve calistirma sayisina gore ilk 10 sorgu
+query_id|icerik_nesne|calistirma|toplam_sure_ms|agirlikli_ort_ms|plan_sayisi|sorgu
+--------|------------|----------|--------------|----------------|-----------|-----
+4|SiparisGetir|11|1925.7|175.06|2|(@m int,@a int,@b decimal(18,2),@c char(200))SELECT @a = COUNT(*), @b = SUM(tuta
+1|NULL|1|1800.1|1800.05|1|WITH n AS (SELECT TOP (200000) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS i F
+3|NULL|1|91.2|91.18|1|CREATE INDEX ix_musteri ON dbo.Siparis(musteri_id)
+2|NULL|1|37.6|37.55|1|CREATE INDEX ix_musteri ON dbo.Siparis(musteri_id)
+9|NULL|1|1.9|1.93|1|SELECT actual_state_desc, desired_state_desc, readonly_reason,
+       interval_l
+6|NULL|1|.9|.91|1|(@q int,@p int)SELECT TOP (1) @q = p.query_id, @p = p.plan_id
+FROM sys.query_sto
+7|NULL|1|.2|.22|1|(@h int)SELECT TOP (1) @h = q.query_id FROM sys.query_store_query q JOIN sys.que
+5|NULL|30|.2|.01|1|(@i int,@x int)SELECT @x = COUNT(*) FROM dbo.Siparis WHERE id = @i + 10
+8|NULL|1|.0|.04|1|SELECT pending_message_count, messaging_memory_used_mb
+FROM sys.database_query_s
+Changed database context to 'qs_demo'.
+##### BLOK 4  07-raporlar-ve-sorgular.md  -- DOGRULA son bir saatte calisan son 10 sorgu
+query_sql_text|query_id|query_text_id|plan_id|last_execution_time
+--------------|--------|-------------|-------|-------------------
+SELECT TOP (10)
+       q.query_id,
+       OBJECT_NAME(q.object_id)                                       AS icerik_nesne,
+       SUM(rs.count_executions)                                       AS calistirma,
+       CAST(SUM(rs.avg_duration * rs.count_execut|10|9|11|2026-11-06 13:24:38.8230000 +00:00
+SELECT actual_state_desc, desired_state_desc, readonly_reason,
+       interval_length_minutes, max_storage_size_mb, query_capture_mode_desc,
+       wait_stats_capture_mode_desc
+FROM sys.database_query_store_options|9|8|10|2026-11-06 13:24:38.7700000 +00:00
+SELECT pending_message_count, messaging_memory_used_mb
+FROM sys.database_query_store_internal_state|8|7|9|2026-11-06 13:24:38.7600000 +00:00
+(@h int)SELECT TOP (1) @h = q.query_id FROM sys.query_store_query q JOIN sys.query_store_query_text t ON t.query_text_id = q.query_text_id
+WHERE t.query_sql_text LIKE '%WHERE id = @i + 10%' OR t.query_sql_text LIKE '%dbo.Siparis WHERE id = %' ORDER BY q.qu|7|6|8|2026-11-06 13:23:28.4300000 +00:00
+(@q int,@p int)SELECT TOP (1) @q = p.query_id, @p = p.plan_id
+FROM sys.query_store_plan p JOIN sys.query_store_query q ON q.query_id = p.query_id
+WHERE q.object_id = OBJECT_ID('dbo.SiparisGetir')
+ORDER BY (SELECT AVG(rs.avg_duration) FROM sys.query_store_r|6|5|7|2026-11-06 13:23:28.4270000 +00:00
+(@i int,@x int)SELECT @x = COUNT(*) FROM dbo.Siparis WHERE id = @i + 10|5|4|6|2026-11-06 13:23:28.3470000 +00:00
+(@m int,@a int,@b decimal(18,2),@c char(200))SELECT @a = COUNT(*), @b = SUM(tutar), @c = MAX(dolgu) FROM dbo.Siparis WHERE musteri_id = @m|4|3|5|2026-11-06 13:23:28.3430000 +00:00
+(@m int,@a int,@b decimal(18,2),@c char(200))SELECT @a = COUNT(*), @b = SUM(tutar), @c = MAX(dolgu) FROM dbo.Siparis WHERE musteri_id = @m|4|3|4|2026-11-06 13:22:16.9870000 +00:00
+CREATE INDEX ix_musteri ON dbo.Siparis(musteri_id)|3|2|3|2026-11-06 13:22:16.4000000 +00:00
+CREATE INDEX ix_musteri ON dbo.Siparis(musteri_id)|2|2|2|2026-11-06 13:22:16.3070000 +00:00
+Changed database context to 'qs_demo'.
+##### BLOK 5  07-raporlar-ve-sorgular.md  -- DOGRULA son 24 saatte toplam CPU suresine gore ilk 10 sorgu
+query_id|calistirma|toplam_cpu_ms|toplam_mantiksal_okuma|sorgu
+--------|----------|-------------|----------------------|-----
+4|11|1924.6|2420967|(@m int,@a int,@b decimal(18,2),@c char(200))SELECT @a = COUNT(*), @b = SUM(tuta
+1|1|1728.1|522498|WITH n AS (SELECT TOP (200000) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS i F
+3|1|145.4|7138|CREATE INDEX ix_musteri ON dbo.Siparis(musteri_id)
+2|1|37.0|1433|CREATE INDEX ix_musteri ON dbo.Siparis(musteri_id)
+10|1|3.3|97|SELECT TOP (10)
+       q.query_id,
+       OBJECT_NAME(q.object_id)              
+9|1|1.6|48|SELECT actual_state_desc, desired_state_desc, readonly_reason,
+       interval_l
+6|1|.9|6|(@q int,@p int)SELECT TOP (1) @q = p.query_id, @p = p.plan_id
+FROM sys.query_sto
+11|1|.7|62|SELECT TOP (10)
+       qt.query_sql_text, q.query_id, qt.query_text_id, p.plan_i
+7|1|.2|4|(@h int)SELECT TOP (1) @h = q.query_id FROM sys.query_store_query q JOIN sys.que
+5|30|.2|90|(@i int,@x int)SELECT @x = COUNT(*) FROM dbo.Siparis WHERE id = @i + 10
+Changed database context to 'qs_demo'.
+##### BLOK 6  07-raporlar-ve-sorgular.md  -- DOGRULA birden fazla plani olan sorgular
+query_id|icerik_nesne|plan_sayisi|plan_idleri|sorgu
+--------|------------|-----------|-----------|-----
+4|SiparisGetir|2|4,5|(@m int,@a int,@b decimal(18,2),@c char(200))SELECT @a = COUNT(*), @b = SUM(tuta
+Changed database context to 'qs_demo'.
+##### BLOK 7  07-raporlar-ve-sorgular.md  -- DOGRULA ayni sorgunun planlari yan yana
+query_id|plan_id|calistirma|ort_sure_ms|ort_cpu_ms|son_derleme|zorlanmis
+--------|-------|----------|-----------|----------|-----------|---------
+4|4|5|115.67|115.50|2026-11-06 13:22:16.4030000 +00:00|1
+4|5|6|224.56|224.51|2026-11-06 13:23:26.9970000 +00:00|0
+Changed database context to 'qs_demo'.
+##### BLOK 8  07-raporlar-ve-sorgular.md  -- DOGRULA son 48 saatte plan degisikligiyle suresi 2 katindan fazla artan sorgular
+query_sql_text|query_id|ort_sure_1_us|plan_1|aralik_1|ort_sure_2_us|plan_2|aralik_2
+--------------|--------|-------------|------|--------|-------------|------|--------
+Changed database context to 'qs_demo'.
+##### BLOK 9  07-raporlar-ve-sorgular.md  -- DOGRULA son 24 saatte toplam bekleme suresi en yuksek sorgular (SQL Server 2017 ve sonr
+query_id|plan_id|wait_category_desc|toplam_bekleme_ms
+--------|-------|------------------|-----------------
+1|1|Preemptive|1128
+3|3|Parallelism|89
+1|1|Buffer IO|57
+1|1|Memory|36
+1|1|Tran Log IO|14
+3|3|Memory|5
+1|1|Other Disk IO|4
+10|11|Lock|2
+4|4|CPU|1
+2|2|Memory|1
+Changed database context to 'qs_demo'.
+##### BLOK 10  07-raporlar-ve-sorgular.md  -- DOGRULA durum ve boyut
+actual_state_desc|desired_state_desc|readonly_reason|current_storage_size_mb|max_storage_size_mb|interval_length_minutes|stale_query_threshold_days|size_based_cleanup_mode_desc|query_capture_mode_desc
+-----------------|------------------|---------------|-----------------------|-------------------|-----------------------|--------------------------|----------------------------|-----------------------
+READ_WRITE|READ_WRITE|0|1|1000|1|30|AUTO|ALL
+Changed database context to 'qs_demo'.
+##### BLOK 11  08-plan-regresyonu-ve-zorlama.md  -- DOGRULA zorlanan planlarin durumu
+plan_id|query_id|icerik_nesne_id|is_forced_plan|force_failure_count|last_force_failure_reason_desc
+-------|--------|---------------|--------------|-------------------|------------------------------
+4|4|949578421|1|0|NONE
+Changed database context to 'ornek_kapali'.
+##### BLOK 12  08b-plan-cache-izleme.md  -- DOGRULA variant plan var mi, Query Storeda dispatcher ve variant planlar
+object_id|plan_type_desc|plan_adedi
+---------|--------------|----------
+Changed database context to 'ornek_kapali'.
+##### BLOK 13  08b-plan-cache-izleme.md  -- DOGRULA plan cache genel durum, tur bazinda
+tur|cacheobjtype|plan_sayisi|toplam_mb|tek_kullanimlik|tek_kullanimlik_mb
+---|------------|-----------|---------|---------------|------------------
+Prepared|Compiled Plan|20007|1876.9|20006|1876.3
+View|Parse Tree|37|7.1|0|.0
+Adhoc|Compiled Plan|19|3.3|18|3.3
+Proc|Compiled Plan|1|.1|0|.0
+Proc|Extended Proc|4|.0|2|.0
+Changed database context to 'ornek_kapali'.
+##### BLOK 14  08b-plan-cache-izleme.md  -- DOGRULA tek kullanimlik plan orani
+tek_kullanimlik_yuzde_mb|tek_kullanimlik_yuzde_adet
+------------------------|--------------------------
+100.0|100.0
+Changed database context to 'ornek_kapali'.
+##### BLOK 15  08b-plan-cache-izleme.md  -- DOGRULA plan cache bellek kullanimi, cache store bazinda
+cache_store|type|mb|entries_count|entries_in_use_count
+-----------|----|--|-------------|--------------------
+SQL Plans|CACHESTORE_SQLCP|1928.2|20028|1
+Bound Trees|CACHESTORE_PHDR|7.2|38|0
+Object Plans|CACHESTORE_OBJCP|.1|1|0
+Changed database context to 'ornek_kapali'.
+##### BLOK 16  08b-plan-cache-izleme.md  -- DOGRULA plan cache hit ratio
+cache_turu|hit_ratio_yuzde
+----------|---------------
+_Total|70.0
+Bound Trees|98.1
+Extended Stored Procedures|100.0
+Object Plans|81.8
+SQL Plans|.0
+Temporary Tables & Table Variables|NULL
+Changed database context to 'ornek_kapali'.
+##### BLOK 17  08b-plan-cache-izleme.md  -- DOGRULA compile ve recompile toplamlari (sunucu baslangicindan beri)
+batch_toplam|compile_toplam|recompile_toplam
+------------|--------------|----------------
+71|20145|6
+Changed database context to 'ornek_kapali'.
+##### BLOK 18  08b-plan-cache-izleme.md  -- DOGRULA compile orani, 10 saniyelik olcum
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+batch_sn|compile_sn|recompile_sn|compile_yuzde_batch|recompile_yuzde_compile
+--------|----------|------------|-------------------|-----------------------
+.000000|.000000|.000000|NULL|NULL
+Changed database context to 'ornek_kapali'.
+##### BLOK 19  08b-plan-cache-izleme.md  -- DOGRULA en cok yeniden derlenen planlar
+plan_generation_num|execution_count|creation_time|last_execution_time|veritabani|nesne|ifade
+-------------------|---------------|-------------|-------------------|----------|-----|-----
+6|266|2026-11-06 13:23:39.550|2026-11-06 13:23:40.613|NULL|NULL|select																																	@sumCountExecutions = sum(case when (execution_type = 0 or @a
+2|1|2026-11-06 13:22:14.443|2026-11-06 13:22:14.457|NULL|NULL|WITH n AS (SELECT TOP (200000) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS i FROM sys.all_objects 
+1|1|2026-11-06 13:23:31.623|2026-11-06 13:23:31.627|NULL|NULL|SELECT @r = COUNT(*) FROM sys.objects WHERE object_id = 586 OR name = N'o586'
+1|1|2026-11-06 13:23:39.593|2026-11-06 13:23:39.597|NULL|NULL|SELECT @r = COUNT(*) FROM sys.objects WHERE object_id = 2362 OR name = N'o2362'
+1|1|2026-11-06 13:24:29.723|2026-11-06 13:24:29.727|NULL|NULL|SELECT @r = COUNT(*) FROM sys.objects WHERE object_id = 17465 OR name = N'o17465'
+1|1|2026-11-06 13:24:29.020|2026-11-06 13:24:29.020|NULL|NULL|SELECT @r = COUNT(*) FROM sys.objects WHERE object_id = 17250 OR name = N'o17250'
+1|1|2026-11-06 13:23:32.050|2026-11-06 13:23:32.053|NULL|NULL|SELECT @r = COUNT(*) FROM sys.objects WHERE object_id = 684 OR name = N'o684'
+1|1|2026-11-06 13:23:41.220|2026-11-06 13:23:41.223|NULL|NULL|SELECT @r = COUNT(*) FROM sys.objects WHERE object_id = 2761 OR name = N'o2761'
+1|1|2026-11-06 13:23:38.687|2026-11-06 13:23:38.690|NULL|NULL|SELECT @r = COUNT(*) FROM sys.objects WHERE object_id = 2160 OR name = N'o2160'
+1|1|2026-11-06 13:23:39.367|2026-11-06 13:23:39.370|NULL|NULL|SELECT @r = COUNT(*) FROM sys.objects WHERE object_id = 2312 OR name = N'o2312'
+Changed database context to 'ornek_kapali'.
+##### BLOK 20  08b-plan-cache-izleme.md  -- DOGRULA plan cache ne kadar eski
+sunucu_baslangic|en_eski_plan|en_yeni_plan|plan_sayisi
+----------------|------------|------------|-----------
+2026-11-06 13:21:01.030|2026-11-06 13:21:47.560|2026-11-06 13:24:49.397|20039
+Changed database context to 'ornek_kapali'.
+##### BLOK 21  08b-plan-cache-izleme.md  -- DOGRULA bellek baskisiyla atilan plan kayitlari
+name|type|clock_hand|clock_status|rounds_count|removed_all_rounds_count
+----|----|----------|------------|------------|------------------------
+Object Plans|CACHESTORE_OBJCP|HAND_EXTERNAL|SUSPENDED|0|0
+Object Plans|CACHESTORE_OBJCP|HAND_INTERNAL|SUSPENDED|0|0
+SQL Plans|CACHESTORE_SQLCP|HAND_EXTERNAL|SUSPENDED|0|0
+SQL Plans|CACHESTORE_SQLCP|HAND_INTERNAL|SUSPENDED|0|0
+Changed database context to 'ornek_kapali'.
+##### BLOK 22  08b-plan-cache-izleme.md  -- DOGRULA ayni sablondan cok sayida plan (parametrelendirme adayi)
+query_hash|plan_sayisi|toplam_calisma|ornek_metin
+----------|-----------|--------------|-----------
+0x413424C81C379EC6|20000|20000|(@r int OUTPUT)SELECT @r = COUNT(*) FROM sys.objects WHERE object_id = 0 OR name = N'o0'
+0xA0FE1B8FDEBBF9A8|2|2| -- DOGRULA compile orani, 10 saniyelik olcum DECLARE @b1 bigint, @c1 bigint, @r1 bigint, @b2 bigint
+Changed database context to 'ornek_kapali'.
+##### BLOK 23  08b-plan-cache-izleme.md  -- DOGRULA optimize for ad hoc workloads ayari
+name|value|value_in_use
+----|-----|------------
+optimize for ad hoc workloads|0|0
+Changed database context to 'qs_demo'.
+##### BLOK 24  10-bekleme-istatistikleri.md  -- DOGRULA son 24 saatte bekleme kategorisine gore toplam bekleme (SQL Server 2017 ve sonr
+wait_category_desc|plan_sayisi|toplam_bekleme_ms
+------------------|-----------|-----------------
+Preemptive|1|1128
+Parallelism|1|89
+Buffer IO|1|57
+Memory|3|42
+Tran Log IO|1|14
+Other Disk IO|1|4
+Lock|1|2
+CPU|1|1
+Changed database context to 'qs_demo'.
+##### BLOK 25  11-otomatik-ayar-yukseltme-replica.md  -- DOGRULA plan duzeltme onerileri, kazanc ve duzeltme betigi
+reason|score|script|query_id|regressedPlanId|recommendedPlanId|regressedPlanErrorCount|recommendedPlanErrorCount|regressedPlanExecutionCount|regressedPlanCpuTimeAverage|recommendedPlanExecutionCount|recommendedPlanCpuTimeAverage|estimated_gain|error_prone
+------|-----|------|--------|---------------|-----------------|-----------------------|-------------------------|---------------------------|---------------------------|-----------------------------|-----------------------------|--------------|-----------
+Changed database context to 'qs_demo'.
+##### BLOK 26  11-otomatik-ayar-yukseltme-replica.md  -- DOGRULA tum replicalar icin son 8 saatte CPUya gore ilk 50 sorgu
+query_id|plan_id|replica_tipi|calistirma|toplam_cpu_ms|sorgu
+--------|-------|------------|----------|-------------|-----
+1|1|PRIMARY|1|1728.076|WITH n AS (SELECT TOP (200000) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS i F
+4|5|PRIMARY|6|1347.085|(@m int,@a int,@b decimal(18,2),@c char(200))SELECT @a = COUNT(*), @b = SUM(tuta
+4|4|PRIMARY|5|577.50999999999999|(@m int,@a int,@b decimal(18,2),@c char(200))SELECT @a = COUNT(*), @b = SUM(tuta
+3|3|PRIMARY|1|145.43299999999999|CREATE INDEX ix_musteri ON dbo.Siparis(musteri_id)
+2|2|PRIMARY|1|36.994999999999997|CREATE INDEX ix_musteri ON dbo.Siparis(musteri_id)
+15|16|PRIMARY|1|3.3679999999999999|SELECT qt.query_sql_text, q.query_id,
+       rs1.avg_duration AS ort_sure_1_us, 
+10|11|PRIMARY|1|3.2799999999999998|SELECT TOP (10)
+       q.query_id,
+       OBJECT_NAME(q.object_id)              
+13|14|PRIMARY|1|3.2570000000000001|SELECT q.query_id,
+       OBJECT_NAME(q.object_id)        AS icerik_nesne,
+     
+12|13|PRIMARY|1|1.659|SELECT TOP (10)
+       q.query_id,
+       SUM(rs.count_executions)              
+9|10|PRIMARY|1|1.573|SELECT actual_state_desc, desired_state_desc, readonly_reason,
+       interval_l
+16|17|PRIMARY|1|1.5429999999999999|SELECT TOP (10)
+       q.query_id, p.plan_id, ws.wait_category_desc,
+       SUM(
+17|18|PRIMARY|1|1.377|SELECT actual_state_desc, desired_state_desc, readonly_reason,
+       current_st
+20|21|PRIMARY|1|1.3560000000000001|SELECT reason, score,
+       script = JSON_VALUE(details, '$.implementationDetai
+19|20|PRIMARY|1|1.1259999999999999|SELECT ws.wait_category_desc,
+       COUNT(DISTINCT ws.plan_id)        AS plan_s
+6|7|PRIMARY|1|0.90900000000000003|(@q int,@p int)SELECT TOP (1) @q = p.query_id, @p = p.plan_id
+FROM sys.query_sto
+14|15|PRIMARY|1|0.78100000000000003|SELECT p.query_id, p.plan_id,
+       SUM(rs.count_executions) AS calistirma,
+   
+11|12|PRIMARY|1|0.69799999999999995|SELECT TOP (10)
+       qt.query_sql_text, q.query_id, qt.query_text_id, p.plan_i
+7|8|PRIMARY|1|0.219|(@h int)SELECT TOP (1) @h = q.query_id FROM sys.query_store_query q JOIN sys.que
+18|19|PRIMARY|1|0.215|SELECT p.plan_id, p.query_id, q.object_id AS icerik_nesne_id,
+       p.is_forced
+5|6|PRIMARY|30|0.17899999999999999|(@i int,@x int)SELECT @x = COUNT(*) FROM dbo.Siparis WHERE id = @i + 10
+8|9|PRIMARY|1|4.2999999999999997E-2|SELECT pending_message_count, messaging_memory_used_mb
+FROM sys.database_query_s
+Changed database context to 'qs_demo'.
+##### BLOK 27  12-isletme-ve-bakim.md  -- DOGRULA Query Store durumu, istenen ile gercek durum farki
+veritabani|desired_state_desc|actual_state_desc|readonly_reason|current_storage_size_mb|max_storage_size_mb|doluluk_yuzde
+----------|------------------|-----------------|---------------|-----------------------|-------------------|-------------
+qs_demo|READ_WRITE|READ_WRITE|0|1|1000|.1
+Changed database context to 'qs_demo'.
+##### BLOK 28  12b-ek-konular.md  -- DOGRULA sabitlemesi basarisiz olan planlar
+query_id|plan_id|force_failure_count|last_force_failure_reason|last_force_failure_reason_desc
+--------|-------|-------------------|-------------------------|------------------------------
+Changed database context to 'qs_demo'.
+##### BLOK 29  12b-ek-konular.md  -- DOGRULA Query Store bellek kullanimi
+type|pages_kb
+----|--------
+MEMORYCLERK_QUERYDISKSTORE_HASHMAP|4672
+CACHESTORE_QDSRUNTIMESTATS|3240
+MEMORYCLERK_QUERYDISKSTORE|288
+MEMORYCLERK_QUERYDISKSTORE_STATS|288
+MEMORYCLERK_QUERYDISKSTORE_FEEDBACK|112
+USERSTORE_QDSSTMT|80
+CACHESTORE_QDSCONTEXTSETTINGS|32
+MEMORYCLERK_QUERYDISKSTORE_MESSAGING|32
+MEMORYCLERK_QUERYDISKSTORE_QUERYVARIANT_DISPATCHERLIST|32
+Changed database context to 'ornek_dolu'.
+##### BLOK 30  13-tuzaklar-ve-kontrol-listesi.md  -- DOGRULA ad hoc yuk suphesi: metin, sorgu ve plan sayilari
+sorgu_metni_sayisi
+------------------
+2483
+sorgu_sayisi
+------------
+2483
+farkli_query_hash
+-----------------
+1
+plan_sayisi
+-----------
+2483
+farkli_plan_hash
+----------------
+1
+Changed database context to 'ornek_dolu'.
+##### BLOK 31  13-tuzaklar-ve-kontrol-listesi.md  -- DOGRULA en cok tekrar eden sorgu sablonlari (ayni query_hash, farkli metin)
+query_hash|farkli_metin|query_kaydi|ornek_metin
+----------|------------|-----------|-----------
+0x413424C81C379EC6|2483|2483|(@r int)SELECT @r = COUNT(*) FROM sys.objects WHERE object_id = 0 OR name = N'o0
+Changed database context to 'qs_demo'.
+##### BLOK 32  14-hazir-betikler.md  -- DOGRULA tum kullanici veritabanlarinda Query Store durumu (SQL Server 2017 ve sonrasi)
+veritabani|desired_state_desc|actual_state_desc|readonly_reason|current_storage_size_mb|max_storage_size_mb|query_capture_mode_desc|hata
+----------|------------------|-----------------|---------------|-----------------------|-------------------|-----------------------|----
+ornek_dolu|READ_WRITE|READ_ONLY|65536|14|10|ALL|NULL
+qs_demo|READ_WRITE|READ_WRITE|0|1|1000|ALL|NULL
+Changed database context to 'qs_demo'.
+##### BLOK 33  14-hazir-betikler.md  -- DOGRULA sorunlu Query Store veritabanlari (durum farki ya da doluluk > 90)
+veritabani|desired_state_desc|actual_state_desc|readonly_reason|current_storage_size_mb|max_storage_size_mb|query_capture_mode_desc|hata
+----------|------------------|-----------------|---------------|-----------------------|-------------------|-----------------------|----
+ornek_dolu|READ_WRITE|READ_ONLY|65536|14|10|ALL|NULL
+Changed database context to 'qs_demo'.
+##### BLOK 34  14-hazir-betikler.md  -- DOGRULA Query Store kapali kullanici veritabanlari icin acma komutlari (@calistir = 0 y
+ALTER DATABASE [ornek_kapali] SET QUERY_STORE = ON (OPERATION_MODE = READ_WRITE, CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30), DATA_FLUSH_INTERVAL_SECONDS = 900, MAX_STORAGE_SIZE_MB = 1000, INTERVAL_LENGTH_MINUTES = 60, SIZE_BASED_CLEANUP_MODE = AUTO, QUERY_CAPTURE_MODE = AUTO, MAX_PLANS_PER_QUERY = 200, WAIT_STATS_CAPTURE_MODE = ON)
+islenen_veritabani|rezerve_toplam_mb
+------------------|-----------------
+1|1000
+Changed database context to 'qs_demo'.
+##### BLOK 35  14-hazir-betikler.md  -- DOGRULA Query Store hint envanteri (SQL Server 2022 ve sonrasi)
+query_id|query_hint_text|source_desc|query_hint_failure_count|last_query_hint_failure_reason_desc|sorgu
+--------|---------------|-----------|------------------------|-----------------------------------|-----
+7|OPTION (MAXDOP 1)|User|0|NONE|(@h int)SELECT TOP (1) @h = q.query_id FROM sys.query_store_query q JOIN sys.que
+Changed database context to 'qs_demo'.
+##### BLOK 36  14-hazir-betikler.md  -- DOGRULA zorlanan planlar ve hata durumlari
+query_id|plan_id|force_failure_count|last_force_failure_reason_desc|last_compile_start_time|sorgu
+--------|-------|-------------------|------------------------------|-----------------------|-----
+4|4|0|NONE|2026-11-06 13:22:16.4030000 +00:00|(@m int,@a int,@b decimal(18,2),@c char(200))SELECT @a = COUNT(*), @b = SUM(tuta
+Changed database context to 'qs_demo'.
+##### BLOK 37  14-hazir-betikler.md  -- DOGRULA ad hoc ve ic sorgulari Query Storedan temizle (varsayilan 7 gunden eskiler)
+silinen_sorgu_sayisi
+--------------------
+0
+Changed database context to 'qs_demo'.
+##### BLOK 38  14-hazir-betikler.md  -- DOGRULA son 24 saat ile onceki 24 saati karsilastir, ortalama suresi 2 kat artanlar
+query_id|onceki_adet|son_adet|onceki_ort_ms|son_ort_ms|kat_artisi
+--------|-----------|--------|-------------|----------|----------
+##### BITTI

@@ -1,0 +1,66 @@
+Changed database context to 'lc'.
+== plan uretimi
+Object 'dbo.SiparisGetir' was successfully marked for recompilation.
+ort_ms
+------
+36.37
+Object 'dbo.SiparisGetir' was successfully marked for recompilation.
+ort_ms
+------
+2.01
+plan_id|plan_tipi
+-------|---------
+5|tarama
+6|seek+lookup
+query_id|plan_tarama|plan_seek
+--------|-----------|---------
+5|5|6
+Object 'dbo.SiparisGetir' was successfully marked for recompilation.
+ort_ms
+------
+14.53
+Object 'dbo.SiparisGetir' was successfully marked for recompilation.
+ort_ms
+------
+.00
+plan_tipi|parametre|ort_ms
+---------|---------|------
+tarama|kucuk musteri|14.61
+tarama|buyuk musteri|33.23
+seek+lookup|kucuk musteri|.04
+seek+lookup|buyuk musteri|737.71
+== yasam dongusu (tarama plani sabit)
+Object 'dbo.SiparisGetir' was successfully marked for recompilation.
+ort_ms
+------
+13.99
+Object 'dbo.SiparisGetir' was successfully marked for recompilation.
+ort_ms
+------
+15.34
+Object 'dbo.SiparisGetir' was successfully marked for recompilation.
+ort_ms
+------
+.00
+Object 'dbo.SiparisGetir' was successfully marked for recompilation.
+ort_ms
+------
+15.69
+durum|kullanilan_plan|plan_tipi|sabit_mi
+-----|---------------|---------|--------
+READ_WRITE|5|tarama|1
+READ_ONLY|5|tarama|1
+OFF|6|seek+lookup|0
+tekrar READ_WRITE|5|tarama|1
+== sabit plan varken remove_query
+hata_no|mesaj
+-------|-----
+12425|Query with provided query id (5) cannot be deleted since it has active forcing policy.
+sabit_plan_sayisi
+-----------------
+1
+== CLEAR sonrasi
+sabit_plan_sayisi|query_sayisi
+-----------------|------------
+0|0
+

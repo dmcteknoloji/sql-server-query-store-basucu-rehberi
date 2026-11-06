@@ -1,0 +1,34 @@
+##### T0 SURUM
+surum
+-----
+17.0.1000.7
+Changed database context to 'qs_demo'.
+##### T1 QUERY STORE AYARI DEGISINCE PROSEDUR PLANLARI (plan cache)
+an|cache_plan_sayisi
+--|-----------------
+once|1
+an|cache_plan_sayisi
+--|-----------------
+QS ON sonrasi|1
+an|cache_plan_sayisi
+--|-----------------
+ayar degisikligi sonrasi|0
+an|cache_plan_sayisi
+--|-----------------
+QS OFF sonrasi|0
+##### T2 OTOMATIK PARAMETRELENDIRME QS METNI
+farkli_metin
+------------
+3
+query_sql_text
+--------------
+(@x int)SELECT @x = COUNT(*) FROM dbo.Siparis WHERE id = 5
+(@x int)SELECT @x = COUNT(*) FROM dbo.Siparis WHERE id = 6
+(@x int)SELECT @x = COUNT(*) FROM dbo.Siparis WHERE id = 7
+##### T3 YAKALAMA MODU (300 tek seferlik + 1 sorgu 40 kez), sik sorgu = %sik% ile aranir
+mod|tek_seferlik|sik_sorgu
+---|------------|---------
+ALL|300|1
+AUTO|0|1
+NONE|0|0
+##### BITTI

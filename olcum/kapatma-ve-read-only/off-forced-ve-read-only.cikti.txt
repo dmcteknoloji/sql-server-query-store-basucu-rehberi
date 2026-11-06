@@ -1,0 +1,34 @@
+Changed database context to 'lim_f'.
+adim|query_sayisi|toplam_calistirma
+----|------------|-----------------
+lim_f OFF(FORCED) oncesi|16|75
+adim|query_sayisi|toplam_calistirma
+----|------------|-----------------
+lim_f OFF(FORCED) sonrasi|18|3
+Changed database context to 'lim_o'.
+adim|query_sayisi|toplam_calistirma
+----|------------|-----------------
+lim_o OFF oncesi|16|75
+adim|query_sayisi|toplam_calistirma
+----|------------|-----------------
+lim_o OFF sonrasi|64|124
+Changed database context to 'lim_r'.
+q1|p1|q2|p2
+--|--|--|--
+8|8|9|9
+actual_state_desc
+-----------------
+READ_ONLY
+sonuc
+-----
+READ_ONLY set_hints: basarili
+islem|hata_no|mesaj
+-----|-------|-----
+READ_ONLY force_plan|12458|Query with query_id 9 has query store hints. Query Store can't force a plan for it while it has hints.
+islem|hata_no|mesaj
+-----|-------|-----
+READ_ONLY remove_query|12456|Query with provided query id (9) cannot be removed from Query Store since it has query hint(s). Clear the query hints before removing the query.
+sonuc
+-----
+READ_ONLY unforce_plan: basarili
+

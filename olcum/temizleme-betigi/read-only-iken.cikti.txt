@@ -1,0 +1,17 @@
+Changed database context to 'lim_p'.
+durum
+-----
+READ_ONLY
+onceki_query
+------------
+45
+silinen_sorgu_sayisi
+--------------------
+44
+sonraki_query
+-------------
+1
+sabit_plan
+----------
+1
+

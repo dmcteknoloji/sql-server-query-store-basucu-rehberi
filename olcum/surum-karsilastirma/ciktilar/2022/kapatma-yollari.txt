@@ -1,0 +1,38 @@
+##### V0 SURUM
+surum
+-----
+16.0.4255.1
+Changed database context to 'qs_demo'.
+##### V1 KAPATMA SECENEKLERI: veri ne oluyor
+an|sorgu_sayisi|say_calistirma|durum
+--|------------|--------------|-----
+1 READ_WRITE, 50 cagri|3|50|READ_WRITE
+an|sorgu_sayisi|say_calistirma|durum
+--|------------|--------------|-----
+2 READ_ONLY, 50 cagri daha|3|50|READ_ONLY
+an|sorgu_sayisi|say_calistirma|durum
+--|------------|--------------|-----
+3 capture NONE, 50 cagri daha|3|100|READ_WRITE
+an|durum
+--|-----
+4 OFF|OFF
+an|sorgu_sayisi
+--|------------
+4 OFF iken okuma|3
+an|sorgu_sayisi|say_calistirma|durum
+--|------------|--------------|-----
+5 yeniden ON|3|100|READ_WRITE
+an|durum
+--|-----
+6 OFF (FORCED)|OFF
+an|sorgu_sayisi
+--|------------
+7 CLEAR sonrasi|0
+##### V2 DEPOLAMA: 3000 farkli ad hoc sorgu ALL modda ne kadar yer tutar
+depolama_mb|sorgu_sayisi|plan_sayisi
+-----------|------------|-----------
+11|3002|3002
+##### V3 SURE ETKISI: 20000 kisa prosedur cagrisi, 3 tekrar (ms)
+Msg 102, Level 15, State 1, Server vm-qs2022, Line 15
+Incorrect syntax near '%'.
+##### BITTI

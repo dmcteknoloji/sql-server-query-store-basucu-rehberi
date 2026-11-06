@@ -1,0 +1,13 @@
+is|mod|tekrar|saniye|query_sayisi|qs_mb
+w2b|OFF|1|55.57|NA|NA
+w2b|AUTO|1|61.91|0|2
+w2b|ALL|1|97.73|61030|172
+w2b|ALL|2|112.19|26093|73
+w2b|OFF|2|54.43|NA|NA
+w2b|AUTO|2|44.49|0|0
+w2b|AUTO|3|42.99|0|0
+w2b|ALL|3|71.92|39723|109
+w2b|OFF|3|55.92|NA|NA
+w2b|OFF|4|54.77|NA|NA
+w2b|ALL|4|72.26|36680|99
+

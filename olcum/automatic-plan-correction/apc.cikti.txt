@@ -1,0 +1,34 @@
+BOYUT=1416
+Changed database context to 'apc'.
+name|desired_state_desc|actual_state_desc|reason_desc
+----|------------------|-----------------|-----------
+FORCE_LAST_GOOD_PLAN|ON|ON|NULL
+== faz 1: iyi plan (tarama), 25 calistirma, interval gecisi
+== faz 2: kotu plan (seek+lookup) ile buyuk musteri
+Object 'dbo.SiparisGetir' was successfully marked for recompilation.
+tur|oneri_sayisi|otomatik_sabit_plan|oneri_durumu
+---|------------|-------------------|------------
+0|1|1|Verifying
+tur|oneri_sayisi|otomatik_sabit_plan|oneri_durumu
+---|------------|-------------------|------------
+1|1|1|Verifying
+tur|oneri_sayisi|otomatik_sabit_plan|oneri_durumu
+---|------------|-------------------|------------
+2|1|1|Verifying
+tur|oneri_sayisi|otomatik_sabit_plan|oneri_durumu
+---|------------|-------------------|------------
+3|1|1|Verifying
+tur|oneri_sayisi|otomatik_sabit_plan|oneri_durumu
+---|------------|-------------------|------------
+4|1|1|Verifying
+tur|oneri_sayisi|otomatik_sabit_plan|oneri_durumu
+---|------------|-------------------|------------
+5|1|1|Verifying
+reason|score|durum|betik
+------|-----|-----|-----
+Average query CPU time changed from 67.25ms to 461.67ms|21|Verifying|exec sp_query_store_force_plan @query_id = 6, @plan_id = 6
+plan_id|is_forced_plan|plan_forcing_type_desc|force_failure_count
+-------|--------------|----------------------|-------------------
+6|1|AUTO|0
+7|0|NONE|0
+
