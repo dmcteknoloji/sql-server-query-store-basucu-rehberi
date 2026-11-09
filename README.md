@@ -6,7 +6,6 @@
 
 [English README](README.en.md)
 
-[![Lisans: MIT](https://img.shields.io/badge/Lisans-MIT-green.svg)](LICENSE)
 [![Ölçülen sürümler](https://img.shields.io/badge/%C3%96l%C3%A7%C3%BClen%20s%C3%BCr%C3%BCmler-SQL%20Server%202019%20%7C%202022%20%7C%202025-blue.svg)](#ölçüm-matrisi)
 [![PDF Türkçe](https://img.shields.io/badge/PDF-T%C3%BCrk%C3%A7e%2C%20196%20sayfa-red.svg)](https://github.com/dmcteknoloji/sql-server-query-store-basucu-rehberi/releases/download/v2.1/DMC-SQL-Server-Query-Store-Basucu-Rehberi-v2.1.pdf)
 [![PDF English](https://img.shields.io/badge/PDF-English%2C%20215%20pages-red.svg)](https://github.com/dmcteknoloji/sql-server-query-store-basucu-rehberi/releases/download/v2.1/DMC-SQL-Server-Query-Store-Handbook-v2.1.pdf)
@@ -155,7 +154,7 @@ Bölüm 12 ve 13'teki alarm, yakalayıcı yordam ve failover öncesi kontrol bet
 
 ## Lisans
 
-Betikler ve ölçüm çıktıları MIT lisansıyla paylaşılır, ayrıntı `LICENSE` dosyasındadır. Betikleri kullanırken lisans metnini ve telif satırını koruyun. Katkı için [`CONTRIBUTING.md`](CONTRIBUTING.md), atıf için `CITATION.cff` dosyasına bakın. `python3 tools/kontrol.py` depodaki yolları ve gizli bilgi kalıplarını denetler.
+Bu depoda ayrı bir lisans dosyası yoktur. Betikler ve ölçüm çıktıları kitabın okuyucuları için herkese açık olarak yayınlanmıştır. Katkı için [`CONTRIBUTING.md`](CONTRIBUTING.md), atıf için `CITATION.cff` dosyasına bakın. `python3 tools/kontrol.py` depodaki yolları ve gizli bilgi kalıplarını denetler.
 
 ## Atıf
 

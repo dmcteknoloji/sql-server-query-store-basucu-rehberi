@@ -6,7 +6,6 @@
 
 [Türkçe README](README.md)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Measured versions](https://img.shields.io/badge/Measured%20versions-SQL%20Server%202019%20%7C%202022%20%7C%202025-blue.svg)](#measurement-matrix)
 [![PDF English](https://img.shields.io/badge/PDF-English%2C%20215%20pages-red.svg)](https://github.com/dmcteknoloji/sql-server-query-store-basucu-rehberi/releases/download/v2.1/DMC-SQL-Server-Query-Store-Handbook-v2.1.pdf)
 [![PDF Turkish](https://img.shields.io/badge/PDF-Turkish%2C%20196%20pages-red.svg)](https://github.com/dmcteknoloji/sql-server-query-store-basucu-rehberi/releases/download/v2.1/DMC-SQL-Server-Query-Store-Basucu-Rehberi-v2.1.pdf)
@@ -157,7 +156,7 @@ Not measured are SQL Server 2016 and 2017, Linux, a clustered Availability Group
 
 ## License
 
-Scripts and measurement outputs are shared under the MIT license, details are in `LICENSE`. When you use the scripts, keep the license text and the copyright line. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for contributions and `CITATION.cff` for citation. `python3 tools/kontrol.py` checks the paths in the repository and patterns of secrets.
+This repository has no separate license file. The scripts and measurement outputs are published publicly for the readers of the book. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for contributions and `CITATION.cff` for citation. `python3 tools/kontrol.py` checks the paths in the repository and patterns of secrets.
 
 ## Citation
 

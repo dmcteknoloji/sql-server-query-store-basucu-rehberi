@@ -8,7 +8,6 @@ authors:
     affiliation: "DMC Bilgi Teknolojileri"
 version: "2.1"
 date-released: "2026-11-09"
-license: MIT
 repository-code: "https://github.com/dmcteknoloji/sql-server-query-store-basucu-rehberi"
 url: "https://github.com/dmcteknoloji/sql-server-query-store-basucu-rehberi/releases/tag/v2.1"
 keywords:
