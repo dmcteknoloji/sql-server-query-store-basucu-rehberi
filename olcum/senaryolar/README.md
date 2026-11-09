@@ -1,6 +1,6 @@
 # Senaryo ölçümleri
 
-Kitabın 186 sayfalık sürümünde eklenen ölçümlerin ham çıktıları. Betikler `betikler/senaryolar/` ve `betikler/senaryolar-en/` klasöründedir, kitaptaki Bölüm 18 ile aynı metindir.
+Kitabın Bölüm 18'indeki ve sonradan eklenen bölümlerdeki senaryoların ham ölçüm çıktıları. Betikler `betikler/senaryolar/` ve `betikler/senaryolar-en/` klasöründedir, kitaptaki Bölüm 18 ile aynı metindir.
 
 | Klasör | İçeriği | Sürüm |
 |---|---|---|
