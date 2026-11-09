@@ -4,6 +4,8 @@
 
 # SQL Server Query Store Başucu Rehberi, betikler ve ölçümler
 
+[English README](README.en.md)
+
 [![Lisans: MIT](https://img.shields.io/badge/Lisans-MIT-green.svg)](LICENSE)
 [![Ölçülen sürümler](https://img.shields.io/badge/%C3%96l%C3%A7%C3%BClen%20s%C3%BCr%C3%BCmler-SQL%20Server%202019%20%7C%202022%20%7C%202025-blue.svg)](#ölçüm-matrisi)
 [![PDF indir](https://img.shields.io/badge/PDF-196%20sayfa%2C%20%C3%BCcretsiz-red.svg)](https://github.com/dmcteknoloji/sql-server-query-store-basucu-rehberi/releases/latest)
@@ -12,11 +14,11 @@
   <img src="gorsel/sql-server-query-store-basucu-rehberi-kitap-mockup.jpg" alt="SQL Server Query Store Başucu Rehberi kitap kapağı, yazar Çağlar Özenç" width="100%">
 </p>
 
-Bu depo, DMC Bilgi Teknolojileri'nin ücretsiz **SQL Server Query Store Başucu Rehberi** (195 sayfa) kitabının betiklerini ve ham ölçüm çıktılarını içerir. Kitabı okurken bir ölçümün nasıl yapıldığını merak ederseniz ya da bir betiği kendi sunucunuzda denemek isterseniz buradan alabilirsiniz.
+Bu depo, DMC Bilgi Teknolojileri'nin ücretsiz **SQL Server Query Store Başucu Rehberi** (196 sayfa) kitabının betiklerini ve ham ölçüm çıktılarını içerir. Kitabı okurken bir ölçümün nasıl yapıldığını merak ederseniz ya da bir betiği kendi sunucunuzda denemek isterseniz buradan alabilirsiniz.
 
 Kitap SQL Server 2019, 2022 ve 2025 üzerinde, Azure'daki Windows Server sanal makinelerinde ölçüldü. Forced plan davranışı, OPPO, automatic plan correction, eşzamanlı yük testi ve iki düğümlü Availability Group denemeleri yalnızca SQL Server 2025 makinelerinde, otomatik parametrelendirme ve PSP olayları SQL Server 2022 CU25 ile 2025'te ölçüldü. Ölçemediğimiz yerler (SQL Server 2016 ve 2017, Linux, cluster'lı Availability Group, Standard edition, Azure SQL, tek tek cumulative update'ler) kitapta ve burada açıkça belirtilir.
 
-Kitabın PDF'i [Releases](../../releases) bölümündedir.
+Kitabın Türkçe ve İngilizce PDF'leri [Releases](../../releases) bölümündedir. İngilizce dosya `DMC-SQL-Server-Query-Store-Handbook-v2.1.pdf` adını taşır.
 
 ## Öne çıkan bulgular
 
