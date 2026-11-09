@@ -1,0 +1,5 @@
+# PDF license / PDF lisansı
+
+**English.** The PDF files of the handbook (Turkish and English editions) may be shared freely, in any medium, as long as you do not change them and you credit the author, Çağlar Özenç, and DMC Bilgi Teknolojileri. This matches Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0), https://creativecommons.org/licenses/by-nd/4.0/. Scripts and raw measurement outputs in this repository are under the MIT license, see `LICENSE`. Translations of the PDF into other languages need written permission.
+
+**Türkçe.** Rehberin PDF dosyaları (Türkçe ve İngilizce baskı), değiştirilmedikleri ve yazar Çağlar Özenç ile DMC Bilgi Teknolojileri belirtildiği sürece her ortamda serbestçe paylaşılabilir. Bu, Creative Commons Atıf-TürevYapılamaz 4.0 Uluslararası (CC BY-ND 4.0) lisansına karşılık gelir, https://creativecommons.org/licenses/by-nd/4.0/deed.tr. Bu depodaki betikler ve ham ölçüm çıktıları MIT lisanslıdır, ayrıntı `LICENSE` dosyasındadır. PDF'in başka dillere çevrilmesi yazılı izin gerektirir.

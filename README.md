@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="gorsel/sql-server-query-store-basucu-rehberi-banner.jpg" alt="SQL Server Query Store Başucu Rehberi, A'dan Z'ye performans izleme, sorun giderme ve en iyi uygulamalar" width="100%">
+  <img src="gorsel/paylasim/kapak-tr-en-1200x675.jpg" alt="SQL Server Query Store Başucu Rehberi ve İngilizce baskısı Handbook, kapaklar" width="100%">
 </p>
 
 # SQL Server Query Store Başucu Rehberi, betikler ve ölçümler
@@ -8,11 +8,8 @@
 
 [![Lisans: MIT](https://img.shields.io/badge/Lisans-MIT-green.svg)](LICENSE)
 [![Ölçülen sürümler](https://img.shields.io/badge/%C3%96l%C3%A7%C3%BClen%20s%C3%BCr%C3%BCmler-SQL%20Server%202019%20%7C%202022%20%7C%202025-blue.svg)](#ölçüm-matrisi)
-[![PDF indir](https://img.shields.io/badge/PDF-196%20sayfa%2C%20%C3%BCcretsiz-red.svg)](https://github.com/dmcteknoloji/sql-server-query-store-basucu-rehberi/releases/latest)
-
-<p align="center">
-  <img src="gorsel/sql-server-query-store-basucu-rehberi-kitap-mockup.jpg" alt="SQL Server Query Store Başucu Rehberi kitap kapağı, yazar Çağlar Özenç" width="100%">
-</p>
+[![PDF Türkçe](https://img.shields.io/badge/PDF-T%C3%BCrk%C3%A7e%2C%20196%20sayfa-red.svg)](https://github.com/dmcteknoloji/sql-server-query-store-basucu-rehberi/releases/download/v2.1/DMC-SQL-Server-Query-Store-Basucu-Rehberi-v2.1.pdf)
+[![PDF English](https://img.shields.io/badge/PDF-English%2C%20215%20pages-red.svg)](https://github.com/dmcteknoloji/sql-server-query-store-basucu-rehberi/releases/download/v2.1/DMC-SQL-Server-Query-Store-Handbook-v2.1.pdf)
 
 Bu depo, DMC Bilgi Teknolojileri'nin ücretsiz **SQL Server Query Store Başucu Rehberi** (196 sayfa) kitabının betiklerini ve ham ölçüm çıktılarını içerir. Kitabı okurken bir ölçümün nasıl yapıldığını merak ederseniz ya da bir betiği kendi sunucunuzda denemek isterseniz buradan alabilirsiniz.
 
@@ -41,20 +38,13 @@ Aşağıdaki sayılar kitaptaki ölçümlerden alındı. Her birinin koşulu yan
 
 Kitap 20 bölümdür ve kendi başına okunabilir. Ölçülmüş her sonuç yeşil "DMC ölçümü" kutularında durur, yalnızca belgeye dayananlar metinde "belgeye göre" diye işaretlidir.
 
-| Bölüm | Konu |
+| Grup | Bölümler |
 |---|---|
-| 1 ile 3 | Query Store nedir, tarihçe ve sürüm farkları, mimari ve veri modeli |
-| 4 ile 5 | Açmak, doğrulamak ve her ayarın anlamı |
-| 6 | Büyük veritabanları, flush, kota ve kapatma yolları |
-| 7 | Raporlar ve T-SQL ile okuma |
-| 8 | Plan regression'ı, plan forcing ve parameter sniffing |
-| 9 | Plan cache, PSP, OPPO ve otomatik parametrelendirme |
-| 10 ile 11 | Query Store hints ve wait stats |
-| 12 | Automatic plan correction, uyumluluk seviyesi yükseltmesi ve secondary replica'lar |
-| 13 ile 14 | İşletme, bakım, failover öncesi kontrol ve ek konular |
-| 15 ile 17 | Tuzaklar, sorun giderme, hazır betikler ve hızlı başvuru kartı |
-| 18 | Ölçüm betikleri (14 senaryo, aşağıdaki tablo) |
-| 19 ile 20 | Sözlük, kaynaklar ve ölçüm ortamının sınırları |
+| Mimari ve kurulum | 1 Query Store nedir, 2 Tarihçe ve sürüm farkları, 3 Mimari ve veri modeli, 4 Aktif etmek, 5 Ayarlar rehberi |
+| İş yükü ayarı | 6 Büyük veritabanları, flush ve kota, 7 Raporlar ve T-SQL ile okuma, 8 Plan regression'ı ve plan forcing, 10 Query Store hints, 11 Wait stats |
+| İç işleyiş ve inceleme | 9 Plan cache, PSP, OPPO ve otomatik parametrelendirme, 14 Ek konular (sabitlenen plan neden uygulanamaz, index bakımı, native procedure) |
+| Yüksek erişilebilirlik ve Availability Group | 12 Automatic plan correction, uyumluluk seviyesi yükseltmesi ve secondary replica'lar, 13 İşletme, bakım ve failover öncesi kontrol |
+| Hazır betikler ve başvuru | 15 Tuzaklar ve sorun giderme, 16 Hazır betikler, 17 Hızlı başvuru kartı, 18 Ölçüm betikleri, 19 Sözlük, 20 Kaynaklar ve ölçüm ortamının sınırları |
 
 ## Hızlı başlangıç
 
@@ -100,32 +90,32 @@ FROM sys.database_query_store_options;
 | `olcum/temizleme-betigi/` | Ad hoc ve iç query'leri temizleyen betiğin `READ_ONLY` iken denemesi. |
 | `olcum/ek-konular/` | Yedek, restore, klon ve Query Store bellek ölçümleri. |
 | `olcum/bolum-18-dogrulama/` | Kitaptaki Bölüm 18 betiklerinin, kitapta basıldığı haliyle ikinci kez çalıştırılmış çıktıları. |
-| `betikler/ikinci-tur/` | Kitabın ikinci turunda eklenen bölümlerdeki T-SQL blokları: flush penceresi, otomatik parametrelendirme, hint'lerin tablo olarak okunması, durum geçişi alarmı, planlı failover öncesi kontrol, index bakımı, native procedure, Availability Group kurulumu ve geri basınç ölçümü. |
-| `olcum/ikinci-tur/` | Aynı bölümlerin ham ölçüm çıktıları. Hangi dosyanın hangi sürümden geldiği klasördeki README dosyasındadır. |
+| `betikler/senaryolar/` ve `betikler/senaryolar-en/` | Kitabın ölçüm ve izleme senaryolarının T-SQL blokları, Türkçe ve İngilizce yorumlu. Flush penceresi, otomatik parametrelendirme, hint'lerin tablo olarak okunması, durum geçişi alarmı, failover öncesi kontrol, index bakımı, native procedure, Availability Group kurulumu ve geri basınç ölçümü. |
+| `olcum/senaryolar/` | Aynı senaryoların ham ölçüm çıktıları. Hangi dosyanın hangi sürümden geldiği klasördeki README dosyasındadır. |
 | `olcum/ornek-cikti-kutulari-kaynagi.txt` | Kitaptaki "Örnek çıktı" kutularının alındığı ham çıktı. |
 
 ## Bölüm 18 senaryoları
 
-Kitabın Bölüm 18'inde 14 ölçüm senaryosu vardır. Betikler ve ham çıktılar iki yerde durur. İlk altı senaryo `olcum/` altındadır, sonrakiler `betikler/ikinci-tur/` ve `olcum/ikinci-tur/` altındadır.
+Kitabın Bölüm 18'inde 14 ölçüm senaryosu vardır. İlk altı senaryo `olcum/` altında kendi klasörlerindedir. Sonrakilerin betikleri `betikler/senaryolar/` (Türkçe yorumlu) ve `betikler/senaryolar-en/` (İngilizce yorumlu) altındadır, ham çıktıları `olcum/senaryolar/` altındadır. İki betik klasörünün dosya adları aynıdır. "Ölçüldüğü sürüm" sütunu betiğin hangi sürümde çalıştırıldığını gösterir, başka sürümde çalışacağı anlamına gelmez.
 
-| # | Senaryo | Betik ve çıktı |
-|---|---|---|
-| 1 | Sabitlenen plan, parametre başına süre | `olcum/forced-plan/` |
-| 2 | `OFF (FORCED)` ile veri kaybı | `olcum/kapatma-ve-read-only/` |
-| 3 | `READ_ONLY` iken Query Store prosedürleri | `olcum/kapatma-ve-read-only/` |
-| 4 | Eşzamanlı yük testi | `olcum/eszamanli-yuk/` |
-| 5 | PSP tetikleme laboratuvarı | `olcum/psp-tetikleme/` |
-| 6 | Flush ve disk I/O ölçümü | `olcum/flush-ve-disk/` |
-| 7 | PSP olaylarını keşif tabanlı toplamak | `betikler/ikinci-tur/bolum-18-psp-olaylarini-kesif-tabanli-toplamak/`, `olcum/ikinci-tur/psp-olaylari/` |
-| 8 | Otomatik parametrelendirme ölçümü | `betikler/ikinci-tur/bolum-18-otomatik-parametrelendirme-olcumu/`, `olcum/ikinci-tur/otomatik-parametrelendirme/` |
-| 9 | Index bakımı ve sabitlenen plan | `betikler/ikinci-tur/bolum-18-index-bakimi-ve-sabitlenen-plan/`, `olcum/ikinci-tur/index-bakimi/` |
-| 10 | Native procedure ve istatistik toplama | `betikler/ikinci-tur/bolum-18-native-procedure-ve-istatistik-toplama/`, `olcum/ikinci-tur/native-procedure/` |
-| 11 | Flush penceresi örnekleyici | `betikler/ikinci-tur/bolum-18-flush-penceresi-ornekleyici/`, `olcum/ikinci-tur/flush-penceresi/` |
-| 12 | Secondary replica doğrulaması ve geri basınç | `betikler/ikinci-tur/bolum-18-secondary-replica-dogrulamasi-ve-geri-basinc/`, `olcum/ikinci-tur/ag-geri-basinc/` |
-| 13 | Secondary'de çalıştırma biçimleri | `betikler/ikinci-tur/bolum-18-secondary-de-calistirma-bicimleri/`, `olcum/ikinci-tur/ag-calistirma-bicimleri/` |
-| 14 | Flush sırasında işlem ve log sayaçları | `betikler/ikinci-tur/bolum-18-flush-sirasinda-islem-ve-log-sayaclari/`, `olcum/ikinci-tur/flush-islem-sayaclari/` |
+| # | Senaryo | Ölçüldüğü sürüm | Ön koşul | Betik | Ham çıktı |
+|---|---|---|---|---|---|
+| 1 | Sabitlenen plan, parametre başına süre | 2025 | sysadmin, test sunucusu, 420 bin satırlık tablo | `olcum/forced-plan/` | `olcum/forced-plan/` |
+| 2 | `OFF (FORCED)` ile veri kaybı | 2025 | sysadmin, veritabanı oluşturur ve siler | `olcum/kapatma-ve-read-only/` | `olcum/kapatma-ve-read-only/` |
+| 3 | `READ_ONLY` iken Query Store prosedürleri | 2025 | sysadmin | `olcum/kapatma-ve-read-only/` | `olcum/kapatma-ve-read-only/` |
+| 4 | Eşzamanlı yük testi | 2025 | 8 eşzamanlı bağlantı açabilen `sqlcmd` ya da PowerShell | `olcum/eszamanli-yuk/` | `olcum/eszamanli-yuk/` |
+| 5 | PSP tetikleme laboratuvarı | 2022 CU25, 2025 | uyumluluk seviyesi 160 ve üstü | `olcum/psp-tetikleme/` | `olcum/psp-tetikleme/` |
+| 6 | Flush ve disk I/O ölçümü | 2025 | ayrı bir veri diski (betikte `F:\data`), sysadmin | `olcum/flush-ve-disk/` | `olcum/flush-ve-disk/` |
+| 7 | PSP olaylarını keşif tabanlı toplamak | 2022 CU25, 2025 | sysadmin (sunucu düzeyinde Extended Events) | `betikler/senaryolar/bolum-18-psp-olaylarini-kesif-tabanli-toplamak/` | `olcum/senaryolar/psp-olaylari/` |
+| 8 | Otomatik parametrelendirme ölçümü | 2022 CU25, 2025 | sysadmin, veritabanı düzeyinde `PARAMETERIZATION` ayarı değişir | `betikler/senaryolar/bolum-18-otomatik-parametrelendirme-olcumu/` | `olcum/senaryolar/otomatik-parametrelendirme/` |
+| 9 | Index bakımı ve sabitlenen plan | 2022 CU25, 2025 | sysadmin, `ONLINE` işlem için Enterprise ya da Developer (online denemesi yapılmadı) | `betikler/senaryolar/bolum-18-index-bakimi-ve-sabitlenen-plan/` | `olcum/senaryolar/index-bakimi/` |
+| 10 | Native procedure ve istatistik toplama | 2022 CU25, 2025 | In-Memory OLTP, betik `MEMORY_OPTIMIZED_DATA` dosya grubu kurar | `betikler/senaryolar/bolum-18-native-procedure-ve-istatistik-toplama/` | `olcum/senaryolar/native-procedure/` |
+| 11 | Flush penceresi örnekleyici | 2025 | sysadmin, yaklaşık 1 GB boş alan (bizim koşuda log 600 MB, Query Store 213 MB) | `betikler/senaryolar/bolum-18-flush-penceresi-ornekleyici/` | `olcum/senaryolar/flush-penceresi/` |
+| 12 | Secondary replica doğrulaması ve geri basınç | 2025 RTM | iki Windows Server makinesi, sertifika kimlik doğrulaması, `CLUSTER_TYPE = NONE`, HADR açık, sysadmin | `betikler/senaryolar/bolum-18-secondary-replica-dogrulamasi-ve-geri-basinc/` | `olcum/senaryolar/ag-geri-basinc/` |
+| 13 | Secondary'de çalıştırma biçimleri | 2025 RTM | 12. senaryonun kurduğu Availability Group, okunabilir secondary | `betikler/senaryolar/bolum-18-secondary-de-calistirma-bicimleri/` | `olcum/senaryolar/ag-calistirma-bicimleri/` |
+| 14 | Flush sırasında işlem ve log sayaçları | 2025 | sysadmin, yaklaşık 1 GB boş alan (bizim koşuda log 600 MB, Query Store 213 MB) | `betikler/senaryolar/bolum-18-flush-sirasinda-islem-ve-log-sayaclari/` | `olcum/senaryolar/flush-islem-sayaclari/` |
 
-Senaryolar 1 ile 6 arasında olanların dosyaları ilk sürümden kalan adlarla durur. Bölüm 12 ve 13'teki alarm, yakalayıcı yordam ve failover öncesi kontrol betikleri de `betikler/ikinci-tur/` altındadır.
+Bölüm 12 ve 13'teki alarm, yakalayıcı yordam ve failover öncesi kontrol betikleri de `betikler/senaryolar/` altındadır. Betik dosyalarının başındaki yorum satırı hangi kitap bölümünden alındığını söyler.
 
 ## Betikleri çalıştırmadan önce
 
@@ -165,7 +155,7 @@ Senaryolar 1 ile 6 arasında olanların dosyaları ilk sürümden kalan adlarla 
 
 ## Lisans
 
-Betikler ve ölçüm çıktıları MIT lisansıyla paylaşılır, ayrıntı `LICENSE` dosyasındadır. Betikleri kullanırken lisans metnini ve telif satırını koruyun. Kitabın PDF'i yazarın adı ve DMC Bilgi Teknolojileri belirtilerek, değiştirilmeden serbestçe paylaşılabilir.
+Betikler ve ölçüm çıktıları MIT lisansıyla paylaşılır, ayrıntı `LICENSE` dosyasındadır. Betikleri kullanırken lisans metnini ve telif satırını koruyun. Kitabın PDF'i yazarın adı ve DMC Bilgi Teknolojileri belirtilerek, değiştirilmeden serbestçe paylaşılabilir. Bu koşullar [`LICENSE-PDF.md`](LICENSE-PDF.md) dosyasında yazılıdır ve CC BY-ND 4.0 lisansına karşılık gelir. Katkı için [`CONTRIBUTING.md`](CONTRIBUTING.md), atıf için `CITATION.cff` dosyasına bakın. `python3 tools/kontrol.py` depodaki yolları ve gizli bilgi kalıplarını denetler.
 
 ## Atıf
 

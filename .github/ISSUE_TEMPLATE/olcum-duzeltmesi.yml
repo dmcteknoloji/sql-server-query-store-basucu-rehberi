@@ -1,0 +1,30 @@
+name: Measurement or text correction / Ölçüm ya da metin düzeltmesi
+description: Report a result that differs from the handbook, or an error in it. / Kitaptaki bir sonuçtan farklı çıkan sonucu ya da bir hatayı bildirin.
+labels: ["correction"]
+body:
+  - type: input
+    id: surum
+    attributes:
+      label: SQL Server build and edition / SQL Server build ve edition
+      description: "Output of SELECT @@VERSION, first line is enough."
+    validations:
+      required: true
+  - type: input
+    id: yer
+    attributes:
+      label: Chapter or page, edition (TR or EN) / Bölüm ya da sayfa, baskı (TR ya da EN)
+    validations:
+      required: true
+  - type: textarea
+    id: ne
+    attributes:
+      label: What you ran and what you got / Ne çalıştırdınız, ne elde ettiniz
+      description: "Paste the script (or its path in this repository) and the output. Remove customer data and credentials."
+    validations:
+      required: true
+  - type: textarea
+    id: beklenen
+    attributes:
+      label: What the handbook says / Kitap ne diyor
+    validations:
+      required: true
