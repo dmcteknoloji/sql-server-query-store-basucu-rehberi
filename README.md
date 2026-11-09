@@ -4,6 +4,10 @@
 
 # SQL Server Query Store Başucu Rehberi, betikler ve ölçümler
 
+[![Lisans: MIT](https://img.shields.io/badge/Lisans-MIT-green.svg)](LICENSE)
+[![Ölçülen sürümler](https://img.shields.io/badge/%C3%96l%C3%A7%C3%BClen%20s%C3%BCr%C3%BCmler-SQL%20Server%202019%20%7C%202022%20%7C%202025-blue.svg)](#ölçüm-matrisi)
+[![PDF indir](https://img.shields.io/badge/PDF-196%20sayfa%2C%20%C3%BCcretsiz-red.svg)](https://github.com/dmcteknoloji/sql-server-query-store-basucu-rehberi/releases/latest)
+
 <p align="center">
   <img src="gorsel/sql-server-query-store-basucu-rehberi-kitap-mockup.jpg" alt="SQL Server Query Store Başucu Rehberi kitap kapağı, yazar Çağlar Özenç" width="100%">
 </p>
@@ -25,9 +29,54 @@ Aşağıdaki sayılar kitaptaki ölçümlerden alındı. Her birinin koşulu yan
 | SQL Server 2025 RTM'de `parameter_sensitive_plan_optimization` olayı gelmedi, yerine `multiplan_dispatcher_plan_compiled` ve `multiplan_query_variant_plan_compiled` geldi | Aynı lab, iki sürüm karşılaştırması | Bölüm 9 |
 | 24 query'nin yalnızca 5'i simple parameterization ile parametrelendi, planı trivial olan üçü (`TOP`, `DISTINCT`, `IN` listesi) parametrelenmedi | SQL Server 2022 CU25 ve 2025 RTM, aynı sonuç | Bölüm 9 |
 | Flush sırasında kalıcı hale gelen her yeni query için yaklaşık 5,3 işlem, 3 log boşaltması ve 14 KB log yazıldı | 43.056 query, 178 saniyelik flush, SQL Server 2025 RTM | Bölüm 6 |
+| `AUTO` capture mode 300 tek seferlik query'nin hiçbirini yakalamadı, `ALL` modu 300'ünü yakaladı. 40 kez çalışan query `AUTO` modunda da yakalandı | SQL Server 2019, 2022 ve 2025, aynı sonuç | Bölüm 5 |
+| Parameter sniffing yüzünden yanlış plan, büyük müşteri için yaklaşık 22 kat yavaşlık yarattı (737,71 ms, tarama planında 33,23 ms). Küçük müşteri için aynı plan yaklaşık 365 kat hızlıydı | 420 bin satırlık tablo, SQL Server 2025 | Bölüm 8 |
 | Secondary'den primary'ye giden Query Store kuyruğu 25.000 mesajda doydu ve sonrasında gelen mesajlar kalıcı olarak düştü | Tek oturumdan 20.000 farklı sorgu, iki düğümlü Availability Group, `CLUSTER_TYPE = NONE` | Bölüm 12 |
 | Dinamik `EXEC` döngüsüyle ve doğrudan çalışan sorgular secondary'den primary'ye aynı şekilde ulaştı | 8 çalıştırma biçimi, 2025 RTM | Bölüm 12 |
 | Automatic plan correction'da `Success` durumu hiçbir koşuda görülmedi, `Verifying` durumundan `Expired` durumuna geçiş sabitlenen planı sessizce kaldırdı | SQL Server 2022 CU25 ve 2025 RTM | Bölüm 12 |
+
+## Kitabın içeriği
+
+Kitap 20 bölümdür ve kendi başına okunabilir. Ölçülmüş her sonuç yeşil "DMC ölçümü" kutularında durur, yalnızca belgeye dayananlar metinde "belgeye göre" diye işaretlidir.
+
+| Bölüm | Konu |
+|---|---|
+| 1 ile 3 | Query Store nedir, tarihçe ve sürüm farkları, mimari ve veri modeli |
+| 4 ile 5 | Açmak, doğrulamak ve her ayarın anlamı |
+| 6 | Büyük veritabanları, flush, kota ve kapatma yolları |
+| 7 | Raporlar ve T-SQL ile okuma |
+| 8 | Plan regression'ı, plan forcing ve parameter sniffing |
+| 9 | Plan cache, PSP, OPPO ve otomatik parametrelendirme |
+| 10 ile 11 | Query Store hints ve wait stats |
+| 12 | Automatic plan correction, uyumluluk seviyesi yükseltmesi ve secondary replica'lar |
+| 13 ile 14 | İşletme, bakım, failover öncesi kontrol ve ek konular |
+| 15 ile 17 | Tuzaklar, sorun giderme, hazır betikler ve hızlı başvuru kartı |
+| 18 | Ölçüm betikleri (14 senaryo, aşağıdaki tablo) |
+| 19 ile 20 | Sözlük, kaynaklar ve ölçüm ortamının sınırları |
+
+## Hızlı başlangıç
+
+Kitabın 4. bölümündeki başlangıç ayarı, SQL Server 2019 ve sonrası için Microsoft belgelerindeki örneklere dayanır. Üç sürümde çalıştırıldı ama sizin iş yükünüz için ölçülmüş bir hedef değildir. Önce test ortamında deneyin, çünkü `ALTER DATABASE ... SET QUERY_STORE` o veritabanının plan cache'ini temizleyebilir.
+
+```sql
+ALTER DATABASE [VeritabaniAdi]
+SET QUERY_STORE = ON
+(
+  OPERATION_MODE              = READ_WRITE,
+  CLEANUP_POLICY              = (STALE_QUERY_THRESHOLD_DAYS = 30),
+  DATA_FLUSH_INTERVAL_SECONDS = 900,
+  MAX_STORAGE_SIZE_MB         = 1000,
+  INTERVAL_LENGTH_MINUTES     = 60,
+  SIZE_BASED_CLEANUP_MODE     = AUTO,
+  QUERY_CAPTURE_MODE          = AUTO,
+  MAX_PLANS_PER_QUERY         = 200,
+  WAIT_STATS_CAPTURE_MODE     = ON
+);
+
+-- Açtıktan sonra doğrulayın, actual_state_desc değeri READ_WRITE olmalı
+SELECT actual_state_desc, readonly_reason, current_storage_size_mb, max_storage_size_mb
+FROM sys.database_query_store_options;
+```
 
 ## Depoda neler var
 
@@ -115,6 +164,23 @@ Senaryolar 1 ile 6 arasında olanların dosyaları ilk sürümden kalan adlarla 
 ## Lisans
 
 Betikler ve ölçüm çıktıları MIT lisansıyla paylaşılır, ayrıntı `LICENSE` dosyasındadır. Betikleri kullanırken lisans metnini ve telif satırını koruyun. Kitabın PDF'i yazarın adı ve DMC Bilgi Teknolojileri belirtilerek, değiştirilmeden serbestçe paylaşılabilir.
+
+## Atıf
+
+Kitaptan alıntı yaparken yazarı ve DMC Bilgi Teknolojileri'ni belirtin.
+
+```bibtex
+@misc{ozenc2026querystore,
+  author    = {Özenç, Çağlar},
+  title     = {SQL Server Query Store Başucu Rehberi},
+  year      = {2026},
+  publisher = {DMC Bilgi Teknolojileri},
+  note      = {Sürüm 2.1, PDF},
+  url       = {https://github.com/dmcteknoloji/sql-server-query-store-basucu-rehberi}
+}
+```
+
+APA biçimi: Özenç, Ç. (2026). *SQL Server Query Store başucu rehberi* (Sürüm 2.1) [PDF]. DMC Bilgi Teknolojileri. https://github.com/dmcteknoloji/sql-server-query-store-basucu-rehberi
 
 ## Yazar
 
