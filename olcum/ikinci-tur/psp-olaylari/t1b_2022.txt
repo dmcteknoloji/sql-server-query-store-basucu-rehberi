@@ -1,0 +1,49 @@
+Changed database context to 'qs_lab_psp'.
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+
+(1 rows affected)
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+
+(1 rows affected)
+adet|toplam|ornek
+----|------|-----
+5000|262430.00|x                                                                                                   
+
+(1 rows affected)
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+
+(1 rows affected)
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+
+(1 rows affected)
+adet|toplam|ornek
+----|------|-----
+5000|262430.00|x                                                                                                   
+
+(1 rows affected)
+kaynak|paket|olay|adet
+------|-----|----|----
+ring_buffer|sqlserver|parameter_sensitive_plan_optimization|4
+ring_buffer|sqlserver|parameter_sensitive_plan_optimization_skipped_reason|4
+
+(2 rows affected)
+kaynak|olay|adet
+------|----|----
+event_file|parameter_sensitive_plan_optimization_skipped_reason|199
+event_file|parameter_sensitive_plan_optimization|8
+
+(2 rows affected)
+plan_type_desc|adet
+--------------|----
+Dispatcher Plan|1
+Query Variant Plan|3
+
+(2 rows affected)

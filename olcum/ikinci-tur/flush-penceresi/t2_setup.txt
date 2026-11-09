@@ -1,0 +1,10 @@
+Nonqualified transactions are being rolled back. Estimated rollback completion: 0%.
+Nonqualified transactions are being rolled back. Estimated rollback completion: 100%.
+Changed database context to 'qs_lab_flush'.
+Changed database context to 'qs_lab_flush'.
+qs_query_sayisi
+---------------
+9091
+current_storage_size_mb
+-----------------------
+23

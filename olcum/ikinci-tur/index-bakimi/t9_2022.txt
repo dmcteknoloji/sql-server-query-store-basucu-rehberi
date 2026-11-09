@@ -1,0 +1,80 @@
+Changed database context to 'qs_lab_idx'.
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+adet|ornek
+----|-----
+200|x                                                                                                   
+Warning: Null value is eliminated by an aggregate or other SET operation.
+sira|ad|is_forced_plan|force_failure_count|son_hata|plan_sayisi|count_compiles
+----|--|--------------|-------------------|--------|-----------|--------------
+1|REORGANIZE|1|0|NONE|1|2
+2|REBUILD offline|1|0|NONE|1|3
+3|REBUILD ONLINE|1|0|NONE|1|4
+4|DROP_EXISTING ayni|1|0|NONE|1|5
+5|DROP + CREATE ayni ad|1|0|NONE|1|6
+6|UPDATE STATISTICS FULL|1|0|NONE|1|6
+7|DISABLE|1|1|NO_INDEX|2|6

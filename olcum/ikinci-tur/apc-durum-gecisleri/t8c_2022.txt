@@ -1,0 +1,10 @@
+Changed database context to 'apc'.
+oneri_adi|onceki_durum|durum|neden|revert_baslatan|alarm_gonderildi
+---------|------------|-----|-----|---------------|----------------
+PR_5|Verifying|Expired|StatisticsChanged|NULL|0
+== alarm
+oneri_adi|query_id|regressed_plan_id|recommended_plan_id|onceki_durum|durum|neden|revert_baslatan|revert_zamani|ilk_gorulme_utc|metin
+---------|--------|-----------------|-------------------|------------|-----|-----|---------------|-------------|---------------|-----
+PR_5|5|6|5|Verifying|Expired|StatisticsChanged|NULL|2026-11-08 20:07:13.0800000|2026-11-08 20:06:05.4214697|(@m int,@a int,@b bigint)SELECT @a = COUNT(*), @b = SUM(LEN(d)) FROM dbo.Siparis WHERE musteri_id = @m
+oneri_adi|query_id|neden|revert_baslatan|revert_zamani
+---------|--------|-----|---------------|-------------

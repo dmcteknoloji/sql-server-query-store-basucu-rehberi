@@ -1,0 +1,13 @@
+flush_sonrasi_query_sayisi
+--------------------------
+60003
+current_storage_size_mb|actual_state_desc|flush_interval_seconds
+-----------------------|-----------------|----------------------
+212|READ_WRITE|900
+name|physical_name|mb
+----|-------------|--
+qs_lab_flush|C:\Program Files\Microsoft SQL Server\MSSQL17.MSSQLSERVER\MSSQL\DATA\qs_lab_flush.mdf|264
+qs_lab_flush_log|C:\Program Files\Microsoft SQL Server\MSSQL17.MSSQLSERVER\MSSQL\DATA\qs_lab_flush_log.ldf|648
+type_desc
+---------
+n/a

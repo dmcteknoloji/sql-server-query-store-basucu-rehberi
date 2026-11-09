@@ -1,0 +1,120 @@
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:29:47|0|PRIMARY|0|0|60|0|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:29:52|5|PRIMARY|0|0|60|0|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:29:57|10|PRIMARY|0|0|60|0|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:30:02|15|PRIMARY|0|0|60|0|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:30:07|20|PRIMARY|0|0|60|0|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:30:12|25|PRIMARY|0|0|0|0|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:30:17|30|PRIMARY|0|0|0|0|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:30:22|35|PRIMARY|25000|39|60|0|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:30:27|40|PRIMARY|25000|39|60|0|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:30:32|45|PRIMARY|25000|39|60|0|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:30:37|50|PRIMARY|25000|39|60|0|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:30:42|55|PRIMARY|25000|39|60|0|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:30:47|60|PRIMARY|25000|39|60|0|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:30:52|65|PRIMARY|25000|39|60|0|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:30:57|70|PRIMARY|25000|39|60|0|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:31:02|75|PRIMARY|25000|39|60|0|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:31:07|80|PRIMARY|25000|39|60|0|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:31:12|85|PRIMARY|25000|39|60|0|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:31:18|90|PRIMARY|24442|38|0|192|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:31:23|95|PRIMARY|24656|38|0|120|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:31:28|100|PRIMARY|24040|37|0|156|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:31:33|105|PRIMARY|23435|36|0|256|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:31:38|110|PRIMARY|22825|35|0|152|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:31:43|115|PRIMARY|22218|34|0|80|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:31:49|120|PRIMARY|21646|33|0|264|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:31:54|125|PRIMARY|21040|32|0|264|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:31:59|130|PRIMARY|20453|31|0|264|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:32:04|135|PRIMARY|19845|30|0|276|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:32:10|140|PRIMARY|19122|28|0|264|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:32:16|145|PRIMARY|18415|27|0|268|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:32:21|150|PRIMARY|17889|26|0|268|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:32:26|155|PRIMARY|17326|25|0|264|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:32:31|160|PRIMARY|16756|24|0|264|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:32:36|165|PRIMARY|16138|23|0|264|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:32:41|170|PRIMARY|15537|22|0|268|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:32:47|175|PRIMARY|14814|21|0|264|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:32:52|180|PRIMARY|14197|20|0|260|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:32:58|185|PRIMARY|13636|19|0|260|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:33:03|190|PRIMARY|13026|18|0|260|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:33:08|195|PRIMARY|12413|17|0|264|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:33:14|200|PRIMARY|11681|16|0|264|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:33:19|205|PRIMARY|11071|15|0|264|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:33:24|210|PRIMARY|10479|14|0|260|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:33:29|215|PRIMARY|9872|13|0|268|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:33:35|220|PRIMARY|9220|11|0|260|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:33:41|225|PRIMARY|8488|10|0|268|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:33:46|230|PRIMARY|7887|9|0|268|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:33:52|235|PRIMARY|7113|8|0|264|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:33:58|240|PRIMARY|5728|6|0|260|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:34:03|245|PRIMARY|4622|5|0|260|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:34:08|250|PRIMARY|3617|4|0|260|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:34:13|255|PRIMARY|2442|3|0|260|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:34:19|260|PRIMARY|1054|1|0|260|0|0|8
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:34:24|265|PRIMARY|146|0|0|260|0|0|618
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:34:29|270|PRIMARY|0|0|60|0|0|0|742
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:34:34|275|PRIMARY|0|0|60|0|0|0|742
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:34:39|280|PRIMARY|0|0|60|0|0|0|742
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:34:44|285|PRIMARY|0|0|60|0|0|0|742
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:34:49|290|PRIMARY|0|0|60|0|0|0|742
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2026-11-08 21:34:55|295|PRIMARY|0|0|60|0|0|0|742

@@ -1,0 +1,46 @@
+#### olay kolonlari
+olay|kolon|type_name
+----|-----|---------
+multiplan_dispatcher_plan_compiled|predicate_count|uint32
+multiplan_dispatcher_plan_compiled|predicate_count_psp|uint32
+multiplan_dispatcher_plan_compiled|predicate_count_opo|uint32
+multiplan_dispatcher_plan_compiled|query_type|uint16
+multiplan_query_variant_plan_compiled|query_variant_id|uint32
+multiplan_query_variant_plan_compiled|original_query_plan_hash_signed|int64
+multiplan_query_variant_plan_compiled|query_type|uint16
+parameter_sensitive_plan_optimization|is_query_variant|boolean
+parameter_sensitive_plan_optimization|predicate_count|uint32
+parameter_sensitive_plan_optimization|query_variant_id|uint32
+parameter_sensitive_plan_optimization|original_query_plan_hash_signed|int64
+Changed database context to 'qs_lab_psp'.
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+5000|262430.00|x                                                                                                   
+#### filtreli oturum (database_name predikati)
+olay|adet|database_name_action
+----|----|--------------------
+multiplan_dispatcher_plan_compiled|1|qs_lab_psp
+multiplan_query_variant_plan_compiled|3|qs_lab_psp
+#### ornek olay yuku (ilk multiplan olayi)
+kolon|deger|metin
+-----|-----|-----
+query_variant_id|1|NULL
+original_query_plan_hash_signed|7234920422068386383|NULL
+query_type|193|NULL
+kolon|deger
+-----|-----
+query_variant_id|1
+original_query_plan_hash_signed|7234920422068386383
+query_type|193
+query_variant_id|3
+original_query_plan_hash_signed|7234920422068386383
+query_type|193
+query_variant_id|2
+original_query_plan_hash_signed|7234920422068386383
+query_type|193

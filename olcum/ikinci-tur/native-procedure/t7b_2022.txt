@@ -1,0 +1,5 @@
+Changed database context to 'qs_lab_xtp'.
+kosul|tekrar|en_kucuk_ms|ort_ms|en_buyuk_ms
+-----|------|-----------|------|-----------
+kapali|4|17047|17070|17094
+sorgu_istatistigi_acik|4|17281|17300|17328

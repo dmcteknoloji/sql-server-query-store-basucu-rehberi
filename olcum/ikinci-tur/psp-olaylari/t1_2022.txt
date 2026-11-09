@@ -1,0 +1,43 @@
+surum
+-----
+Microsoft SQL Server 2022 (RTM-CU25) (KB5081477) - 16.0.4255.1 (X64) 
+	Apr 23 2026 22:38:54 
+	Copyright (C) 2022 Microsoft Corporation
+	Developer Edition (64-bit) on Windows Server 2022 Datacenter 10.0 <X64> (Build 20348: ) (Hypervisor)
+
+Changed database context to 'qs_lab_psp'.
+#### 1.3a
+paket|olay|aciklama
+-----|----|--------
+sqlos|scheduler_monitor_stalled_dispatcher_ring_buffer_recorded|Stalled dispatcher event recorded for scheduler monitor
+sqlos|stuck_dispatcher_callback_executed|Stuck dispatcher callback executed
+sqlserver|login_dispatcher_history|Ring buffer records for login dispatchers
+sqlserver|login_dispatcher_pools_history|Ring buffer records in each SOS_DispatcherPool
+sqlserver|optional_parameter_plan_fold|Fired when a optional parameter has been folded as part of a tailored optional parameter plan.
+sqlserver|parameter_sensitive_plan_optimization|This event is fired when a query uses Parameter Sensitive Plan (PSP) Optimization feature.
+sqlserver|parameter_sensitive_plan_optimization_skipped_reason|Occurs when the parameter sensitive plan feature is skipped. Use this event to monitor the reason why parameter sensitive plan optimization is skipped.
+sqlserver|parameter_sensitive_plan_testing|Fired when parameter sensitive plan is tested.
+sqlserver|stuck_login_dispatcher|Details about stuck login dispatcher
+#### 1.3b
+#### 1.3c
+Changed database context to 'qs_lab_psp'.
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+5000|262430.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+5000|262430.00|x                                                                                                   
+Msg 4148, Level 16, State 1, Server vm-qs2022, Line 7
+XML methods are not allowed in a GROUP BY clause.

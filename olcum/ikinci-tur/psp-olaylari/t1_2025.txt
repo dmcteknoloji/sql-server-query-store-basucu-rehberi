@@ -1,0 +1,48 @@
+surum
+-----
+Microsoft SQL Server 2025 (RTM) - 17.0.1000.7 (X64) 
+	Oct 21 2025 12:05:57 
+	Copyright (C) 2025 Microsoft Corporation
+	Enterprise Developer Edition (64-bit) on Windows Server 2025 Datacenter 10.0 <X64> (Build 26100: ) (Hypervisor)
+
+Changed database context to 'qs_lab_psp'.
+#### 1.3a
+paket|olay|aciklama
+-----|----|--------
+sqlos|scheduler_monitor_stalled_dispatcher_ring_buffer_recorded|Stalled dispatcher event recorded for scheduler monitor
+sqlos|stuck_dispatcher_callback_executed|Stuck dispatcher callback executed
+sqlserver|login_dispatcher_history|Ring buffer records for login dispatchers
+sqlserver|login_dispatcher_pools_history|Ring buffer records in each SOS_DispatcherPool
+sqlserver|multiplan_dispatcher_plan_compiled|This event is fired when a MultiPlan dispatcher plan is compiled.
+sqlserver|multiplan_optional_parameter_optimization_fold|Occurs when the MultiPlan Optional Parameter Optimization folds part of the query variant during optimization.
+sqlserver|multiplan_query_variant_plan_compiled|This event is fired when a MultiPlan query variant plan is compiled.
+sqlserver|optional_parameter_optimization_skipped_reason|Occurs when the optional parameter plan feature is skipped. Use this event to monitor the reason why optional parameter plan optimization is skipped.
+sqlserver|optional_parameter_plan_fold|Fired when a optional parameter has been folded as part of a tailored optional parameter plan.
+sqlserver|parameter_sensitive_plan_optimization|This event is fired when a query uses Parameter Sensitive Plan (PSP) Optimization feature.
+sqlserver|parameter_sensitive_plan_optimization_skipped_reason|Occurs when the parameter sensitive plan feature is skipped. Use this event to monitor the reason why parameter sensitive plan optimization is skipped.
+sqlserver|parameter_sensitive_plan_testing|Fired when parameter sensitive plan is tested.
+sqlserver|query_with_optional_parameter_predicate|This event is fired when a query is discovered to have an optional parameter predicate. This is for internal analysis only.
+sqlserver|stuck_login_dispatcher|Details about stuck login dispatcher
+#### 1.3b
+#### 1.3c
+Changed database context to 'qs_lab_psp'.
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+5000|262430.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+1|15.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+500000|27249050.00|x                                                                                                   
+adet|toplam|ornek
+----|------|-----
+5000|262430.00|x                                                                                                   
+Msg 4148, Level 16, State 1, Server vm-qs2025, Line 7
+XML methods are not allowed in a GROUP BY clause.

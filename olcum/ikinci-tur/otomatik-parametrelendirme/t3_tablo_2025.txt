@@ -1,0 +1,25 @@
+kod|aciklama|simple_modda|simple_trivial|forced_modda|forced_trivial
+k01|tek tablo, birincil anahtar esitligi|Simple|1|Forced|1
+k02|tek tablo, indeksli kolon esitligi|None|0|Forced|0
+k03|aralik (BETWEEN)|None|0|Forced|0
+k04|IN listesi|None|0|Forced|0
+k05|INNER JOIN|None|0|Forced|0
+k06|TOP|None|0|Forced|0
+k07|DISTINCT|None|0|Forced|0
+k08|GROUP BY|None|0|Forced|0
+k09|UNION|None|0|Forced|0
+k10|IN alt sorgu|None|0|Forced|0
+k11|EXISTS alt sorgu|None|0|Forced|0
+k12|ORDER BY|None|0|Forced|0
+k13|OR|None|0|Forced|0
+k14|LIKE|None|0|None|0
+k15|fonksiyon icinde kolon|None|0|Forced|0
+k16|COUNT(*)|Simple|1|Forced|1
+k17|select listesinde literal|Simple|1|Forced|1
+k18|INSERT ... VALUES|Simple|1|Forced|1
+k19|UPDATE|Simple|1|Forced|1
+k20|OPTION (MAXDOP 1)|None|0|Forced|0
+k21|TOP, PK esitligi (trivial plan)|None|1|Forced|1
+k22|DISTINCT, PK esitligi (trivial plan)|None|1|Forced|1
+k23|JOIN PK-PK, PK esitligi|None|0|Forced|0
+k24|IN listesi, PK uzerinde|None|1|Forced|1

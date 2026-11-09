@@ -1,0 +1,69 @@
+pencere_bas_sn|pencere_son_sn|yaklasik_sure_sn
+--------------|--------------|----------------
+15|160|145
+spinlock|collisions_farki|spins_farki|backoffs_farki|sleep_time_farki|isaret
+--------|----------------|-----------|--------------|----------------|------
+QUERY_STORE_ASYNC_QUEUE_TLIST|33253|126995|20|10|QS ilgili
+LOGFLUSHQ|496|20511|8|0|
+LOCK_HASH|2106|15820|203|22|
+FREE_SPACE_CACHE_ENTRY|355|1625|0|0|
+SOS_SCHEDULER|164|1518|0|0|
+DP_LIST|1|1511|0|0|
+SOS_SUSPEND_QUEUE|543|1078|0|0|
+RESQUEUE|118|927|0|0|
+XDESMGR|674|741|35|0|
+SOS_OBJECT_STORE|39|461|0|0|
+ALLOC_CACHES_HASH|8|271|8|2|
+LOGCACHE_ACCESS|1266|154|699|47|
+DBTABLE|1|74|0|0|
+QUERY_STORE_ASYNC_PERSIST|26|55|0|0|QS ilgili
+SOS_CACHESTORE_CLOCK|38|38|0|0|
+spinlock|en_yuksek_saniye_spin_artisi
+--------|----------------------------
+QUERY_STORE_ASYNC_QUEUE_TLIST|28391
+LOGFLUSHQ|6632
+LOCK_HASH|2940
+DP_LIST|1511
+FREE_SPACE_CACHE_ENTRY|845
+SOS_SCHEDULER|668
+SOS_SUSPEND_QUEUE|536
+RESQUEUE|420
+ALLOC_CACHES_HASH|231
+SOS_OBJECT_STORE|127
+kaynak|ad|bekleyen_sayisi_farki|bekleme_ms_farki
+------|--|---------------------|----------------
+bekleme|SOS_WORK_DISPATCHER|855|6214027
+bekleme|DISPATCHER_QUEUE_SEMAPHORE|2|720047
+bekleme|BROKER_TASK_STOP|67|430460
+bekleme|SLEEP_TASK|757|369442
+bekleme|SP_SERVER_DIAGNOSTICS_SLEEP|1396|300000
+bekleme|LOGMGR_QUEUE|137683|290188
+bekleme|WRITELOG|136561|194925
+bekleme|FT_IFTS_SCHEDULER_IDLE_WAIT|3|180088
+bekleme|REQUEST_FOR_DEADLOCK_SEARCH|30|150108
+bekleme|PWAIT_DIRECTLOGCONSUMER_GETNEXT|30|150106
+kaynak|ad|pencere_basi|pencere_sonu|fark
+------|--|------------|------------|----
+clerk|MEMORYCLERK_QUERYDISKSTORE|1320|1368|48
+clerk|MEMORYCLERK_QUERYDISKSTORE_FEEDBACK|11784|11224|-560
+clerk|MEMORYCLERK_QUERYDISKSTORE_HASHMAP|115200|115200|0
+clerk|MEMORYCLERK_QUERYDISKSTORE_MESSAGING|824|824|0
+clerk|MEMORYCLERK_QUERYDISKSTORE_QUERYVARIANT_DISPATCHERLIST|272|272|0
+clerk|MEMORYCLERK_QUERYDISKSTORE_STATS|5920|5928|8
+sayac|Query Store CPU usage|97789|240863|143074
+sayac|Query Store logical reads|2828016|7234996|4406980
+sayac|Query Store logical writes|4279|32832|28553
+sayac|Query Store physical reads|0|25|25
+bekleme_turu|ornek_sayisi|cpu_ms|logical_reads|writes
+------------|------------|------|-------------|------
+flush -|69|64841|1374347|18233
+flush WRITELOG|69|65115|1406980|18412
+flush LATCH_EX|2|60506|1001182|15672
+flush PAGELATCH_EX|2|64678|1355266|18120
+flush PAGELATCH_SH|2|64330|1315586|17897
+flush PREEMPTIVE_OS_WRITEFILEGATHER|1|50428|838652|13222
+flush MEMORY_ALLOCATION_EXT|1|7559|121960|1679
+dosya|yazma_sayisi|yazma_bekleme_ms|yazilan_mb
+-----|------------|----------------|----------
+ROWS qs_lab_flush|2127|5733|156
+LOG qs_lab_flush_log|134227|176172|598
