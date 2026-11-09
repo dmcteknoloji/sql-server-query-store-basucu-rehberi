@@ -157,7 +157,7 @@ Not measured are SQL Server 2016 and 2017, Linux, a clustered Availability Group
 
 ## License
 
-Scripts and measurement outputs are shared under the MIT license, details are in `LICENSE`. When you use the scripts, keep the license text and the copyright line. The PDF of the book may be shared freely and unchanged, crediting the author and DMC Bilgi Teknolojileri. These terms are written in [`LICENSE-PDF.md`](LICENSE-PDF.md) and correspond to CC BY-ND 4.0. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for contributions and `CITATION.cff` for citation. `python3 tools/kontrol.py` checks the paths in the repository and patterns of secrets.
+Scripts and measurement outputs are shared under the MIT license, details are in `LICENSE`. When you use the scripts, keep the license text and the copyright line. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for contributions and `CITATION.cff` for citation. `python3 tools/kontrol.py` checks the paths in the repository and patterns of secrets.
 
 ## Citation
 

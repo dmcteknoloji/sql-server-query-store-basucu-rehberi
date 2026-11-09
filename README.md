@@ -155,7 +155,7 @@ Bölüm 12 ve 13'teki alarm, yakalayıcı yordam ve failover öncesi kontrol bet
 
 ## Lisans
 
-Betikler ve ölçüm çıktıları MIT lisansıyla paylaşılır, ayrıntı `LICENSE` dosyasındadır. Betikleri kullanırken lisans metnini ve telif satırını koruyun. Kitabın PDF'i yazarın adı ve DMC Bilgi Teknolojileri belirtilerek, değiştirilmeden serbestçe paylaşılabilir. Bu koşullar [`LICENSE-PDF.md`](LICENSE-PDF.md) dosyasında yazılıdır ve CC BY-ND 4.0 lisansına karşılık gelir. Katkı için [`CONTRIBUTING.md`](CONTRIBUTING.md), atıf için `CITATION.cff` dosyasına bakın. `python3 tools/kontrol.py` depodaki yolları ve gizli bilgi kalıplarını denetler.
+Betikler ve ölçüm çıktıları MIT lisansıyla paylaşılır, ayrıntı `LICENSE` dosyasındadır. Betikleri kullanırken lisans metnini ve telif satırını koruyun. Katkı için [`CONTRIBUTING.md`](CONTRIBUTING.md), atıf için `CITATION.cff` dosyasına bakın. `python3 tools/kontrol.py` depodaki yolları ve gizli bilgi kalıplarını denetler.
 
 ## Atıf
 

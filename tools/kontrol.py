@@ -5,7 +5,7 @@
 3. Dosya adlari kucuk harf ASCII mi (senaryo klasorleri)
 4. Gizli bilgi kaliplari yok mu (parola degeri, IP, token)
 5. SQL dosyalari bos degil ve satir sonu ile bitiyor mu
-6. CITATION.cff, LICENSE, LICENSE-PDF.md mevcut mu
+6. CITATION.cff, LICENSE mevcut mu
 """
 import os, re, subprocess, sys
 
@@ -52,7 +52,7 @@ for f in tum:
         if not b.strip(): sorun.append("bos SQL dosyasi: " + f)
         elif not b.endswith(b"\n"): sorun.append("SQL dosyasi satir sonu ile bitmiyor: " + f)
 
-for f in ("CITATION.cff", "LICENSE", "LICENSE-PDF.md", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md"):
+for f in ("CITATION.cff", "LICENSE", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md"):
     if not os.path.exists(f): sorun.append("eksik dosya: " + f)
 
 if sorun:
