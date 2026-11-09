@@ -1,6 +1,7 @@
 -- SQL Server Query Store Basucu Rehberi, Bolum 18, 'PSP olaylarını keşif tabanlı toplamak'
 -- Test ortaminda calistirin.
 
+SET NOCOUNT ON;
 SELECT p.name AS paket, o.name AS olay, o.description AS aciklama
 FROM sys.dm_xe_objects AS o
 JOIN sys.dm_xe_packages AS p ON p.guid = o.package_guid

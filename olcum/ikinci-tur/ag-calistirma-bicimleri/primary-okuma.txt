@@ -1,0 +1,11 @@
+Changed database context to 'qs_lab_ag'.
+query_id|kimlik|tur|secondary_calisma|metin
+--------|------|---|-----------------|-----
+9552|kalici kimlik|Simple|60|(@1 int)SELECT COUNT_BIG(*) [ag_v1_exec_yorumlu] FROM [dbo].[AgIzleme] WHERE [deger]=@1
+9553|kalici kimlik|Simple|60|(@1 int)SELECT COUNT_BIG(*) [ag_v2_exec_yorumsuz] FROM [dbo].[AgIzleme] WHERE [deger]=@1
+9554|kalici kimlik|Simple|60|(@1 int)SELECT COUNT_BIG(*) [ag_v3_dogrudan_while] FROM [dbo].[AgIzleme] WHERE [deger]=@1
+9555|kalici kimlik|Simple|60|(@1 int)SELECT COUNT_BIG(*) [ag_v4_dogrudan_go] FROM [dbo].[AgIzleme] WHERE [deger]=@1
+9557|kalici kimlik|Simple|60|(@1 int)SELECT COUNT_BIG(*) [ag_v6_exec_go] FROM [dbo].[AgIzleme] WHERE [deger]=@1
+9558|kalici kimlik|Simple|60|(@1 int)SELECT COUNT_BIG(*) [ag_v7_exec_farkli_sabit] FROM [dbo].[AgIzleme] WHERE [deger]=
+9559|kalici kimlik|Simple|3|(@1 int)SELECT COUNT_BIG(*) [ag_v8_uc_sorgu] FROM [dbo].[AgIzleme] WHERE [deger]=@1
+9556|kalici kimlik|User|60|(@d int)SELECT COUNT_BIG(*) AS ag_v5_spexecutesql FROM dbo.AgIzleme WHERE deger = @d

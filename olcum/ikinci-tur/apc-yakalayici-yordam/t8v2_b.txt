@@ -1,0 +1,99 @@
+Changed database context to 'apc'.
+== faz 1
+== faz 2
+Object 'dbo.SiparisGetir' was successfully marked for recompilation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+0|Verifying|Verifying<--
+Warning: Null value is eliminated by an aggregate or other SET operation.
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+1|Verifying|Verifying<--
+Warning: Null value is eliminated by an aggregate or other SET operation.
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+2|Verifying|Verifying<--
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+3|Expired|Expired<-Verifying
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+4|Expired|Expired<-Verifying
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+5|Expired|Expired<-Verifying
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+6|Expired|Expired<-Verifying
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+7|Expired|Expired<-Verifying
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+8|Expired|Expired<-Verifying
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+9|Expired|Expired<-Verifying
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+10|Expired|Expired<-Verifying
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+11|Expired|Expired<-Verifying
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+12|Expired|Expired<-Verifying
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+13|Expired|Expired<-Verifying
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+14|Expired|Expired<-Verifying
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+15|Expired|Expired<-Verifying
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+16|Expired|Expired<-Verifying
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+17|Expired|Expired<-Verifying
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+18|Expired|Expired<-Verifying
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+19|Expired|Expired<-Verifying
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+20|Expired|Expired<-Verifying
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+21|Expired|Expired<-Verifying
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+22|Expired|Expired<-Verifying
+tur|dmv_durumu|gecmis_durumu
+---|----------|-------------
+23|Expired|Expired<-Verifying
+== gecmis
+oneri_adi|onceki_durum|durum|neden|revert_baslatan|alarm_gonderildi|ilk_gorulme_utc|son_gorulme_utc
+---------|------------|-----|-----|---------------|----------------|---------------|---------------
+PR_5|Verifying|Expired|StatisticsChanged|NULL|0|2026-11-09 06:49:49.1170495|2026-11-09 06:58:47.2820923
+== alarm sorgusu
+oneri_adi|onceki_durum|durum|neden|revert_baslatan
+---------|------------|-----|-----|---------------
+PR_5|Verifying|Expired|StatisticsChanged|NULL
+== saklama testi: kaydi 200 gun eskit, alarm gonderildi isaretle, calistir
+once
+----
+1
+sonra|son_gorulme
+-----|-----------
+1|2026-11-09 06:58:47.3016659
+== gorunumde olmayan eski kayit
+oneri_adi|alarm_gonderildi
+---------|----------------
+PR_5|1
+PR_ESKI_2|0

@@ -1,0 +1,74 @@
+Changed database context to 'master'.
+Changed database context to 'dba_araclar'.
+Changed database context to 'msdb'.
+onceki_sayac
+------------
+20
+== esik 15000, tetiklenmemeli
+== esik 0, tetiklenmeli
+Query Store mesaj kuyrugu doluyor. Veritabani qs_demo, bekleyen mesaj 0, esik 0.
+Query Store mesaj kuyrugu doluyor. Veritabani ornek_dolu, bekleyen mesaj 0, esik 0.
+Query Store mesaj kuyrugu doluyor. Veritabani ek_demo, bekleyen mesaj 0, esik 0.
+Query Store mesaj kuyrugu doluyor. Veritabani lim_f, bekleyen mesaj 0, esik 0.
+Query Store mesaj kuyrugu doluyor. Veritabani lim_o, bekleyen mesaj 0, esik 0.
+Query Store mesaj kuyrugu doluyor. Veritabani lim_r2, bekleyen mesaj 0, esik 0.
+Query Store mesaj kuyrugu doluyor. Veritabani lc, bekleyen mesaj 0, esik 0.
+Query Store mesaj kuyrugu doluyor. Veritabani psp_lab, bekleyen mesaj 0, esik 0.
+Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_forced_plan, bekleyen mesaj 0, esik 0.
+Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_off_forced, bekleyen mesaj 0, esik 0.
+Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_off, bekleyen mesaj 0, esik 0.
+Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_read_only, bekleyen mesaj 0, esik 0.
+Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_psp, bekleyen mesaj 0, esik 0.
+Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_flush, bekleyen mesaj 0, esik 0.
+Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_param, bekleyen mesaj 0, esik 0.
+Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_idx, bekleyen mesaj 0, esik 0.
+Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_xtp, bekleyen mesaj 0, esik 0.
+Query Store mesaj kuyrugu doluyor. Veritabani apc, bekleyen mesaj 0, esik 0.
+Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_ag, bekleyen mesaj 0, esik 0.
+Query Store mesaj kuyrugu doluyor. Veritabani dba_araclar, bekleyen mesaj 0, esik 0.
+name|occurrence_count|last_occurrence_date|last_occurrence_time
+----|----------------|--------------------|--------------------
+Query Store kuyrugu doluyor|40|20261109|65121
+LogDate|ProcessInfo|Text
+-------|-----------|----
+2026-11-09 06:49:21.300|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_demo, bekleyen mesaj 0, esik 0.
+2026-11-09 06:49:21.300|spid71|Query Store mesaj kuyrugu doluyor. Veritabani ornek_dolu, bekleyen mesaj 0, esik 0.
+2026-11-09 06:49:21.300|spid71|Query Store mesaj kuyrugu doluyor. Veritabani ek_demo, bekleyen mesaj 0, esik 0.
+2026-11-09 06:49:21.300|spid71|Query Store mesaj kuyrugu doluyor. Veritabani lim_f, bekleyen mesaj 0, esik 0.
+2026-11-09 06:49:21.300|spid71|Query Store mesaj kuyrugu doluyor. Veritabani lim_o, bekleyen mesaj 0, esik 0.
+2026-11-09 06:49:21.300|spid71|Query Store mesaj kuyrugu doluyor. Veritabani lim_r2, bekleyen mesaj 0, esik 0.
+2026-11-09 06:49:21.300|spid71|Query Store mesaj kuyrugu doluyor. Veritabani lc, bekleyen mesaj 0, esik 0.
+2026-11-09 06:49:21.300|spid71|Query Store mesaj kuyrugu doluyor. Veritabani psp_lab, bekleyen mesaj 0, esik 0.
+2026-11-09 06:49:21.300|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_forced_plan, bekleyen mesaj 0, esik 0.
+2026-11-09 06:49:21.300|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_off_forced, bekleyen mesaj 0, esik 0.
+2026-11-09 06:49:21.300|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_off, bekleyen mesaj 0, esik 0.
+2026-11-09 06:49:21.300|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_read_only, bekleyen mesaj 0, esik 0.
+2026-11-09 06:49:21.300|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_psp, bekleyen mesaj 0, esik 0.
+2026-11-09 06:49:21.300|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_flush, bekleyen mesaj 0, esik 0.
+2026-11-09 06:49:21.300|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_param, bekleyen mesaj 0, esik 0.
+2026-11-09 06:49:21.300|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_idx, bekleyen mesaj 0, esik 0.
+2026-11-09 06:49:21.300|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_xtp, bekleyen mesaj 0, esik 0.
+2026-11-09 06:49:21.310|spid71|Query Store mesaj kuyrugu doluyor. Veritabani apc, bekleyen mesaj 0, esik 0.
+2026-11-09 06:49:21.310|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_ag, bekleyen mesaj 0, esik 0.
+2026-11-09 06:49:21.310|spid71|Query Store mesaj kuyrugu doluyor. Veritabani dba_araclar, bekleyen mesaj 0, esik 0.
+2026-11-09 06:51:21.500|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_demo, bekleyen mesaj 0, esik 0.
+2026-11-09 06:51:21.500|spid71|Query Store mesaj kuyrugu doluyor. Veritabani ornek_dolu, bekleyen mesaj 0, esik 0.
+2026-11-09 06:51:21.500|spid71|Query Store mesaj kuyrugu doluyor. Veritabani ek_demo, bekleyen mesaj 0, esik 0.
+2026-11-09 06:51:21.500|spid71|Query Store mesaj kuyrugu doluyor. Veritabani lim_f, bekleyen mesaj 0, esik 0.
+2026-11-09 06:51:21.500|spid71|Query Store mesaj kuyrugu doluyor. Veritabani lim_o, bekleyen mesaj 0, esik 0.
+2026-11-09 06:51:21.500|spid71|Query Store mesaj kuyrugu doluyor. Veritabani lim_r2, bekleyen mesaj 0, esik 0.
+2026-11-09 06:51:21.500|spid71|Query Store mesaj kuyrugu doluyor. Veritabani lc, bekleyen mesaj 0, esik 0.
+2026-11-09 06:51:21.500|spid71|Query Store mesaj kuyrugu doluyor. Veritabani psp_lab, bekleyen mesaj 0, esik 0.
+2026-11-09 06:51:21.500|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_forced_plan, bekleyen mesaj 0, esik 0.
+2026-11-09 06:51:21.500|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_off_forced, bekleyen mesaj 0, esik 0.
+2026-11-09 06:51:21.510|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_off, bekleyen mesaj 0, esik 0.
+2026-11-09 06:51:21.510|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_read_only, bekleyen mesaj 0, esik 0.
+2026-11-09 06:51:21.510|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_psp, bekleyen mesaj 0, esik 0.
+2026-11-09 06:51:21.510|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_flush, bekleyen mesaj 0, esik 0.
+2026-11-09 06:51:21.510|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_param, bekleyen mesaj 0, esik 0.
+2026-11-09 06:51:21.510|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_idx, bekleyen mesaj 0, esik 0.
+2026-11-09 06:51:21.510|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_xtp, bekleyen mesaj 0, esik 0.
+2026-11-09 06:51:21.510|spid71|Query Store mesaj kuyrugu doluyor. Veritabani apc, bekleyen mesaj 0, esik 0.
+2026-11-09 06:51:21.510|spid71|Query Store mesaj kuyrugu doluyor. Veritabani qs_lab_ag, bekleyen mesaj 0, esik 0.
+2026-11-09 06:51:21.510|spid71|Query Store mesaj kuyrugu doluyor. Veritabani dba_araclar, bekleyen mesaj 0, esik 0.
+

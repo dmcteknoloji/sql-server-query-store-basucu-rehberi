@@ -1,6 +1,7 @@
 -- SQL Server Query Store Basucu Rehberi, Bolum 18, 'Secondary replica doğrulaması ve geri basınç'
 -- Test ortaminda calistirin.
 
+SET NOCOUNT ON;
 USE master;
 IF NOT EXISTS (SELECT 1 FROM sys.symmetric_keys WHERE name = '##MS_DatabaseMasterKey##') CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<guclu-bir-parola>';
 IF NOT EXISTS (SELECT 1 FROM sys.certificates WHERE name = 'hadr_cert_yerel') CREATE CERTIFICATE hadr_cert_yerel WITH SUBJECT = 'hadr yerel', EXPIRY_DATE = '20301231';

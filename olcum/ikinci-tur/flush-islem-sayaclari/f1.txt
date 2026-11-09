@@ -1,0 +1,22 @@
+surum
+-----
+Microsoft SQL Server 2025 (RTM) - 17.0.1000.7 (X64) 
+	Oct 21 2025 12:05:57 
+	Copyright (C) 2025 Microsoft Corporation
+	Enterprise Developer Edition (64-bit) on Windows Server 2025 Datacenter 10.0 <X64> (Build 26100: ) (Hypervisor)
+
+Changed database context to 'qs_lab_flush'.
+Changed database context to 'qs_lab_flush'.
+flush_ms
+--------
+178383
+sayac|once|sonra|fark
+-----|----|-----|----
+Log Bytes Flushed/sec|152342528|755417088|603074560
+Log Flush Waits/sec|33989|165995|132006
+Log Flush Write Time (ms)|36472|173362|136890
+Log Flushes/sec|34009|163954|129945
+log_bytes_written|152489984|755716096|603226112
+log_num_of_writes|34033|164006|129973
+qs_query|16954|60010|43056
+Transactions/sec|617245|845397|228152

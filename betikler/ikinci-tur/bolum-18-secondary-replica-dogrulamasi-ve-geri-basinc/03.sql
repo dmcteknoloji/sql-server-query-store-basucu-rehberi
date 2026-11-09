@@ -1,6 +1,7 @@
 -- SQL Server Query Store Basucu Rehberi, Bolum 18, 'Secondary replica doğrulaması ve geri basınç'
 -- Test ortaminda calistirin.
 
+SET NOCOUNT ON;
 -- PRIMARY
 CREATE DATABASE qs_lab_ag;
 ALTER DATABASE qs_lab_ag SET RECOVERY FULL;

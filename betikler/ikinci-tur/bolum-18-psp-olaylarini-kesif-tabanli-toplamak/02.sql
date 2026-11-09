@@ -1,6 +1,7 @@
 -- SQL Server Query Store Basucu Rehberi, Bolum 18, 'PSP olaylarını keşif tabanlı toplamak'
 -- Test ortaminda calistirin.
 
+SET NOCOUNT ON;
 IF EXISTS (SELECT 1 FROM sys.server_event_sessions WHERE name = N'psp_tum_olaylar')
     DROP EVENT SESSION psp_tum_olaylar ON SERVER;
 GO

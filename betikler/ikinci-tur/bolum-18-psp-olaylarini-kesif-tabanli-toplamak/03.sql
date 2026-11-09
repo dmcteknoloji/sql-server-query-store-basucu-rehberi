@@ -1,6 +1,7 @@
 -- SQL Server Query Store Basucu Rehberi, Bolum 18, 'PSP olaylarını keşif tabanlı toplamak'
 -- Test ortaminda calistirin.
 
+SET NOCOUNT ON;
 USE qs_lab_psp;
 ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE;
 ALTER DATABASE qs_lab_psp SET QUERY_STORE CLEAR ALL;
